@@ -11,7 +11,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 
@@ -92,7 +101,7 @@
 <meta property="og:image" content="https://github.com/xjt927/SmartQQ/blob/master/%E8%AF%B4%E6%98%8E%E5%9B%BE%E7%89%87/TIM%E6%88%AA%E5%9B%BE20180320174033.jpg?raw=true">
 <meta property="og:image" content="https://github.com/xjt927/SmartQQ/blob/master/%E8%AF%B4%E6%98%8E%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180320174303.jpg?raw=true">
 <meta property="og:image" content="https://github.com/xjt927/SmartQQ/blob/master/%E8%AF%B4%E6%98%8E%E5%9B%BE%E7%89%87/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180320175816.png?raw=true">
-<meta property="og:updated_time" content="2018-05-02T02:36:13.452Z">
+<meta property="og:updated_time" content="2018-05-02T03:15:22.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SmartQQ">
 <meta name="twitter:description" content="前言使用C#，WPF开发的SmartQQ桌面操作程序。使用Quartz.Net实现定时发送，定时功能不太完善，可以再扩展。  运行项目会请求SmartQQ获取登录二维码，用户用手机qq扫描下实现登录。登录成功后会记录cookie，下次登录先使用cookie，如果cookie失效，再弹出登录二维码。 登录成功后获取好友、群分组、讨论组。 使用：双击qq好友头像、群分组、讨论组，添加到发送列表。 设置">
@@ -360,7 +369,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读数
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -665,15 +674,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -684,17 +687,17 @@
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>
+      <i class="fa fa-user"></i> 访问人数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
+      人
     </span>
   
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      <i class="fa fa-eye"></i> 总访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
+      人
     </span>
   
 </div>
