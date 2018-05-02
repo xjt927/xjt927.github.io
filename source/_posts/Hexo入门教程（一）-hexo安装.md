@@ -3,6 +3,7 @@ title: Hexo入门教程（一）-hexo安装
 tags: hexo
 categories: hexo
 abbrlink: 3523a191
+keywords: hexo安装,搭建,部署,博客
 date: 2018-04-18 15:51:18
 ---
 hexo有[官方文档](https://hexo.io/zh-cn/docs/index.html)，本文只记录自己搭建hexo博客的过程。

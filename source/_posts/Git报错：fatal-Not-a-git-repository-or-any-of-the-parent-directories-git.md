@@ -3,6 +3,7 @@ title: 'Git报错：fatal: Not a git repository (or any of the parent directorie
 tags: Git
 categories: Git
 abbrlink: be93165a
+keywords: Git异常,Git报错,repository
 date: 2018-05-02 08:57:26
 ---
 # 前言

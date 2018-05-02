@@ -1,12 +1,9 @@
 ---
 title: T4模板创建Poco、Entity
-tags:
-  - T4
-  - Poco、Entity
-  - WPF
-  - C#
+tags: [T4,Poco、Entity,WPF,C#]
 categories: WPF
 abbrlink: 5e9ae70c
+keywords: T4,Poco,Entity,模板,代码生成
 date: 2018-04-30 13:25:02
 ---
 

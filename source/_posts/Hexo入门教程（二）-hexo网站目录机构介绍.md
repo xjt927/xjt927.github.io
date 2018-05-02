@@ -3,6 +3,7 @@ title: Hexo入门教程（二）-hexo网站目录机构介绍
 tags: hexo
 categories: hexo
 abbrlink: c0129f56
+keywords: hexo,搭建,部署,Github,博客,hexo教程
 date: 2018-04-18 15:52:18
 ---
 

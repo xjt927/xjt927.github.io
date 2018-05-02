@@ -1,11 +1,9 @@
 ---
 title: SmartQQ
-tags: 
-- SmartQQ 
-- WPF 
-- C#
+tags: [SmartQQ,WPF,C#]
 categories: WPF
 abbrlink: b26bcbc1
+keywords: SmartQQ,WPF,QQ,定时,群发,登录
 date: 2018-04-28 17:01:16
 ---
 # 前言

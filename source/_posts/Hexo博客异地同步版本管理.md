@@ -3,6 +3,7 @@ title: Hexo博客异地同步版本管理
 tags: Hexo
 categories: Hexo
 abbrlink: 130619fa
+keywords: hexo,异地,Git同步,git
 date: 2018-05-02 17:38:28
 ---
 # 前言
