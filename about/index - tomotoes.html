@@ -642,20 +642,19 @@
  
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
-  <script src="/js/src/md5.min.js"></script> 
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
-          clientID: '<%= theme.gitalk.ClientID %>',
-          clientSecret: '<%= theme.gitalk.ClientSecret %>',
+          clientID: 'baf6205db50605a8511f',
+          clientSecret: '7991d91c3dda491a906203a173153e13028ba541',
           repo: 'xjt927.github.io',
           owner: 'xjt927',
           admin: ['xjt927'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'false'
+          id: location.pathname,
+          distractionFreeMode: 'true'
         })
-        gitalk.render('gitalk-container')
-    </script>
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 

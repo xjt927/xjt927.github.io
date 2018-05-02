@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuejiangtao.com/"/>
-  <updated>2018-05-02T00:58:11.968Z</updated>
+  <updated>2018-05-02T00:58:32.780Z</updated>
   <id>http://xuejiangtao.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://xuejiangtao.com//posts/be93165a/"/>
     <id>http://xuejiangtao.com//posts/be93165a/</id>
     <published>2018-05-02T00:57:26.000Z</published>
-    <updated>2018-05-02T00:58:11.968Z</updated>
+    <updated>2018-05-02T00:58:32.780Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用Git进行<code>push</code>，<code>fetch</code>等操作时，提示：<br><code>fatal: Not a git repository (or any of the parent directories): .git</code></p><h1 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h1><p>一般是没有初始化git本地版本管理仓库，所以无法执行git命令</p><h1 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h1><ol><li>执行以下命令行: <code>git init</code></li><li>再执行查看状态信息：<code>git status</code></li></ol><p><img src="https://github.com/xjt927/filerepository/blob/master/2G$%5BOZ~U@7%5B7VGHBJULHNCO.png?raw=true" height="300"></p>]]></content>
     

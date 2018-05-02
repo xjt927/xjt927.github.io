@@ -90,7 +90,7 @@
 <meta property="og:description" content="前言在使用Git进行push，fetch等操作时，提示：fatal: Not a git repository (or any of the parent directories): .git 产生原因：一般是没有初始化git本地版本管理仓库，所以无法执行git命令 解决方法： 执行以下命令行: git init 再执行查看状态信息：git status">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/xjt927/filerepository/blob/master/2G$%5BOZ~U@7%5B7VGHBJULHNCO.png?raw=true">
-<meta property="og:updated_time" content="2018-05-02T00:58:11.968Z">
+<meta property="og:updated_time" content="2018-05-02T00:58:32.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git报错：fatal: Not a git repository (or any of the parent directories): .git">
 <meta name="twitter:description" content="前言在使用Git进行push，fetch等操作时，提示：fatal: Not a git repository (or any of the parent directories): .git 产生原因：一般是没有初始化git本地版本管理仓库，所以无法执行git命令 解决方法： 执行以下命令行: git init 再执行查看状态信息：git status">
@@ -842,20 +842,19 @@
  
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
-  <script src="/js/src/md5.min.js"></script> 
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
-          clientID: '<%= theme.gitalk.ClientID %>',
-          clientSecret: '<%= theme.gitalk.ClientSecret %>',
+          clientID: 'baf6205db50605a8511f',
+          clientSecret: '7991d91c3dda491a906203a173153e13028ba541',
           repo: 'xjt927.github.io',
           owner: 'xjt927',
           admin: ['xjt927'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'false'
+          id: location.pathname,
+          distractionFreeMode: 'true'
         })
-        gitalk.render('gitalk-container')
-    </script>
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
