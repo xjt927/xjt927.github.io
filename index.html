@@ -533,16 +533,8 @@
 
       
         
-          
-          前言在使用Git进行push，fetch等操作时，提示：fatal: Not a git repository (or any of the parent directories): .git
-产生原因：一般是没有初始化git本地版本管理仓库，所以无法执行git命令
-解决方法：
-执行以下命令行: git init
-再执行查看状态信息：git status
-
-
-
-          
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用Git进行<code>push</code>，<code>fetch</code>等操作时，提示：<br><code>fatal: Not a git repository (or any of the parent directories): .git</code></p>
+<h1 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h1><p>一般是没有初始化git本地版本管理仓库，所以无法执行git命令<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/be93165a/#more" rel="contents">
@@ -688,11 +680,9 @@
 
       
         
-          
-          什么是T4模板？T4，即4个T开头的英文字母组合：Text Template Transformation Toolkit。
-T4文本模板，即一种自定义规则的代码生成器。根据业务模型可生成任何形式的文本文件或供程序调用的字符串。（模型以适合于应用程序域的形式包含信息，并且可以在应用程序的生存期更改）
-VS本身只提供一套基于T4引擎的代码生成的执行环境，由下面程序集构成：Microsoft.Visu
-          ...
+          <h1 id="什么是T4模板？"><a href="#什么是T4模板？" class="headerlink" title="什么是T4模板？"></a>什么是T4模板？</h1><p>T4，即4个T开头的英文字母组合：Text Template Transformation Toolkit。</p>
+<p>T4文本模板，即一种自定义规则的代码生成器。根据业务模型可生成任何形式的文本文件或供程序调用的字符串。（模型以适合于应用程序域的形式包含信息，并且可以在应用程序的生存期更改）</p>
+<p>VS本身只提供一套基于T4引擎的代码生成的执行环境，由下面程序集构成：<br>Microsoft.VisualStudio.TextTemplating.10.0.dll<br>Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll<br>Microsoft.VisualStudio.TextTemplating.Modeling.10.0.dll<br>Microsoft.VisualStudio.TextTemplating.VSHost.10.0.dll<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/5e9ae70c/#more" rel="contents">
@@ -838,14 +828,12 @@ VS本身只提供一套基于T4引擎的代码生成的执行环境，由下面�
 
       
         
-          
-          前言使用C#，WPF开发的SmartQQ桌面操作程序。使用Quartz.Net实现定时发送，定时功能不太完善，可以再扩展。
-
-运行项目会请求SmartQQ获取登录二维码，用户用手机qq扫描下实现登录。登录成功后会记录cookie，下次登录先使用cookie，如果cookie失效，再弹出登录二维码。
-登录成功后获取好友、群分组、讨论组。
-使用：双击qq好友头像、群分组、讨论组，添加到发送列表。
-设置
-          ...
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用C#，WPF开发的SmartQQ桌面操作程序。使用Quartz.Net实现定时发送，定时功能不太完善，可以再扩展。</p>
+<ol>
+<li>运行项目会请求SmartQQ获取登录二维码，用户用手机qq扫描下实现登录。<br><strong>登录成功后会记录cookie，下次登录先使用cookie，如果cookie失效，再弹出登录二维码。</strong></li>
+<li>登录成功后获取好友、群分组、讨论组。</li>
+<li>使用：双击qq好友头像、群分组、讨论组，添加到发送列表。</li>
+<li>设置定时发送。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/b26bcbc1/#more" rel="contents">
@@ -991,13 +979,11 @@ VS本身只提供一套基于T4引擎的代码生成的执行环境，由下面�
 
       
         
-          
-          首先要有自己的域名，没有域名的可以去阿里云（万网）、godaddy上买，我在阿里云买的，比较实力比较强，也用阿里云的服务器。
-一、Github、hexo配置
-在github中找到自己的博客仓库，点击“Create new file”新建文件“CNAME”，注意文件名一定要大写，里面只写一行自己域名，域名前不要加http、www。 
-
-在本地hexo-&gt;source文件夹下，新建文本文件“CN
-          ...
+          <p>首先要有自己的域名，没有域名的可以去<a href="https://wanwang.aliyun.com/domain/?spm=5176.200001.n2.14.nkOQu9" target="_blank" rel="noopener">阿里云（万网）</a>、<a href="https://www.godaddy.com/" target="_blank" rel="noopener">godaddy</a>上买，我在阿里云买的，比较实力比较强，也用阿里云的服务器。</p>
+<h2 id="一、Github、hexo配置"><a href="#一、Github、hexo配置" class="headerlink" title="一、Github、hexo配置"></a>一、Github、hexo配置</h2><ol>
+<li><p>在github中找到自己的博客仓库，点击“Create new file”新建文件“CNAME”，注意文件名一定要大写，里面只写一行自己域名，域名前不要加http、www。<br><img src="https://github.com/xjt927/filerepository/blob/master/0~%60JL6F%606J067_5BUPTJMO1.png?raw=true" width="700"> </p>
+</li>
+<li><p>在本地hexo-&gt;source文件夹下，新建文本文件“CNAME”，同样名称大写，里面只加一行自己的域名，规则同上，域名前不要加http、www。<br>这样做是因为，当使用<code>hexo d</code>推送到github上的时候会自动将github上的“CNAME”文件覆盖、删除掉，导致域名解析失败。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/431f0136/#more" rel="contents">
@@ -1143,10 +1129,14 @@ VS本身只提供一套基于T4引擎的代码生成的执行环境，由下面�
 
       
         
-          
-          Github Pages设置什么是Github Pages
-Github Pages 是 github 公司提供的免费的静态网站托管服务，用起来方便而且功能强大，不仅没有空间限制，还可以绑定自己的域名。在 https://pages.github.com/ 首页上可以看到很多用 Github Pages 托管的网站，很漂亮。另外很多非常著名的公司和项目也都用这种方式来搭建网站，如微软和 twitt
-          ...
+          <h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><h3 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages"></a>什么是Github Pages</h3><ul>
+<li><p>Github Pages 是 github 公司提供的免费的静态网站托管服务，用起来方便而且功能强大，不仅没有空间限制，还可以绑定自己的域名。在 <a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a> 首页上可以看到很多用 Github Pages 托管的网站，很漂亮。另外很多非常著名的公司和项目也都用这种方式来搭建网站，如<a href="http://microsoft.github.io/" target="_blank" rel="noopener">微软</a>和 <a href="http://twitter.github.io/" target="_blank" rel="noopener">twitter</a> 的网站，还有 谷歌的 <a href="http://google.github.io/material-design-icons/" target="_blank" rel="noopener">Material Design</a> 图标 网站。</p>
+</li>
+<li><p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过<a href="http://username.github.io" target="_blank" rel="noopener">http://username.github.io</a> 来访问你的个人主页。</p>
+</li>
+<li><p>每一个github账户最多只能创建一个，这样可以直接使用域名访问仓库。</p>
+</li>
+<li><p><strong>这里特别提醒一下，需要注意的个人主页的网站内容是在master分支下的。</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/30e46490/#more" rel="contents">
@@ -1292,15 +1282,18 @@ Github Pages 是 github 公司提供的免费的静态网站托管服务，用�
 
       
         
-          
-          新建文章使用cmd进入hexo网站按照目录下，在命令行中输入以下命令：
-hexo new [layout] &lt;title&gt;
-
-[layout] 为指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。 
-
-
-[layout] 可以不用写，不写就是默认布局。hexo new &lt;title&gt
-          ...
+          <h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>使用cmd进入hexo网站按照目录下，在命令行中输入以下命令：</p>
+<p><code>hexo new [layout] &lt;title&gt;</code></p>
+<blockquote>
+<p><strong>[layout]</strong> 为指定文章的布局（layout），默认为 <code>post</code>，可以通过修改 <code>_config.yml</code> 中的 <code>default_layout</code> 参数来指定默认布局。 </p>
+</blockquote>
+<blockquote>
+<p><strong>[layout]</strong> 可以不用写，不写就是默认布局。<code>hexo new &lt;title&gt;</code> </p>
+</blockquote>
+<blockquote>
+<p><strong><code>&lt;title&gt;</code></strong> 为你要创建的文章标题。</p>
+</blockquote>
+<p>之后在 <code>source/_posts</code> 目录下面，多了一个<code>&lt;title&gt;.md</code> 的文件。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/fbe5044a/#more" rel="contents">
@@ -1446,12 +1439,8 @@ hexo new [layout] &lt;title&gt;
 
       
         
-          
-          继上一篇介绍hexo如何搭建，来了解一下hexo网站的目录结构。.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes
-_config.yml网站的 配置 信息，您可以在此配置大部分的参数。
-package.json应用程序的信息。
-scaffolds模版 文件夹。
-          ...
+          <p>继上一篇介绍hexo如何搭建，来了解一下hexo网站的目录结构。<br>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes</p>
+<p><strong>_config.yml</strong><br>网站的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/c0129f56/#more" rel="contents">
@@ -1597,14 +1586,10 @@ scaffolds模版 文件夹。
 
       
         
-          
-          hexo有官方文档，本文只记录自己搭建hexo博客的过程。
-先检查电脑是否安装NodeJs和Git
-查看nodejs：node -vnpm -v
-检查git在文件夹空白处右键，如果出现以下图片表明安装成功。
-
-安装NodeJs下载并安装nodejs官方下载地址：https://nodejs.org/en/download/中文下载地址：http://nodejs.cn/download/具体nod
-          ...
+          <p>hexo有<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>，本文只记录自己搭建hexo博客的过程。</p>
+<h4 id="先检查电脑是否安装NodeJs和Git"><a href="#先检查电脑是否安装NodeJs和Git" class="headerlink" title="先检查电脑是否安装NodeJs和Git"></a>先检查电脑是否安装NodeJs和Git</h4><ul>
+<li><strong>查看nodejs</strong>：<br>node -v<br>npm -v</li>
+<li><p><strong>检查git</strong><br>在文件夹空白处右键，如果出现以下图片表明安装成功。<br><img src="https://github.com/xjt927/filerepository/blob/master/20180207163420.jpg?raw=true" width="300"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/3523a191/#more" rel="contents">

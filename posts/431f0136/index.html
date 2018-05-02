@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/xjt927/filerepository/blob/master/0~%60JL6F%606J067_5BUPTJMO1.png?raw=true">
 <meta property="og:image" content="https://github.com/xjt927/filerepository/blob/master/%7B@($F$%7DDU2TXV7HT%25O(9%5B)U.png?raw=true">
-<meta property="og:updated_time" content="2018-04-18T15:19:18.302Z">
+<meta property="og:updated_time" content="2018-05-02T02:35:47.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo入门教程（五）-hexo+Github绑定域名">
 <meta name="twitter:description" content="首先要有自己的域名，没有域名的可以去阿里云（万网）、godaddy上买，我在阿里云买的，比较实力比较强，也用阿里云的服务器。 一、Github、hexo配置 在github中找到自己的博客仓库，点击“Create new file”新建文件“CNAME”，注意文件名一定要大写，里面只写一行自己域名，域名前不要加http、www。   在本地hexo-&amp;gt;source文件夹下，新建文本文件“CN">
@@ -386,9 +386,8 @@
 <li><p>在github中找到自己的博客仓库，点击“Create new file”新建文件“CNAME”，注意文件名一定要大写，里面只写一行自己域名，域名前不要加http、www。<br><img src="https://github.com/xjt927/filerepository/blob/master/0~%60JL6F%606J067_5BUPTJMO1.png?raw=true" width="700"> </p>
 </li>
 <li><p>在本地hexo-&gt;source文件夹下，新建文本文件“CNAME”，同样名称大写，里面只加一行自己的域名，规则同上，域名前不要加http、www。<br>这样做是因为，当使用<code>hexo d</code>推送到github上的时候会自动将github上的“CNAME”文件覆盖、删除掉，导致域名解析失败。</p>
-</li>
-</ol>
-<h2 id="二、域名解析配置"><a href="#二、域名解析配置" class="headerlink" title="二、域名解析配置"></a>二、域名解析配置</h2><ol>
+<a id="more"></a>
+<h2 id="二、域名解析配置"><a href="#二、域名解析配置" class="headerlink" title="二、域名解析配置"></a>二、域名解析配置</h2></li>
 <li>首先在cmd下ping一下你的github pages，比如我的github地址：<br><code>ping xjt927.github.io</code>，得到地址为<code>151.101.229.147</code>。</li>
 <li><p>登录阿里云找到“云解析DNS”，找到自己的域名点击后面的“解析设置”，首次进入会默认配置，如果没有特殊用处可以全部删除。点击右上角“添加解析”，添加两条记录如下：<br><img src="https://github.com/xjt927/filerepository/blob/master/%7B@($F$%7DDU2TXV7HT%25O(9%5B)U.png?raw=true" width="700"> </p>
 </li>
