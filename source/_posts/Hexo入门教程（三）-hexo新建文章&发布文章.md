@@ -1,9 +1,9 @@
 ---
 title: Hexo入门教程（三）-hexo新建文章&发布文章
-tags: hexo
-categories: hexo
+tags: Hexo
+categories: Hexo
 abbrlink: fbe5044a
-keywords: 文章,搭建,部署,Github,博客,hexo教程
+keywords: Hexo,文章,搭建,部署,Github,博客,hexo教程
 date: 2018-04-18 15:53:18
 ---
 

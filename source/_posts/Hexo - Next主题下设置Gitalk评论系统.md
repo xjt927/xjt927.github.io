@@ -1,9 +1,9 @@
 ---
 title: Hexo - Next主题下设置Gitalk评论系统
-tags: [hexo,Gitalk]
-categories: hexo
+tags: [Hexo,Gitalk]
+categories: Hexo
 abbrlink: a3b6b471
-keywords: hexo,Gitalk,next主题,评论
+keywords: Hexo,Gitalk,next主题,评论
 date: 2018-05-02 10:16:17
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: Hexo入门教程（四）-hexo部署到Github
-tags: hexo
-categories: hexo
+tags: Hexo
+categories: Hexo
 abbrlink: '30e46490'
-keywords: hexo,搭建,部署,Github,博客,hexo教程
+keywords: Hexo,搭建,部署,Github,博客,hexo教程
 date: 2018-04-18 15:54:18
 ---
 

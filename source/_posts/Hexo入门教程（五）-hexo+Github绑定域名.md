@@ -1,9 +1,9 @@
 ---
 title: Hexo入门教程（五）-hexo+Github绑定域名
-tags: hexo
-categories: hexo
+tags: Hexo
+categories: Hexo
 abbrlink: 431f0136
-keywords: hexo,搭建,部署,Github,博客,域名
+keywords: Hexo,搭建,部署,Github,博客,域名
 date: 2018-04-18 15:55:18
 ---
 
