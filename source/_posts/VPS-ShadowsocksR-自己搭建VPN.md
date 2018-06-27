@@ -1,9 +1,10 @@
 ---
 title: VPS + ShadowsocksR 自己搭建VPN
-date: 2018-06-27 13:20:31
 tags: VPN
 categories: VPN
-keywords: VPN,VPS,SSR,SS,ShadowsocksR,Shadowsocks,搭建,购买,部署,搬瓦工
+keywords: 'VPN,VPS,SSR,SS,ShadowsocksR,Shadowsocks,搭建,购买,部署,搬瓦工'
+abbrlink: fe6022b6
+date: 2018-06-27 13:20:31
 ---
 
 # VPS和VPN介绍 #
@@ -14,7 +15,7 @@ VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器
 
 2. VPN
 虚拟私人网络（英语：Virtual Private Network，缩写为VPN）是一种常用于连接中、大型企业或团体与团体间的私人网络的通讯方法。它利用已加密的通道协议（Tunneling Protocol）来达到保密、发送端认证、消息准确性等私人消息安全效果。这种技术可以用不安全的网络（例如：互联网）来发送可靠、安全的消息。VPN有多种分类方式，主要是按协议进行分类。VPN可通过服务器、硬件、软件等多种方式实现。
-
+<!-- more -->
 # 购买VPS #
 国外有很多VPS服务提供商，我选用的[搬瓦工][1]，具体购买流程参考[这篇文章][2]和[这篇文章][3]，已经讲得很详细了。
 ![mark](http://blog.xuejiangtao.com/blog/180627/FjbgBD7Ik9.png)
