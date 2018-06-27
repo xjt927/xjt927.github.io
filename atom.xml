@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuejiangtao.com/"/>
-  <updated>2018-05-22T00:56:38.000Z</updated>
+  <updated>2018-06-27T05:22:44.000Z</updated>
   <id>http://xuejiangtao.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VPS + ShadowsocksR 自己搭建VPN</title>
+    <link href="http://xuejiangtao.com//posts/fe6022b6/"/>
+    <id>http://xuejiangtao.com//posts/fe6022b6/</id>
+    <published>2018-06-27T05:20:31.000Z</published>
+    <updated>2018-06-27T05:22:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="VPS和VPN介绍"><a href="#VPS和VPN介绍" class="headerlink" title="VPS和VPN介绍"></a>VPS和VPN介绍</h1><ol><li>VPS<br>VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器分割成多个虚拟专享服务器的优质服务。实现VPS的技术分为容器技术，和虚拟化技术。在容器或虚拟机中，每个VPS都可分配独立公网IP地址、独立操作系统、实现不同VPS间磁盘空间、内存、CPU资源、进程和系统配置的隔离，为用户和应用程序模拟出“独占”使用计算资源的体验。VPS可以像独立服务器一样，重装操作系统，安装程序，单独重启服务器。</li></ol><blockquote><p><strong>简单理解VPS就是一台拥有公网IP的服务器。</strong></p></blockquote><ol start="2"><li>VPN<br>虚拟私人网络（英语：Virtual Private Network，缩写为VPN）是一种常用于连接中、大型企业或团体与团体间的私人网络的通讯方法。它利用已加密的通道协议（Tunneling Protocol）来达到保密、发送端认证、消息准确性等私人消息安全效果。这种技术可以用不安全的网络（例如：互联网）来发送可靠、安全的消息。VPN有多种分类方式，主要是按协议进行分类。VPN可通过服务器、硬件、软件等多种方式实现。</li></ol><h1 id="购买VPS"><a href="#购买VPS" class="headerlink" title="购买VPS"></a>购买VPS</h1><p>国外有很多VPS服务提供商，我选用的<a href="https://bwh1.net/index.php" target="_blank" rel="noopener">搬瓦工</a>，具体购买流程参考<a href="http://banwagong.cn/gonglue.html" target="_blank" rel="noopener">这篇文章</a>和<a href="https://my.oschina.net/matol/blog/1595199" target="_blank" rel="noopener">这篇文章</a>，已经讲得很详细了。<br><img src="http://blog.xuejiangtao.com/blog/180627/FjbgBD7Ik9.png" alt="mark"><br>我买的是 <code>$19.99/年</code>的，一般来说一个人或者几个人一起用，这个配置够用了。<code>$19.99/年</code>的好像不常有，如果没有这款，就得等搬瓦工补货。</p><blockquote><p><strong>优惠码：</strong></p><ol><li>IAMSMART5YA8FO – 4.41%</li><li>IAMSMART5C48JJ- 4.79%</li><li>IAMSMART50BAR1 – 4.2%</li><li>BWH1ZBPVK – 6.00%（这个目前优惠最大）</li><li>ireallyreadtheterms8 – 5.5%</li></ol></blockquote><p>这是我的付款页面：<br><img src="http://blog.xuejiangtao.com/blog/180627/d0Em1lh6Ea.png" alt="mark"></p><h1 id="部署ShadowSocksR（SSR"><a href="#部署ShadowSocksR（SSR" class="headerlink" title="部署ShadowSocksR（SSR)"></a>部署ShadowSocksR（SSR)</h1><blockquote><p>为什么选择SSR而不是原版的SS<br>主要原因如下 </p><ol><li>可以直接启用chacha20加密，在移动设备上比较好使</li><li>TFO(TCP Fast Open)直接自带，减少握手次数。</li><li>二次混淆和抗重放等附加功能</li></ol></blockquote><p>进入搬瓦工服务器控制台，点击 Main controls菜单，点一下 Stop 停掉服务器，接着去 Install new OS 这里，选择 CentOS-6-x86_64-bbr，勾选 I agree， 点击 Reload。</p><p>服务器系统重装之后，点击KiwiVM Extras菜单，点击 ShadowsocksR Server菜单安装，由于我买的是这款比较便宜，所以没有Shadowsocks Server 和 ShadowsocksR Server一键安装服务。有点淡淡的忧伤…</p><p>那就自己登录服务器手动安装ssr服务，打开Xshell连接自己的centos服务器，（如果不会用Xshell可自行谷歌），安装ssr的教程可以<a href="http://vultr.aicnm.com/Vultr-VPS%E4%B8%BB%E6%9C%BA%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85SSR%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">参考这一篇文章</a>。</p><blockquote><p><strong>注意</strong>，如果在使用命令安装时提示：<strong>-bash wget:未找到命令</strong><br>需要在服务器上安装<code>wget</code>，使用命令<code>yum install wget</code>安装，之后再次重试。</p></blockquote><h1 id="使用SSR"><a href="#使用SSR" class="headerlink" title="使用SSR"></a>使用SSR</h1><p>ShadowsocksR 下载使用</p><ol><li><p>Windows 下载地址<br><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">SS</a><br><a href="https://cache.cdn.bydisk.com/ShadowsocksR-4.7.0-win.7z" target="_blank" rel="noopener">SSR-4.7.0</a><br>ShadowsocksR 分为 dotnet 2.0 和 4.0，实际功能无区别，只是电脑安装 .NET Framework v2.0 或 4.0 的支持库版本不同。一般 Win7 以后都默认安装了 v2.0；Win8 以后都默认安装了 2.0 和 4.0，只有 XP 系统两个都默认没有安装，需要手动安装支持库。</p></li><li><p>Android 下载地址<br><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">SS</a><br><a href="https://qiniucloud.download.storage.bydisk.com/ssr-3.4.0.5.apk" target="_blank" rel="noopener">SSR-3.4.0.5</a></p></li><li><p>Mac 下载地址<br><a href="https://github.com/qinyuhang/ShadowsocksX-NG-R/releases" target="_blank" rel="noopener">ShadowsocksX-NG-R</a><br><a href="https://github.com/erguotou520/electron-ssr/releases" target="_blank" rel="noopener">electron-ssr</a></p></li><li><p>iOS 下载地址<br><a href="https://itunes.apple.com/us/app/wingy-http-s-socks5-proxy-utility/id1178584911" target="_blank" rel="noopener">Wingy</a><br><a href="https://itunes.apple.com/us/app/shadowrocket/id932747118" target="_blank" rel="noopener">Shadowrocket</a><br>这里讲一下，ios想要翻墙需要下载Shadowrocket，国内该App已经下架，美国地区可以下载（要收费<code>$2.99</code>），前提是有美国地区商店账号，比较麻烦。这里推荐使用<code>PP助手</code>在应用里搜索，找到安装即可，不得不说PP助手还是很良心的软件！<br><img src="http://blog.xuejiangtao.com/blog/180627/LHfjE1FlIB.png" alt="mark"></p></li></ol><p>这些文章讲的都不错，参考<br><a href="https://medium.com/@liaoyuqin/vps-shadowsocksr-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-vpn-6fc6d5772cc4" target="_blank" rel="noopener">VPS+ShadowsocksR 搭建自己的 VPN</a><br><a href="http://vultr.aicnm.com/Vultr-VPS%E4%B8%BB%E6%9C%BA%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85SSR%E5%AE%8C%E6%95%B4%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">Vultr VPS主机快速安装SSR完整图文教程</a><br><a href="https://blog.csdn.net/fang_chuan/article/details/79393356" target="_blank" rel="noopener">搬瓦工VPS搭建shadowsocks</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;VPS和VPN介绍&quot;&gt;&lt;a href=&quot;#VPS和VPN介绍&quot; class=&quot;headerlink&quot; title=&quot;VPS和VPN介绍&quot;&gt;&lt;/a&gt;VPS和VPN介绍&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;VPS&lt;br&gt;VPS（Virtual Private Server 虚拟
+      
+    
+    </summary>
+    
+      <category term="VPN" scheme="http://xuejiangtao.com/categories/VPN/"/>
+    
+    
+      <category term="VPN" scheme="http://xuejiangtao.com/tags/VPN/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu 查看本机IP</title>
@@ -65,9 +91,9 @@
       <category term="Ubuntu" scheme="http://xuejiangtao.com/categories/Ubuntu/"/>
     
     
-      <category term="Ubuntu" scheme="http://xuejiangtao.com/tags/Ubuntu/"/>
-    
       <category term="Xshell" scheme="http://xuejiangtao.com/tags/Xshell/"/>
+    
+      <category term="Ubuntu" scheme="http://xuejiangtao.com/tags/Ubuntu/"/>
     
   </entry>
   
@@ -134,9 +160,9 @@
     <link href="http://xuejiangtao.com//posts/130619fa/"/>
     <id>http://xuejiangtao.com//posts/130619fa/</id>
     <published>2018-05-02T09:38:28.000Z</published>
-    <updated>2018-05-22T00:40:12.000Z</updated>
+    <updated>2018-06-27T05:25:06.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>背景：一台电脑上已有一个在用的博客，又新用了一台电脑，实现原电脑和新电脑都可以提交更新博客，实现同步或者说博客的版本管理。<br><a id="more"></a></p><h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><ol><li>在原电脑上操作，给 username.github.io 博客仓库创建hexo分支，并设为默认分支。（具体可参考这篇文章的操作，有图示）</li><li>如果未给你的 github 账号添加过当前电脑生成的 ssh key，需要创建 ssh key 并添加到 github 账号上。（如何创建和添加 github help 就有）</li><li>随便一个目录下，命令行执行 git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git 把仓库 clone 到本地。</li><li>显示所有隐藏文件和文件夹，进入刚才 clone 到本地的仓库，删掉除了 .git 文件夹以外的所有内容。</li><li>命令行 cd 到 clone 的仓库，git add -A ，git commit -m “–”，git push origin hexo，把刚才删除操作引起的本地仓库变化更新到远程，此时刷新下 github 端博客hexo分支，应该已经被清空了。</li><li>将上述 .git 文件夹复制到本机本地博客根目录下（即含有 themes、source 等文件夹的那个目录），现在可以把上述 clone 的本地仓库删掉了，因为它已经没有用了，本机博客目录已经变成可以和 hexo 分支相连的仓库了。</li><li>将博客目录下 themes 文件夹下每个主题文件夹里面的 .git .gitignore 删掉。 </li><li>cd 到博客目录，git add -A ，git commit -m “–”，git push origin hexo，将博客目录下所有文件更新到 hexo 分支。如果上一步没有删掉 .git .gitignore，主题文件夹下内容将传不上去。至此原电脑上的操作结束。</li><li>在新电脑上操作，先把新电脑上环境安装好，node.js、git、hexo，ssh key 也创建和添加好。</li><li>选好博客安装的目录， git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git 。</li><li>cd 到博客目录，npm install、hexo g &amp;&amp; hexo s，安装依赖，生成和启动博客服务。正常的话，浏览器打开 localhost:4000 可以看到博客了。至此新电脑操作完毕。</li><li>以后无论在哪台电脑上，更新以及提交博客，依次执行，git pull，git add -A ，git commit -m “–”，git push origin hexo，hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 即可。</li></ol><p>参考链接：<a href="https://link.zhihu.com/?target=https%3A//www.jianshu.com/p/fceaf373d797" target="_blank" rel="noopener">hexo 博客同步管理及迁移</a></p><p>作者：容与<br>链接：<a href="https://www.zhihu.com/question/21193762/answer/369050999" target="_blank" rel="noopener">https://www.zhihu.com/question/21193762/answer/369050999</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>背景：一台电脑上已有一个在用的博客，又新用了一台电脑，实现原电脑和新电脑都可以提交更新博客，实现同步或者说博客的版本管理。<br><a id="more"></a></p><h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><ol><li>在原电脑上操作，给 username.github.io 博客仓库创建hexo分支，并设为默认分支。（具体可参考这篇文章的操作，有图示）</li><li>如果未给你的 github 账号添加过当前电脑生成的 ssh key，需要创建 ssh key 并添加到 github 账号上。（如何创建和添加 github help 就有）</li><li>随便一个目录下，命令行执行 git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git 把仓库 clone 到本地。</li><li>显示所有隐藏文件和文件夹，进入刚才 clone 到本地的仓库，删掉除了 .git 文件夹以外的所有内容。</li><li>命令行 cd 到 clone 的仓库，git add -A ，git commit -m “–”，git push origin hexo，把刚才删除操作引起的本地仓库变化更新到远程，此时刷新下 github 端博客hexo分支，应该已经被清空了。</li><li>将上述 .git 文件夹复制到本机本地博客根目录下（即含有 themes、source 等文件夹的那个目录），现在可以把上述 clone 的本地仓库删掉了，因为它已经没有用了，本机博客目录已经变成可以和 hexo 分支相连的仓库了。</li><li>将博客目录下 themes 文件夹下每个主题文件夹里面的 .git .gitignore 删掉。 </li><li>cd 到博客目录，git add -A ，git commit -m “–”，git push origin hexo，将博客目录下所有文件更新到 hexo 分支。如果上一步没有删掉 .git .gitignore，主题文件夹下内容将传不上去。至此原电脑上的操作结束。</li><li>在新电脑上操作，先把新电脑上环境安装好，node.js、git、hexo，ssh key 也创建和添加好。</li><li>选好博客安装的目录， git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git 。</li><li>cd 到博客目录，npm install、hexo g &amp;&amp; hexo s，安装依赖，生成和启动博客服务。正常的话，浏览器打开 localhost:4000 可以看到博客了。至此新电脑操作完毕。</li><li>以后无论在哪台电脑上，更新以及提交博客，依次执行，<strong> git pull，git add -A ，git commit -m “–”，git push origin hexo，hexo clean &amp;&amp; hexo g &amp;&amp; hexo d </strong> 即可。</li></ol><p>参考链接：<a href="https://link.zhihu.com/?target=https%3A//www.jianshu.com/p/fceaf373d797" target="_blank" rel="noopener">hexo 博客同步管理及迁移</a></p><p>作者：容与<br>链接：<a href="https://www.zhihu.com/question/21193762/answer/369050999" target="_blank" rel="noopener">https://www.zhihu.com/question/21193762/answer/369050999</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
     
     <summary type="html">
     
