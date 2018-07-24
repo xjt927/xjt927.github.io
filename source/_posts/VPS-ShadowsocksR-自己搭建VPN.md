@@ -7,7 +7,7 @@ abbrlink: fe6022b6
 date: 2018-06-27 13:20:31
 ---
 
-# VPS和VPN介绍 #
+# VPS和VPN介绍 
 1. VPS
 VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器分割成多个虚拟专享服务器的优质服务。实现VPS的技术分为容器技术，和虚拟化技术。在容器或虚拟机中，每个VPS都可分配独立公网IP地址、独立操作系统、实现不同VPS间磁盘空间、内存、CPU资源、进程和系统配置的隔离，为用户和应用程序模拟出“独占”使用计算资源的体验。VPS可以像独立服务器一样，重装操作系统，安装程序，单独重启服务器。
 
@@ -16,7 +16,7 @@ VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器
 2. VPN
 虚拟私人网络（英语：Virtual Private Network，缩写为VPN）是一种常用于连接中、大型企业或团体与团体间的私人网络的通讯方法。它利用已加密的通道协议（Tunneling Protocol）来达到保密、发送端认证、消息准确性等私人消息安全效果。这种技术可以用不安全的网络（例如：互联网）来发送可靠、安全的消息。VPN有多种分类方式，主要是按协议进行分类。VPN可通过服务器、硬件、软件等多种方式实现。
 <!-- more -->
-# 购买VPS #
+# 购买VPS 
 国外有很多VPS服务提供商，我选用的[搬瓦工][1]，具体购买流程参考[这篇文章][2]和[这篇文章][3]，已经讲得很详细了。
 ![mark](http://blog.xuejiangtao.com/blog/180627/FjbgBD7Ik9.png)
 我买的是 `$19.99/年`的，一般来说一个人或者几个人一起用，这个配置够用了。`$19.99/年`的好像不常有，如果没有这款，就得等搬瓦工补货。
@@ -31,7 +31,7 @@ VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器
 这是我的付款页面：
 ![mark](http://blog.xuejiangtao.com/blog/180627/d0Em1lh6Ea.png)
 
-# 部署ShadowSocksR（SSR) #
+# 部署ShadowSocksR（SSR) 
 
 > 为什么选择SSR而不是原版的SS
 主要原因如下 
@@ -49,7 +49,7 @@ VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器
 需要在服务器上安装`wget`，使用命令`yum install wget`安装，之后再次重试。
 
 
-# 使用SSR #
+# 使用SSR 
 ShadowsocksR 下载使用
 
 1. Windows 下载地址
