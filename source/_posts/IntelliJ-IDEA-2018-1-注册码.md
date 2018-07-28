@@ -11,7 +11,7 @@ date: 2018-07-28 10:00:19
 IntelliJ IDEA官网下载地址：https://www.jetbrains.com/idea/download/previous.html?fromIDE=
 选择自己要用的版本，建议最新Ultimate版本。
 ![IntelliJ IDEA 2018.1 注册码](http://blog.xuejiangtao.com/blog/180728/3Ke2lG1c4j.png?imageslim)
-
+<!-- more -->
 # Ultimate、Community、EAP版本的区别
 ## Community：
 社区版，免费，但是功能有限制，Android Studio就是基于这个版本定制的。
@@ -25,13 +25,13 @@ http://idea-intellij.com/intellij-ultimate/
 终极版的免费版，免费，功能无限制，但是每隔30天要重装一次。
 http://idea-intellij.com/intellij-eap/
 # IntelliJ IDEA注册
-这里重点介绍一下大神网站：http://idea.lanyus.com/，下面介绍的注册方法也是基于该网站的。
+这里重点介绍一下大神网站：http://idea.lanyus.com/ ，下面介绍的注册方法也是基于该网站的。
 ![IntelliJ IDEA 2018.1 注册码](http://blog.xuejiangtao.com/blog/180728/EJb8HA6hmK.png?imageslim)
 
-1.下载破解补丁，将补丁放到IntelliJ IDEA安装目录下的bin目录下。
-2.点击`获取注册码`。
-3.打开IntelliJ IDEA，使用`Activation code`激活码选项注册。
-4.将步骤2中获取的注册码复制到下面。
+1. 下载破解补丁，将补丁放到IntelliJ IDEA安装目录下的bin目录下。
+2. 点击`获取注册码`。
+3. 打开IntelliJ IDEA，使用`Activation code`激活码选项注册。
+4. 将步骤2中获取的注册码复制到下面。
 
 好了，到此已经注册成功。上一张破解后的图，有效期到2099年。
 ![IntelliJ IDEA 2018.1 注册码](http://blog.xuejiangtao.com/blog/180728/dbd9jLBI5m.png?imageslim)
