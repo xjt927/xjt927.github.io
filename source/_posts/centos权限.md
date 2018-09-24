@@ -28,7 +28,7 @@ chgrp [-R] group filename(or dirname)，其中R表示进行递归（recursive）
 例如将文件install.log改到users用户组
 
 $chgrp users install.log
-
+ <!-- more -->
 3.
 
 chown就是change owner的简称。

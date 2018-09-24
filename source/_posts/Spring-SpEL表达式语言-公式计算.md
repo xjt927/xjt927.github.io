@@ -14,7 +14,7 @@ date: 2018-09-20 19:51:06
 ![mark](http://blog.xuejiangtao.com/blog/180924/K98ml852AA.png)
 
 将公式写到xml文件中,程序读取到文件内容,将内容使用spel表达式公式计算出来,公式本身也是给list集合赋值的操作.
-
+ <!-- more -->
 下面是公式部分:
 ```
 

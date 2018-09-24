@@ -34,6 +34,7 @@ PureDNS(pre).bat
 echo 即将自动退出。。。
 ping -n 6 127.0>nul 
 ```
+ <!-- more -->
 ---------文件2 AutoDNS.bat
 ```
 @echo off 

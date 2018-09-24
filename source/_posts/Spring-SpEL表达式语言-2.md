@@ -12,15 +12,21 @@ date: 2018-09-20 19:48:59
 # SpEL语法
 ## 基本表达式
 ###  **一、字面量表达式**： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。
+<style>
+table th:first-of-type {  
+    width: 100px; 
+}
+</style>
 
  | 类型 | 示例 |
  |:--:|:--|
- | 字符串 |   String str1 = parser.parseExpression("'Hello World!'").getValue(String.class);<br><br> String str2 = parser.parseExpression("\"Hello World!\"").getValue(String.class); |
- |数字类型| int int1 = parser.parseExpression("1").getValue(Integer.class);<br><br>long long1 = parser.parseExpression("-1L").getValue(long.class);<br><br>float float1 = parser.parseExpression("1.1").getValue(Float.class);<br><br>double double1 = parser.parseExpression("1.1E+2").getValue(double.class);<br><br>int hex1 = parser.parseExpression("0xa").getValue(Integer.class);<br><br>long hex2 = parser.parseExpression("0xaL").getValue(long.class);|
-|布尔类型|boolean true1 = parser.parseExpression("true").getValue(boolean.class);<br><br>boolean false1 = parser.parseExpression("false").getValue(boolean.class);|
+ | 字符串 |   String str1 = parser.parseExpression("'Hello World!'").getValue(String.class);<br> String str2 = parser.parseExpression("\"Hello World!\"").getValue(String.class); |
+ |数字类型| int int1 = parser.parseExpression("1").getValue(Integer.class);<br>long long1 = parser.parseExpression("-1L").getValue(long.class);<br>float float1 = parser.parseExpression("1.1").getValue(Float.class);<br>double double1 = parser.parseExpression("1.1E+2").getValue(double.class);<br>int hex1 = parser.parseExpression("0xa").getValue(Integer.class);<br>long hex2 = parser.parseExpression("0xaL").getValue(long.class);|
+|布尔类型|boolean true1 = parser.parseExpression("true").getValue(boolean.class);<br>boolean false1 = parser.parseExpression("false").getValue(boolean.class);|
 |null类型|Object null1 = parser.parseExpression("null").getValue(Object.class);|
- 
+  <!-- more -->
 ### **二、算数运算表达式**： SpEL支持加(+)、减(-)、乘(*)、除(/)、求余（%）、幂（^）运算。
+
   | 类型 | 示例 |
  |:--:|:--|
  |加减乘除|int result1 = parser.parseExpression("1+2-3*4/2").getValue(Integer.class);//-3|
@@ -155,6 +161,7 @@ public void testAssignExpression() {
     Assert.assertEquals("aaaa", result3);  
 }  
 ```
+
 使用“#root='aaaaa'”给根对象赋值，使用“"#this='aaaa'”给当前上下文对象赋值，使用“#variable=#root”给自定义变量赋值，很简单。 
 
 ### **七、对象属性存取及安全导航表达式**：对象属性获取非常简单，即使用如“a.property.property”这种点缀式获取，SpEL对于属性名首字母是不区分大小写的；SpEL还引入了Groovy语言中的安全导航运算符“(对象|属性)?.属性”，用来避免但“?.”前边的表达式为null时抛出空指针异常，而是返回null；修改对象属性值则可以通过赋值表达式或Expression接口的setValue方法修改。
@@ -167,7 +174,8 @@ int result1 = parser.parseExpression("Year").getValue(context, int.class);
 Assert.assertEquals(date.getYear(), result1);  
 int result2 = parser.parseExpression("year").getValue(context, int.class);  
 Assert.assertEquals(date.getYear(), result2);     
-``` 
+```
+
 对于**当前上下文对象属性及方法访问，可以直接使用属性或方法名访问**，比如此处根对象date属性“year”，注意此处属性名首字母不区分大小写。
 ```
 //2.安全访问  
@@ -216,7 +224,7 @@ public void testBeanExpression() {
 ```
 //将返回不可修改的空List  
 List<Integer> result2 = parser.parseExpression("{}").getValue(List.class);  
-``` 
+```
   
 ```
 //对于字面量列表也将返回不可修改的List  
@@ -228,7 +236,7 @@ try {
     Assert.fail();  
 } catch (Exception e) {  
 }  
-``` 
+```
 ```
 //对于列表中只要有一个不是字面量表达式，将只返回原始List，  
 //不会进行不可修改处理  
@@ -259,7 +267,7 @@ try {
     Assert.fail();  
 } catch (Exception e) {  
 }  
-``` 
+```
 ###  **三、集合，字典元素访问：** SpEL目前支持所有集合类型和字典类型的元素访问，使用“集合[索引]”访问集合元素，使用“map[key]”访问字典元素；
 ```
 //SpEL内联List访问  

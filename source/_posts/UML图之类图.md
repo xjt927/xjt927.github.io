@@ -22,7 +22,7 @@ Unified Modeling Language (UML)又称统一建模语言或标准建模语言，�
 UML规范用来描述建模的概念有，类（对象的）、对象、关联、职责、行为、接口、用例、包、顺序、协作，以及状态。
 
 关系用来把事物结合在一起，包括依赖、关联、泛化和实现关系。
-
+ <!-- more -->
 # 类图中关系（relation）
 在UML类图中，常见的有以下几种关系: 泛化（Generalization）, 实现（Realization），关联（Association)，聚合（Aggregation），组合(Composition)，依赖(Dependency)
 ## 泛化（Generalization） 继承
