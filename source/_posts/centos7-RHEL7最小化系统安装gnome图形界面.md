@@ -1,9 +1,10 @@
 ---
 title: centos7/RHEL7最小化系统安装gnome图形界面
-date: 2018-05-21 19:42:49
 tags: Centos
 categories: Centos
 keywords: Centos
+abbrlink: 2b237f49
+date: 2018-05-21 19:42:49
 ---
 
 [Linux CentOS 7安装GNOME图形界面并设置默认启动方式][1]

@@ -1,9 +1,12 @@
 ---
 title: Centos安装flarum
-date: 2018-06-09 19:58:34
-tags: [Centos,flarum]
+tags:
+  - Centos
+  - flarum
 categories: Centos
-keywords: Centos,flarum
+keywords: 'Centos,flarum'
+abbrlink: d92b3d0a
+date: 2018-06-09 19:58:34
 ---
 
 # CentOS7 yum安装PHP7.2

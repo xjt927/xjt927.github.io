@@ -1,9 +1,10 @@
 ---
 title: java Collection集合删除某一元素方法汇总
-date: 2018-09-24 19:55:13
 tags: Java
 categories: Java
 keywords: Java
+abbrlink: 3e3383b1
+date: 2018-09-24 19:55:13
 ---
 
 无论在自己写程序玩还是实际项目应用中，操作java.util.Collection结合都是最常用的，而且也是最重要的知识点。从集合中删除某一元素同样是很常用的操作。对了，面试中也总考察，面试官说要考察你的实际编程的能力，谁知道呢。下面总结了从集合中删除某一元素的几种方法

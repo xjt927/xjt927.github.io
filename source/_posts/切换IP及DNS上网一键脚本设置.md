@@ -1,9 +1,10 @@
 ---
 title: 切换IP及DNS上网一键脚本设置
-date: 2018-08-05 19:56:28
 tags: Bat脚本
 categories: Bat
 keywords: Bat脚本
+abbrlink: 1ab46bf
+date: 2018-08-05 19:56:28
 ---
 
 三种上网设置，bat脚本如下

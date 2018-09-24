@@ -1,9 +1,12 @@
 ---
 title: 使用 vi 编辑文件
-date: 2018-06-10 19:59:48
-tags: [Centos,vi]
+tags:
+  - Centos
+  - vi
 categories: Centos
-keywords: Centos,vi
+keywords: 'Centos,vi'
+abbrlink: 7937b83f
+date: 2018-06-10 19:59:48
 ---
 
 # 概述

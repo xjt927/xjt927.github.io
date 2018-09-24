@@ -1,9 +1,12 @@
 ---
 title: Spring-SpEL表达式语言-公式计算
-date: 2018-09-20 19:51:06
-tags: [Spring,SpEL]
+tags:
+  - Spring
+  - SpEL
 categories: Spring
-keywords: Spring,SpEL,表达式
+keywords: 'Spring,SpEL,表达式'
+abbrlink: 91c24048
+date: 2018-09-20 19:51:06
 ---
 
 业务需求,计算财务月报报表,如下:

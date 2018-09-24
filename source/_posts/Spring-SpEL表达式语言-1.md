@@ -1,9 +1,12 @@
 ---
 title: Spring-SpEL表达式语言(1)
-date: 2018-09-20 19:45:38
-tags: [Spring,SpEL]
+tags:
+  - Spring
+  - SpEL
 categories: Spring
-keywords: Spring,SpEL,表达式
+keywords: 'Spring,SpEL,表达式'
+abbrlink: 2c061eca
+date: 2018-09-20 19:45:38
 ---
 
 # 概述

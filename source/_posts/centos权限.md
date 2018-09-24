@@ -1,9 +1,12 @@
 ---
 title: Centos权限
-date: 2018-05-18 19:40:26
-tags: [Centos,权限]
+tags:
+  - Centos
+  - 权限
 categories: Centos
-keywords: Centos,权限
+keywords: 'Centos,权限'
+abbrlink: 4b590c7d
+date: 2018-05-18 19:40:26
 ---
 
 chmod -R 777 /文件夹名称

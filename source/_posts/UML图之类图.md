@@ -1,9 +1,12 @@
 ---
 title: UML图之类图
-date: 2018-07-26 19:34:53
-tags: [UML,类图]
+tags:
+  - UML
+  - 类图
 categories: UML
-keywords: UML,类图
+keywords: 'UML,类图'
+abbrlink: d824f0b1
+date: 2018-07-26 19:34:53
 ---
 
 UML教程
