@@ -99,7 +99,7 @@
 <meta property="og:description" content="概述Spring表达式语言全称为“Spring Expression Language”，缩写为“SpEL”，类似于Struts2x中使用的OGNL表达式语言，能在运行时构建复杂表达式、存取对象图属性、对象方法调用等等，并且能与Spring功能完美整合，如能用来配置Bean定义。表达式语言给静态Java语言增加了动态功能。SpEL是单独模块，只依赖于core模块，不依赖于其他模块，可以单独使用。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://blog.xuejiangtao.com/blog/180923/DkC9gA2HDa.png">
-<meta property="og:updated_time" content="2018-09-24T12:10:42.000Z">
+<meta property="og:updated_time" content="2018-09-24T12:42:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-SpEL表达式语言(1)">
 <meta name="twitter:description" content="概述Spring表达式语言全称为“Spring Expression Language”，缩写为“SpEL”，类似于Struts2x中使用的OGNL表达式语言，能在运行时构建复杂表达式、存取对象图属性、对象方法调用等等，并且能与Spring功能完美整合，如能用来配置Bean定义。表达式语言给静态Java语言增加了动态功能。SpEL是单独模块，只依赖于core模块，不依赖于其他模块，可以单独使用。">
@@ -429,9 +429,9 @@
 <li><strong>基本表达式</strong>：字面量表达式、关系，逻辑与算数运算表达式、字符串连接及截取表达式、三目运算及Elivis表达式、正则表达式、括号优先级表达式；</li>
 <li><strong>类相关表达式</strong>：类类型表达式、类实例化、instanceof表达式、变量定义及引用、赋值表达式、自定义函数、对象属性存取及安全导航表达式、对象方法调用、Bean引用；</li>
 <li><strong>集合相关表达式</strong>：内联List、内联数组、集合，字典访问、列表，字典，数组修改、集合投影、集合选择；不支持多维内联数组初始化；不支持内联字典定义；</li>
-<li>其他表达式：模板表达式。<br><strong>注：SpEL表达式中的关键字是不区分大小写的。</strong></li>
+<li>其他表达式：模板表达式。<br><strong>注：SpEL表达式中的关键字是不区分大小写的。</strong><a id="more"></a>
+<h1 id="SpEL基础"><a href="#SpEL基础" class="headerlink" title="SpEL基础"></a>SpEL基础</h1>首先准备支持SpEL的Jar包：“org.springframework.expression-3.0.5.RELEASE.jar”将其添加到类路径中。</li>
 </ol>
-<h1 id="SpEL基础"><a href="#SpEL基础" class="headerlink" title="SpEL基础"></a>SpEL基础</h1><p>首先准备支持SpEL的Jar包：“org.springframework.expression-3.0.5.RELEASE.jar”将其添加到类路径中。</p>
 <p>SpEL在求表达式值时一般分为四步，其中第三步可选：首先构造一个解析器，其次解析器解析字符串表达式，在此构造上下文，最后根据上下文得到表达式运算后的值。</p>
 <p>让我们看下代码片段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package cn.javass.spring.chapter5;  </span><br><span class="line">import junit.framework.Assert;  </span><br><span class="line">import org.junit.Test;  </span><br><span class="line">import org.springframework.expression.EvaluationContext;  </span><br><span class="line">import org.springframework.expression.Expression;  </span><br><span class="line">import org.springframework.expression.ExpressionParser;  </span><br><span class="line">import org.springframework.expression.spel.standard.SpelExpressionParser;  </span><br><span class="line">import org.springframework.expression.spel.support.StandardEvaluationContext;  </span><br><span class="line">public class SpELTest &#123;  </span><br><span class="line">    @Test  </span><br><span class="line">    public void helloWorld() &#123;  </span><br><span class="line">        ExpressionParser parser = new SpelExpressionParser();  </span><br><span class="line">        Expression expression =  </span><br><span class="line">parser.parseExpression(&quot;(&apos;Hello&apos; + &apos; World&apos;).concat(#end)&quot;);  </span><br><span class="line">        EvaluationContext context = new StandardEvaluationContext();  </span><br><span class="line">        context.setVariable(&quot;end&quot;, &quot;!&quot;);  </span><br><span class="line">        Assert.assertEquals(&quot;Hello World!&quot;, expression.getValue(context));  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>接下来让我们分析下代码：</p>

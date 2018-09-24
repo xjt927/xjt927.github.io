@@ -419,12 +419,16 @@
 
       
         
-          
-          Linux CentOS 7安装GNOME图形界面并设置默认启动方式
-centos7/RHEL7最小化系统安装gnome图形界面
-应用场景：对于比较熟悉linux系统的用户来说，全命令行系统可能来的比较简单明了高效，也存在某些情况下需要有像winodws下弹出对话框的情形需求，或者对于初识linux习惯windows界面的用户来说，桌面版更加方便点。
-测试环境：一台安装了CentOS-7-x86_
-          ...
+          <p><a href="https://blog.csdn.net/duchao123duchao/article/details/72617768" target="_blank" rel="noopener">Linux CentOS 7安装GNOME图形界面并设置默认启动方式</a></p>
+<p><a href="https://www.cnblogs.com/ding2016/p/6649789.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">centos7/RHEL7最小化系统安装gnome图形界面</a></p>
+<p>应用场景：对于比较熟悉linux系统的用户来说，全命令行系统可能来的比较简单明了高效，也存在某些情况下需要有像winodws下弹出对话框的情形需求，或者对于初识linux习惯windows界面的用户来说，桌面版更加方便点。</p>
+<p>测试环境：一台安装了CentOS-7-x86_64-Minimal-1511.iso的虚拟机，也就是最小化安装的centos7.2（同版本RHEL7适用）。</p>
+<p>具体操作：</p>
+<p>　　1.查看需要安装的软件包</p>
+<p>　　　　~]# yum grouplist 　　　　//前提要配置好自己的yum源或者能够连接到网上的源</p>
+<p>　　　　　　</p>
+<p>　　　　　　可以在Available Environment Groups:列表中看见各种包，这里我选择显示的GNMOE Desktop</p>
+<p>　　　　　　注：有版本可能安装的是X Window System，不用在意，安装自己列表中存在的软件包即可。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/2b237f49/#more" rel="contents">
@@ -570,15 +574,15 @@ centos7/RHEL7最小化系统安装gnome图形界面
 
       
         
-          
-          chmod -R 777 /文件夹名称
-如何改变文件属性与权限1.chgrp，改变文件所属用户组；
-chown，改变文件所有者；
-chmod，改变文件的权限。  chmod -R 777 /data/project/ 设置project下所有文件的权限
-2.
-chgrp就是change group的简称，使用该指令时，要被改变的组名必须在/etc/group文件内存在才行。
-chgrp [-R] 
-          ...
+          <p>chmod -R 777 /文件夹名称</p>
+<p>如何改变文件属性与权限<br>1.<br>chgrp，改变文件所属用户组；</p>
+<p>chown，改变文件所有者；</p>
+<p>chmod，改变文件的权限。  chmod -R 777 /data/project/ 设置project下所有文件的权限</p>
+<p>2.</p>
+<p>chgrp就是change group的简称，使用该指令时，要被改变的组名必须在/etc/group文件内存在才行。</p>
+<p>chgrp [-R] group filename(or dirname)，其中R表示进行递归（recursive）的持续更改，也即连同子目录下的所有文件、目录。所以当修改一个目录中所有文件的用户组（所有者与权限也一样）时，要加上-R。</p>
+<p>例如将文件install.log改到users用户组</p>
+<p>$chgrp users install.log<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/4b590c7d/#more" rel="contents">
