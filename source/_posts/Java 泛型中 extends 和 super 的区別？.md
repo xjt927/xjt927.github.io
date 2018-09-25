@@ -13,8 +13,11 @@ keywords: Java,泛型,extends,super
 
 - `<? extends T>`：是指 “上界通配符（Upper Bounds Wildcards）”
 - `<? super T>`：是指 “下界通配符（Lower Bounds Wildcards）”
+
 <!-- more -->
+
 # 为什么要用通配符和边界？
+
 使用泛型的过程中，经常出现一种很别扭的情况。比如按照题主的例子，我们有Fruit类，和它的派生类Apple类。
 ```
 class Fruit {}
