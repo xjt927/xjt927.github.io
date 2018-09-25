@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuejiangtao.com/"/>
-  <updated>2018-09-25T02:13:34.000Z</updated>
+  <updated>2018-09-25T03:33:26.000Z</updated>
   <id>http://xuejiangtao.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[JPA] javax.persistence.EntityNotFoundException处理</title>
+    <link href="http://xuejiangtao.com//posts/105963c3/"/>
+    <id>http://xuejiangtao.com//posts/105963c3/</id>
+    <published>2018-09-25T03:31:36.000Z</published>
+    <updated>2018-09-25T03:33:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。</p><p>原因：</p><pre><code>无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。</code></pre><p>解决办法：</p><pre><code>1. 检查为什么子表中没有主表中ID对应的记录2. 如果希望子表中没有主表ID对应的记录也可以正常加载数据，那么需要在主表字段上加一个@NotFound  Annotation。示例如下：@OneToOne(optional=true )@JoinColumn(name=&quot;companyId&quot;,insertable=false, updatable=false)@NotFound(action=NotFoundAction.IGNORE)private Company company;这样，当子表中没找到数据时，主表中对应的field就是null，而不会报错了。</code></pre><p>文章转自:<a href="https://my.oschina.net/ethan09/blog/203729" target="_blank" rel="noopener">https://my.oschina.net/ethan09/blog/203729</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。&lt;/p&gt;
+&lt;p&gt;原因：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;无论是@O
+      
+    
+    </summary>
+    
+      <category term="JPA" scheme="http://xuejiangtao.com/categories/JPA/"/>
+    
+    
+      <category term="JPA,ORM" scheme="http://xuejiangtao.com/tags/JPA-ORM/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 泛型中 extends 和 super 的区別？</title>
