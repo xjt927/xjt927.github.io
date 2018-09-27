@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因： 无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。">
+<meta name="description" content="通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因：无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。">
 <meta name="keywords" content="jpa,orm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JPA] javax.persistence.EntityNotFoundException处理">
 <meta property="og:url" content="http://xuejiangtao.com/posts/105963c3/index.html">
 <meta property="og:site_name" content="薛江涛 - 博客">
-<meta property="og:description" content="通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因： 无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。">
+<meta property="og:description" content="通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因：无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T09:13:12.000Z">
+<meta property="og:updated_time" content="2018-09-25T09:18:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JPA] javax.persistence.EntityNotFoundException处理">
-<meta name="twitter:description" content="通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因： 无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。">
+<meta name="twitter:description" content="通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因：无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。">
 
 
 
@@ -421,16 +421,13 @@
       
 
       
-        <p>通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。</p>
-<p>原因：</p>
-<p>无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。</p>
+        <p>通过hibernate映射关系加载数据时遇到了如下错误： <code>javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx</code>。</p>
+<p>原因：<br>无论是<code>@OneToOne</code> 还是<code>@ManyToOne</code>，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。</p>
 <a id="more"></a>
 <p>解决办法：</p>
 <ol>
-<li><p>检查为什么子表中没有主表中ID对应的记录</p>
-</li>
-<li><p>如果希望子表中没有主表ID对应的记录也可以正常加载数据，那么需要在主表字段上加一个@NotFound  Annotation。示例如下：</p>
-</li>
+<li>检查为什么子表中没有主表中ID对应的记录</li>
+<li>如果希望子表中没有主表ID对应的记录也可以正常加载数据，那么需要在主表字段上加一个<code>@NotFound  Annotation</code>。示例如下：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@OneToOne(optional=true )</span><br><span class="line">@JoinColumn(name=&quot;companyId&quot;,insertable=false, updatable=false)</span><br><span class="line">@NotFound(action=NotFoundAction.IGNORE)</span><br><span class="line">private Company company;</span><br></pre></td></tr></table></figure>
 <p>这样，当子表中没找到数据时，主表中对应的field就是null，而不会报错了。</p>
@@ -504,6 +501,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/59b10f7f/" rel="prev" title="readyState=4并且status=200时，还进error方法">
+                readyState=4并且status=200时，还进error方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -576,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,7 +588,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -598,7 +599,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

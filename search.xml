@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ajax中contentType和dataType的使用]]></title>
+    <url>%2F%2Fposts%2F19ed10ec%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627getUserType:function()&#123; $.ajax(&#123; url: getUserTypeUrl + &apos;?now=&apos; + Math.random(), data: &#123;&quot;userId&quot;:userId&#125;, type: &quot;get&quot;, async:false, dataType: &quot;text&quot;, contentType:&apos;application/json; charset=utf-8&apos;, success: function(result) &#123; userType = result; if (userType == UserTypeEnum.Other) &#123; alert(&apos;没有数据权限，退出页面&apos;); return; &#125; else if (userType == UserTypeEnum.Customer)&#123; page.logic.getCustomerId(); &#125;else &#123; page.logic.initCustormer(); &#125; &#125;, error: function(result) &#123; var errorResult = $.parseJSON(result.responseText); layer.msg(errorResult.collection.error.message); &#125; &#125;)&#125; 其中： cache类型：Boolean默认值: true，dataType 为 script 和 jsonp 时默认为 false。设置为 false 将不缓存此页面。 async类型：Boolean默认值: true。默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。 data类型：String往后台发送请求带的参数,类型如下data: {&quot;key1&quot;:value,&quot;key2&quot;:value2}//key,value形式传参data: JSON.stringify(idsArray)//转换成字符串传参 dataType类型：String决定请求返回的数据类型;支持json,XML,html,jsonp,script,text contentType类型：String发送信息至服务器时内容编码类型默认值: &quot;application/x-www-form-urlencoded&quot;contentType:&#39;text/plain;charset=UTF-8&#39;contentType:&#39;application/json; charset=utf-8&#39;]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+        <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[readyState=4并且status=200时，还进error方法]]></title>
+    <url>%2F%2Fposts%2F59b10f7f%2F</url>
+    <content type="text"><![CDATA[在使用jQuery.ajax方法去调用后台方法时，ajax中得参数data类型是”JSON”,后台DEBUG调试，运行正常，返回正常的结果集.但是前端一直都进到ajax的error方法，百思不得其解，后要一探究竟，在error方法的参数中加了data后，发现data中的readyState = 4 并且 status=200，这两个状态也证明ajax访问没有问题，没有出现异常。回过头发现我在后台返回的是字符串，但并不是标准的json格式的字符串，所以前端js进入不了success。无法解析为json格式的数据，所以报错进error。通过后台将结果集转成json格式字符串即可。或者将data类型改为“text”. 如果不设置dataType默认使用json格式,如果后台返回text字符串,则报错,进入error 1234567891011121314151617181920getSysUserId:function()&#123; $.ajax(&#123; url: getSysUserIdUrl + &apos;?now=&apos; + Math.random(), type: &quot;get&quot;, async:false, dataType: &quot;text&quot;, //如果不设置dataType默认使用json格式,如果后台返回text字符串,则报错,进入error success: function(result) &#123; userId = result; if(userId == null)&#123; userId = &apos;admin&apos;; &#125; page.logic.getUserType(); &#125;, error: function(result) &#123; var errorResult = $.parseJSON(result.responseText); layer.msg(errorResult.collection.error.message); &#125; &#125;);&#125;]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+        <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[JPA] javax.persistence.EntityNotFoundException处理]]></title>
     <url>%2F%2Fposts%2F105963c3%2F</url>
-    <content type="text"><![CDATA[通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因： 无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。 解决办法： 检查为什么子表中没有主表中ID对应的记录 如果希望子表中没有主表ID对应的记录也可以正常加载数据，那么需要在主表字段上加一个@NotFound Annotation。示例如下： 1234@OneToOne(optional=true )@JoinColumn(name=&quot;companyId&quot;,insertable=false, updatable=false)@NotFound(action=NotFoundAction.IGNORE)private Company company; 这样，当子表中没找到数据时，主表中对应的field就是null，而不会报错了。 文章转自:https://my.oschina.net/ethan09/blog/203729]]></content>
+    <content type="text"><![CDATA[通过hibernate映射关系加载数据时遇到了如下错误： javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx。 原因：无论是@OneToOne 还是@ManyToOne，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。 解决办法： 检查为什么子表中没有主表中ID对应的记录 如果希望子表中没有主表ID对应的记录也可以正常加载数据，那么需要在主表字段上加一个@NotFound Annotation。示例如下： 1234@OneToOne(optional=true )@JoinColumn(name=&quot;companyId&quot;,insertable=false, updatable=false)@NotFound(action=NotFoundAction.IGNORE)private Company company; 这样，当子表中没找到数据时，主表中对应的field就是null，而不会报错了。 文章转自:https://my.oschina.net/ethan09/blog/203729]]></content>
       <categories>
         <category>JPA</category>
       </categories>
