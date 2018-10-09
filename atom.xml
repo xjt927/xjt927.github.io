@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuejiangtao.com/"/>
-  <updated>2018-09-29T09:33:06.000Z</updated>
+  <updated>2018-10-09T15:23:26.000Z</updated>
   <id>http://xuejiangtao.com/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot bean无法注入的问题</title>
+    <link href="http://xuejiangtao.com//posts/8a7fd1a9/"/>
+    <id>http://xuejiangtao.com//posts/8a7fd1a9/</id>
+    <published>2018-10-09T14:41:50.000Z</published>
+    <updated>2018-10-09T15:23:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天在运行项目时报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &apos;com.example.SpringBootJdbcDemoApplication.SpringBootJdbcDemoApplication&apos;: Unsatisfied dependency expressed through field &apos;userRepository&apos;: No qualifying bean of type [com.example.repositories.UserRepository] found for dependency [com.example.repositories.UserRepository]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: &#123;@org.springframework.beans.factory.annotation.Autowired(required=true)&#125;; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.example.repositories.UserRepository] found for dependency [com.example.repositories.UserRepository]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: &#123;@org.springframework.beans.factory.annotation.Autowired(required=true)&#125;</span><br><span class="line">at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:569)</span><br><span class="line">at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)</span><br></pre></td></tr></table></figure></p><p>记起来之前调过项目的目录结构，经过google一番搜索，发现如下：<br><a id="more"></a><br><img src="http://blog.xuejiangtao.com/blog/181009/6BKmgd7Gg7.png?imageslim" alt="mark"></p><p>iol-api项目要引用iol-common项目下的service接口，会报错。<br>在Application类上加入一行代码即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@ComponentScan(basePackages=&#123;&quot;com.pcitc.iol.common.pm.configservice.bll&quot;&#125;)</span><br><span class="line">public class Application extends SpringBootServletInitializer &#123;</span><br><span class="line">....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>SpringBoot项目的Bean装配默认规则，是根据Application类所在的包位置从上往下扫描！<br>“Application类”是指SpringBoot项目入口类。这个类的位置很关键：<br>如果Application类所在的包为：com.pcitc.iol.api，则只会扫描com.pcitc.iol.api包及其所有子包，<br>如果引用的service或dao所在包不在com.pcitc.iol.api及其子包下，则不会被扫描！</p><p>解决：<code>@ComponentScan</code>注解进行指定要扫描的包以及要扫描的类。</p><p>参考：<a href="http://blog.csdn.net/u014695188/article/details/52263903" target="_blank" rel="noopener">http://blog.csdn.net/u014695188/article/details/52263903</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天在运行项目时报错：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &amp;apos;com.example.SpringBootJdbcDemoApplication.SpringBootJdbcDemoApplication&amp;apos;: Unsatisfied dependency expressed through field &amp;apos;userRepository&amp;apos;: No qualifying bean of type [com.example.repositories.UserRepository] found for dependency [com.example.repositories.UserRepository]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: &amp;#123;@org.springframework.beans.factory.annotation.Autowired(required=true)&amp;#125;; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.example.repositories.UserRepository] found for dependency [com.example.repositories.UserRepository]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: &amp;#123;@org.springframework.beans.factory.annotation.Autowired(required=true)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:569)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;记起来之前调过项目的目录结构，经过google一番搜索，发现如下：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Spring" scheme="http://xuejiangtao.com/categories/Spring/"/>
+    
+      <category term="SpringBoot" scheme="http://xuejiangtao.com/categories/Spring/SpringBoot/"/>
+    
+    
+      <category term="Spring" scheme="http://xuejiangtao.com/tags/Spring/"/>
+    
+      <category term="SpringBoot" scheme="http://xuejiangtao.com/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java虚拟机JVM实现原理</title>
+    <link href="http://xuejiangtao.com//posts/3e210110/"/>
+    <id>http://xuejiangtao.com//posts/3e210110/</id>
+    <published>2018-10-08T01:33:26.000Z</published>
+    <updated>2018-10-08T06:48:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JVM基础概念"><a href="#JVM基础概念" class="headerlink" title="JVM基础概念"></a>JVM基础概念</h1><p>JVM既Java Virtual Machine（java虚拟机），它是虚构出来的计算机，是通过在实际计算机上仿真模拟各种计算机功能来实现的。说白了java虚拟机就是和计算机打交道，代码程序通过java虚拟机得以在计算机上执行。<br>原理：编译后的java程序指令并不直接在硬件系统的cpu上执行，而是由JVM执行。java程序编译后会生成字节码（.class文件），JVM会识别并运行字节码，可以在多种平台上运行。<strong>JVM在执行字节码时，把字节码解释成具体平台上的机器指令执行</strong>。因此java和平台无关，实现跨平台，既<strong>一次编译，到处运行</strong>。</p><h1 id="JVM生命周期"><a href="#JVM生命周期" class="headerlink" title="JVM生命周期"></a>JVM生命周期</h1><ul><li>JVM属于进程级别，一个java程序对应一个虚拟机。同一台机器上运行三个程序，就会有三个运行中的java虚拟机。</li><li>启动<br>java虚拟机总是开始于一个main()方法，这个方法必须是共有、返回void、只接受一个字符串数组参数。在程序执行时，必须给java虚拟机指明这个包含main()方法的类名。</li><li>运行<br>main()方法是程序的起点，它被执行的线程初始化为程序的初始线程。程序中其他线程都是由它来启动的。JVM内部的线程分为两种：<strong>守护线程（daemon）</strong>和<strong>普通线程（non-daemon）</strong>main()属于非守护线程，守护线程是java虚拟机自己使用的线程，比如负责垃圾收集的线程就是一个守护线程。当然，你也可以把自己的程序设置为守护线程。</li><li>消亡<br>只要java虚拟机中还有普通线程在执行，java虚拟机就不会停止。当程序中所有非守护线程都终止时，JVM才推出；如果有足够权限，可以调用Runtime类或者System.exit()来终止线程。</li></ul><h1 id="JRE、JKD、JVM是什么关系？"><a href="#JRE、JKD、JVM是什么关系？" class="headerlink" title="JRE、JKD、JVM是什么关系？"></a>JRE、JKD、JVM是什么关系？</h1><p>JRE(JavaRuntimeEnvironment，Java运行环境)，也就是Java平台。所有的Java 程序都要在JRE下才能运行。普通用户只需要运行已开发好的java程序，安装JRE即可。</p><p>JDK(Java Development Kit)是程序开发者用来编译、调试java程序用的开发工具包。JDK的工具也是Java程序，也需要JRE才能运行。为了保持JDK的独立性和完整性，在JDK的安装过程中，JRE也是安装的一部分。所以，在JDK的安装目录下有一个名为jre的目录，用于存放JRE文件。</p><p>JVM(JavaVirtualMachine，Java虚拟机)是JRE的一部分。它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。JVM有自己完善的硬件架构，如处理器、堆栈、寄存器等，还具有相应的指令系统。Java语言最重要的特点就是跨平台运行。使用JVM就是为了支持与操作系统无关，实现跨平台。</p><h1 id="JVM的体系结构"><a href="#JVM的体系结构" class="headerlink" title="JVM的体系结构"></a>JVM的体系结构</h1><p><img src="http://blog.xuejiangtao.com/blog/181008/2Hm6BcgGk4.png?imageslim" alt="mark"><br><img src="http://blog.xuejiangtao.com/blog/181008/K5d0GFEk0L.png?imageslim" alt="mark"></p><p>类装载器（ClassLoader）（用来装载.class文件）</p><p>执行引擎（执行字节码，或者执行本地方法）</p><p>运行时数据区（方法区、堆、java栈、PC寄存器、本地方法栈）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JVM基础概念&quot;&gt;&lt;a href=&quot;#JVM基础概念&quot; class=&quot;headerlink&quot; title=&quot;JVM基础概念&quot;&gt;&lt;/a&gt;JVM基础概念&lt;/h1&gt;&lt;p&gt;JVM既Java Virtual Machine（java虚拟机），它是虚构出来的计算机，是通过在实
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://xuejiangtao.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://xuejiangtao.com/tags/Java/"/>
+    
+      <category term="JVM" scheme="http://xuejiangtao.com/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java技术点整理</title>
+    <link href="http://xuejiangtao.com//posts/2dc64702/"/>
+    <id>http://xuejiangtao.com//posts/2dc64702/</id>
+    <published>2018-10-06T12:29:51.000Z</published>
+    <updated>2018-10-08T07:32:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>jvm<br><a href="https://zhuanlan.zhihu.com/p/25713880" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25713880</a><br><a href="https://www.jianshu.com/p/28639d7a00fe" target="_blank" rel="noopener">https://www.jianshu.com/p/28639d7a00fe</a><br><a href="https://www.jianshu.com/p/a66bcf3d5ec6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=pc_all_hots&amp;utm_source=recommendation" target="_blank" rel="noopener">https://www.jianshu.com/p/a66bcf3d5ec6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=pc_all_hots&amp;utm_source=recommendation</a></p><p>NIO<br><a href="http://ifeve.com/java-nio-all/" target="_blank" rel="noopener">http://ifeve.com/java-nio-all/</a></p><p>MyBatis ,ibatis<br>RPC接口开发<br>中间件开发<br>微服务架构设计<br>Tomcat，Nginx<br>底层中间件、分布式技术（Redis、mongodb,Zookeeper、Kafka、Elasticsearch,dubbo、memcached、ActiveMQ等）<br>分布式系统设计<br>OSGi<br> SOA 架构理念<br> 多系统集成业务架构<br> Storm<br> 数据结构、多线程,java反射<br> 内存模型<br> SSM框架<br> Linux环境,基本命令<br> MES<br> CRM<br> 了解索引的原理</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;jvm&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/25713880&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/25713880&lt;/a&gt;&lt;br&gt;&lt;a hre
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://xuejiangtao.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://xuejiangtao.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>@Controller和@RestController的区别？</title>
