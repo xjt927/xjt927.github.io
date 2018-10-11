@@ -3,7 +3,9 @@ title: SpringBoot bean无法注入的问题
 tags:
   - SpringBoot
   - Spring
-categories: Spring
+categories: 
+- Spring
+- SpringBoot
 keywords: 'SpringBoot,Spring'
 abbrlink: 8a7fd1a9
 date: 2018-10-09 22:41:50
