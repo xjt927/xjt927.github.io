@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/3e3383b1/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2708e1c6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/3e3383b1/" itemprop="url">java Collection集合删除某一元素方法汇总</a></h1>
+                <a class="post-title-link" href="/posts/2708e1c6/" itemprop="url">@Controller和@RestController的区别？</a></h1>
         
 
         <div class="post-meta">
@@ -358,154 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-24T19:55:13+08:00">
-                2018-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>无论在自己写程序玩还是实际项目应用中，操作java.util.Collection结合都是最常用的，而且也是最重要的知识点。从集合中删除某一元素同样是很常用的操作。对了，面试中也总考察，面试官说要考察你的实际编程的能力，谁知道呢。下面总结了从集合中删除某一元素的几种方法<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/3e3383b1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/91c24048/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/91c24048/" itemprop="url">Spring-SpEL表达式语言-公式计算</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:51:06+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:23:26+08:00">
+                2018-09-29
               </time>
             
 
@@ -565,12 +419,11 @@
 
       
         
-          <p>业务需求,计算财务月报报表,如下:</p>
-<p><img src="http://blog.xuejiangtao.com/blog/180924/K98ml852AA.png" alt="mark"></p>
-<p>将公式写到xml文件中,程序读取到文件内容,将内容使用spel表达式公式计算出来,公式本身也是给list集合赋值的操作.<br>
+          <h1 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h1><h2 id="Controller和页面结合使用"><a href="#Controller和页面结合使用" class="headerlink" title="@Controller和页面结合使用"></a>@Controller和页面结合使用</h2><p><code>@Controller</code>用来响应页面, 单独使用<code>@Controller</code>时, 必须配合模版来使用, 才能返回请求页面.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">//@ResponseBody</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value=&quot;/hello&quot;,method= RequestMethod.GET)</span><br><span class="line">    public String sayHello()&#123;</span><br><span class="line">        return &quot;hello&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果直接使用@Controller这个注解，当运行该SpringBoot项目后，在浏览器中输入：local:8080/hello,会得到如下错误提示：<br><img src="http://blog.xuejiangtao.com/blog/180929/8g69gHeBkl.png" alt="mark"><br>出现这种情况的原因在于：没有使用模版。即@Controller 用来响应页面，@Controller必须配合模版来使用。spring-boot 支持多种模版引擎包括：<br>1，FreeMarker<br>2，Groovy<br>3，Thymeleaf （Spring 官网使用这个）<br>4，Velocity<br>5，JSP （貌似Spring Boot官方不推荐，STS创建的项目会在src/main/resources 下有个templates 目录，这里就是让我们放模版文件的，然后并没有生成诸如 SpringMVC 中的webapp目录）<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/91c24048/#more" rel="contents">
+            <a class="btn" href="/posts/2708e1c6/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -621,7 +474,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1e307c48/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/a8c3306f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -640,7 +493,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/1e307c48/" itemprop="url">Spring-SpEL表达式语言(3)</a></h1>
+                <a class="post-title-link" href="/posts/a8c3306f/" itemprop="url">SpringMVC参数传值的几种形式</a></h1>
         
 
         <div class="post-meta">
@@ -652,8 +505,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:49:52+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T08:47:41+08:00">
+                2018-09-29
               </time>
             
 
@@ -713,11 +566,12 @@
 
       
         
-          <h1 id="xml风格的配置"><a href="#xml风格的配置" class="headerlink" title="xml风格的配置"></a>xml风格的配置</h1><p>SpEL支持在Bean定义时注入，默认使用“#{SpEL表达式}”表示，其中“#root”根对象默认可以认为是ApplicationContext，只有ApplicationContext实现默认支持SpEL，获取根对象属性其实是获取容器中的Bean。</p>
-<p>首先看下配置方式（chapter5/el1.xml）吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;world&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos; World!&apos;&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello1&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;&#125;#&#123;world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;    </span><br><span class="line">&lt;bean id=&quot;hello2&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + world&#125;&quot;/&gt;  </span><br><span class="line">    &lt;!-- 不支持嵌套的 --&gt;  </span><br><span class="line">    &lt;!--&lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;&quot;/&gt;--&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello3&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + @world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">       模板默认以前缀“#&#123;”开头，以后缀“&#125;”结尾，且不允许嵌套，如“#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;”错误，如“#&#123;&apos;Hello&apos; + world&#125;”中“world”默认解析为Bean。当然可以使用“@bean”引用了。</span><br></pre></td></tr></table></figure></p>
+          <h2 id="方式一-HttpServletRequest"><a href="#方式一-HttpServletRequest" class="headerlink" title="方式一:HttpServletRequest"></a>方式一:HttpServletRequest</h2><p>HttpServletRequest类是Servlet中的类型，代表了一个Servlet请求。无论Post还是Get请求，都能通过这种方式获取到, 但不能接收json。<br>post方式的时候编码方式需设置为：<code>x-www-form-urlencoded</code>转换为键值对<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//http://localhost:8088/user?username=123&amp;password=123456</span><br><span class="line">@RequestMapping(&quot;/user&quot;)</span><br><span class="line">public void getUser(HttpServletRequest request) &#123;</span><br><span class="line">    String username=request.getParameter(&quot;username&quot;);</span><br><span class="line">    String password=request.getParameter(&quot;password&quot;);</span><br><span class="line">    System.out.println(&quot;username is:&quot;+username);</span><br><span class="line">    System.out.println(&quot;password is:&quot;+password); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果username 或者 password 为空，不能直接拿来做参数，可能会抛空指针异常。</p>
+<h2 id="方式二-使用-PathVariable路径变量"><a href="#方式二-使用-PathVariable路径变量" class="headerlink" title="方式二:使用@PathVariable路径变量"></a>方式二:使用@PathVariable路径变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//http://localhost:8088/user1/userName=zhangsan/password=123456</span><br><span class="line">@ResponseBody</span><br><span class="line">@RequestMapping(value=&quot;/user1/&#123;userName&#125;/&#123;password&#125;&quot;,method= RequestMethod.GET)</span><br><span class="line">public void getUser(@PathVariable String userName,@PathVariable String password)&#123;</span><br><span class="line">    System.out.println(&quot;username is:&quot;+userName);</span><br><span class="line">    System.out.println(&quot;password is:&quot;+password);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/1e307c48/#more" rel="contents">
+            <a class="btn" href="/posts/a8c3306f/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -768,7 +622,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/72b4d09/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/19ed10ec/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -787,7 +641,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/72b4d09/" itemprop="url">Spring-SpEL表达式语言(2)</a></h1>
+                <a class="post-title-link" href="/posts/19ed10ec/" itemprop="url">Ajax中contentType和dataType的使用</a></h1>
         
 
         <div class="post-meta">
@@ -799,8 +653,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:48:59+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T10:30:38+08:00">
+                2018-09-27
               </time>
             
 
@@ -822,8 +676,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
                   </a>
                 </span>
 
@@ -860,41 +714,12 @@
 
       
         
-          <h1 id="SpEL语法"><a href="#SpEL语法" class="headerlink" title="SpEL语法"></a>SpEL语法</h1><h2 id="基本表达式"><a href="#基本表达式" class="headerlink" title="基本表达式"></a>基本表达式</h2><h3 id="一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"><a href="#一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。" class="headerlink" title="一、字面量表达式： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"></a><strong>一、字面量表达式</strong>： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。</h3><style>
-table th:first-of-type {  
-    width: 100px; 
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">字符串</td>
-<td style="text-align:left">String str1 = parser.parseExpression(“‘Hello World!’”).getValue(String.class);<br> String str2 = parser.parseExpression(“\”Hello World!\””).getValue(String.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">数字类型</td>
-<td style="text-align:left">int int1 = parser.parseExpression(“1”).getValue(Integer.class);<br>long long1 = parser.parseExpression(“-1L”).getValue(long.class);<br>float float1 = parser.parseExpression(“1.1”).getValue(Float.class);<br>double double1 = parser.parseExpression(“1.1E+2”).getValue(double.class);<br>int hex1 = parser.parseExpression(“0xa”).getValue(Integer.class);<br>long hex2 = parser.parseExpression(“0xaL”).getValue(long.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">布尔类型</td>
-<td style="text-align:left">boolean true1 = parser.parseExpression(“true”).getValue(boolean.class);<br>boolean false1 = parser.parseExpression(“false”).getValue(boolean.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">null类型</td>
-<td style="text-align:left">Object null1 = parser.parseExpression(“null”).getValue(Object.class);</td>
-</tr>
-</tbody>
-</table>
+          
+          123456789101112131415161718192021222324252627getUserType:function()&#123;    $.ajax(&#123;        url: getUserTypeUrl + &apos;?now=&apos; + Math.random(),        data: &#123;&quot;userId&quot;:userId&
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/72b4d09/#more" rel="contents">
+            <a class="btn" href="/posts/19ed10ec/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -945,7 +770,7 @@ table th:first-of-type {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2c061eca/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/59b10f7f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -964,7 +789,7 @@ table th:first-of-type {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/2c061eca/" itemprop="url">Spring-SpEL表达式语言(1)</a></h1>
+                <a class="post-title-link" href="/posts/59b10f7f/" itemprop="url">readyState=4并且status=200时，还进error方法</a></h1>
         
 
         <div class="post-meta">
@@ -976,8 +801,8 @@ table th:first-of-type {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:45:38+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T10:14:00+08:00">
+                2018-09-27
               </time>
             
 
@@ -999,8 +824,8 @@ table th:first-of-type {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
                   </a>
                 </span>
 
@@ -1037,16 +862,159 @@ table th:first-of-type {
 
       
         
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Spring表达式语言全称为“Spring Expression Language”，缩写为“SpEL”，类似于Struts2x中使用的OGNL表达式语言，能在运行时构建复杂表达式、存取对象图属性、对象方法调用等等，并且能与Spring功能完美整合，如能用来配置Bean定义。<br>表达式语言给静态Java语言增加了动态功能。<br>SpEL是单独模块，只依赖于core模块，不依赖于其他模块，可以单独使用。</p>
-<h1 id="能干什么"><a href="#能干什么" class="headerlink" title="能干什么"></a>能干什么</h1><p>表达式语言一般是用最简单的形式完成最主要的工作，减少我们的工作量。<br>SpEL支持如下表达式：</p>
-<ol>
-<li><strong>基本表达式</strong>：字面量表达式、关系，逻辑与算数运算表达式、字符串连接及截取表达式、三目运算及Elivis表达式、正则表达式、括号优先级表达式；</li>
-<li><strong>类相关表达式</strong>：类类型表达式、类实例化、instanceof表达式、变量定义及引用、赋值表达式、自定义函数、对象属性存取及安全导航表达式、对象方法调用、Bean引用；</li>
-<li><strong>集合相关表达式</strong>：内联List、内联数组、集合，字典访问、列表，字典，数组修改、集合投影、集合选择；不支持多维内联数组初始化；不支持内联字典定义；</li>
-<li>其他表达式：模板表达式。<br><strong>注：SpEL表达式中的关键字是不区分大小写的。</strong>
+          
+          在使用jQuery.ajax方法去调用后台方法时，ajax中得参数data类型是”JSON”,后台DEBUG调试，运行正常，返回正常的结果集.但是前端一直都进到ajax的error方法，百思不得其解，后要一探究竟，在error方法的参数中加了data后，发现data中的readyState = 4 并且 status=200，这两个状态也证明ajax访问没有问题，没有出现异常。回过头发现我在后台返
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/2c061eca/#more" rel="contents">
+            <a class="btn" href="/posts/59b10f7f/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/105963c3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="薛江涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="薛江涛 - 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/105963c3/" itemprop="url">[JPA] javax.persistence.EntityNotFoundException处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T11:31:36+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JPA/" itemprop="url" rel="index">
+                    <span itemprop="name">JPA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>通过hibernate映射关系加载数据时遇到了如下错误： <code>javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx</code>。</p>
+<p>原因：<br>无论是<code>@OneToOne</code> 还是<code>@ManyToOne</code>，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/105963c3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1088,7 +1056,7 @@ table th:first-of-type {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1138,7 +1106,7 @@ table th:first-of-type {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1149,7 +1117,7 @@ table th:first-of-type {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1160,7 +1128,7 @@ table th:first-of-type {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
