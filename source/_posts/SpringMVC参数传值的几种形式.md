@@ -99,3 +99,38 @@ post方式的时候编码方式需设置为：`x-www-form-urlencoded`转换为�
         }
     }
 ```
+
+## 方式六：@RequestBody方式
+GetMapping 不支持@RequestBody 
+
+后端代码
+```
+    @PostMapping(value = "arrayPost")
+    public String arrayPost(@RequestBody Long[] inventreseIds) throws Exception{
+        if(inventreseIds==null||inventreseIds.length==0)
+            return "";
+        return inventReseService.arrayPost(inventreseIds);
+    }
+```
+
+前端代码
+```
+    $.ajax({
+        url: validationReseStatusUrl,
+        data: JSON.stringify(inventreseIds),
+        type: "POST",
+        dataType: "text",
+        contentType: "application/json;charset=utf-8",
+        success: function(result) {
+            if (result=="") {
+                layer.msg("没有预约中的数据无法填写预约单！");
+                return;
+            }
+            page.logic.detail(title, result, pageMode, 2);
+        },
+        error: function(result) {
+            var errorResult = $.parseJSON(result.responseText);
+            layer.msg(errorResult.collection.error.message);
+        }
+    });
+```

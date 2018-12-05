@@ -1,4 +1,4 @@
----
+	---
 title: UML图之类图
 tags:
   - UML
@@ -72,6 +72,7 @@ UML规范用来描述建模的概念有，类（对象的）、对象、关联�
 ![mark](http://blog.xuejiangtao.com/blog/180819/g1c4mC8bJ4.png)
 聚合
 </center>
+
 ## 组合(Composition)
 
  【组合关系】：是整体与部分的关系，但部分不能离开整体而单独存在。
@@ -84,6 +85,7 @@ UML规范用来描述建模的概念有，类（对象的）、对象、关联�
     ![mark](http://blog.xuejiangtao.com/blog/180819/BJFa34lF5K.png)
 组合
 </center>
+
 ## 依赖(Dependency)
 【依赖关系】：是一种使用的关系，即一个类的实现需要另一个类的协助，
  所以要尽量不使用双向的互相依赖.
@@ -98,8 +100,10 @@ UML规范用来描述建模的概念有，类（对象的）、对象、关联�
 泛化 = 实现 > 组合 > 聚合 > 关联 > 依赖
 下面这张UML图，比较形象地展示了各种类图关系：
 <center>
+<!--
 ![mark](http://blog.xuejiangtao.com/blog/180819/l0ID1k3Ji0.png)
-11.png
+-->
+![mark](http://blog.xuejiangtao.com/blog/181013/ImdlLJLl8D.png?imageslim)
 </center>
 
 **类图绘制的要点**
