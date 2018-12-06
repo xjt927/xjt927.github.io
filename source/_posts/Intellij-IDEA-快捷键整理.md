@@ -1,5 +1,6 @@
 ---
 title: Intellij IDEA 快捷键整理
+abbrlink: a5f17713
 date: 2018-11-01 10:18:36
 tags:
 categories:

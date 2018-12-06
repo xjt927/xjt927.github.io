@@ -1,9 +1,10 @@
 ---
 title: tomcat管理页面403 Access Denied的解决方法
-date: 2018-12-05 09:39:50
 tags: tomcat
 categories: tomcat
 keywords: tomcat
+abbrlink: a1e19d0c
+date: 2018-12-05 09:39:50
 ---
 
 在tomcat下conf/tomcat-users.xml文件添加以下用户。

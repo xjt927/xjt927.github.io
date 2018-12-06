@@ -1,10 +1,10 @@
 ---
-title: 中可生成的最大Thread数量
+title: JVM中可生成的最大Thread数量
 abbrlink: 904bd56a
 date: 2018-10-13 21:58:52
-tags:
-categories:
-keywords:
+tags: JVM
+categories: JVM
+keywords: JVM
 ---
 
 最近想测试下Openfire下的最大并发数，需要开大量线程来模拟客户端。对于一个JVM实例到底能开多少个线程一直心存疑惑，所以打算实际测试下，简单google了把，找到影响线程数量的因素有下面几个：

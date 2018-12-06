@@ -1,5 +1,6 @@
 ---
 title: java 校验小数长度
+abbrlink: e0ac126e
 date: 2018-10-19 09:11:32
 tags:
 categories:
