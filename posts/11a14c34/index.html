@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="薛江涛 - 博客">
 <meta property="og:description" content="使用hexo generate命令时报错： 1234567891011121314151617181920212223FATAL Something&amp;apos;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlTemplate render error: Error: exp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-24T12:39:58.000Z">
+<meta property="og:updated_time" content="2018-12-06T01:59:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo错误”expected end of comment, got end of file”">
 <meta name="twitter:description" content="使用hexo generate命令时报错： 1234567891011121314151617181920212223FATAL Something&amp;apos;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlTemplate render error: Error: exp">
@@ -405,7 +405,7 @@
 <p>想到刚才文章内容中有 # 字符作为普通字符出现，但并没有做转义处理，包含 # 字符的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#v1&#125;</span><br></pre></td></tr></table></figure></p>
 <p>经过实际测试确实是因为 # 导致的。</p>
 <p>首先想到用 Markdown 转义字符 \ 进行转义，但问题依旧。</p>
-<p>hexo generate 目标是将 .md 文件内容转为 html 文件，html 可以对字符编码。从网上查了下 # 的 html 编码为 &#35; 替换后问题解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;&amp;#35;v1&#125;</span><br></pre></td></tr></table></figure></p>
+<p>hexo generate 目标是将 .md 文件内容转为 html 文件，html 可以对字符编码。从网上查了下 # 的 html 编码为 <code>&amp;#35;</code> 替换后问题解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;&amp;#35;v1&#125;</span><br></pre></td></tr></table></figure></p>
 <p>参考文档:<br><a href="http://zhang-jc.github.io/2016/09/11/hexo-generate-%E5%A4%84%E7%90%86-hashes/" target="_blank" rel="noopener">hexo generate 处理 #</a></p>
 
       
@@ -557,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
