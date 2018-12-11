@@ -2,9 +2,9 @@
 title: java vm 虚拟机JDK可视化工具
 abbrlink: e3115414
 date: 2018-11-21 15:48:23
-tags:
-categories:
-keywords:
+tags: JVM
+categories: JVM
+keywords: JVM
 ---
 
 ```
