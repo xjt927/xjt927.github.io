@@ -1,5 +1,6 @@
 ---
 title: java常用总结
+abbrlink: 4bd00030
 date: 2018-12-06 17:41:13
 tags:
 categories:

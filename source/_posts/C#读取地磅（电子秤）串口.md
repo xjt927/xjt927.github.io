@@ -1,5 +1,6 @@
 ---
-title: 'C#读取地磅（ï电子秤）串口'
+title: 'C#读取地磅（电子秤）串口'
+abbrlink: 7f88541c
 date: 2018-12-11 19:36:00
 tags:
 categories:
