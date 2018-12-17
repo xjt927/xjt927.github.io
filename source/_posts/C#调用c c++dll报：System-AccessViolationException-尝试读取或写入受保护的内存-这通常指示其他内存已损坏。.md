@@ -1,5 +1,6 @@
 ---
 title: 'C#调用c/c++dll报：System.AccessViolationException 尝试读取或写入受保护的内存,这通常指示其他内存已损坏。'
+abbrlink: 36f1dc9b
 date: 2018-12-15 10:24:38
 tags:
 categories:

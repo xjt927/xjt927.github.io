@@ -1,5 +1,6 @@
 ---
 title: 使用Topshelf创建Windows服务
+abbrlink: f0ebd003
 date: 2018-12-17 16:04:59
 tags:
 categories:

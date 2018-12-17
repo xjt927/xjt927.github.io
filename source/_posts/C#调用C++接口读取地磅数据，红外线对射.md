@@ -1,5 +1,6 @@
 ---
 title: 'C#调用C++接口读取地磅数据，红外线对射'
+abbrlink: 674ebec7
 date: 2018-12-17 16:31:18
 tags:
 categories:
