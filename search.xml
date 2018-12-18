@@ -23,7 +23,7 @@
   <entry>
     <title><![CDATA[java常用总结]]></title>
     <url>%2F%2Fposts%2F4bd00030%2F</url>
-    <content type="text"><![CDATA[获取配置文件参数1AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;)]]></content>
+    <content type="text"><![CDATA[获取配置文件参数1AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;) json转对象123456789101112131415import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMapper;ObjectMapper mapper =new ObjectMapper();mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);mapper.setDateFormat(df);if (StringUtils.isNotEmpty(pointPackJson)) &#123; //json字符串转集合 list = mapper.readValue(pointPackJson, new TypeReference&lt;List&lt;InventReseEntity&gt;&gt;() &#123;&#125;); //json字符串转实体对象 InventReseEntity entity = mapper.readValue(inventAllocStr, InventReseEntity.class);&#125;]]></content>
   </entry>
   <entry>
     <title><![CDATA[tomcat管理页面403 Access Denied的解决方法]]></title>

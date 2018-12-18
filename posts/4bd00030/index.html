@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="获取配置文件参数1AppPropertiesReader.getValue(&amp;quot;aaa.aaa_address_base&amp;quot;)">
+<meta name="description" content="获取配置文件参数1AppPropertiesReader.getValue(&amp;quot;aaa.aaa_address_base&amp;quot;) json转对象123456789101112131415import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMap">
 <meta name="keywords" content="薛江涛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java常用总结">
 <meta property="og:url" content="http://xuejiangtao.com/posts/4bd00030/index.html">
 <meta property="og:site_name" content="薛江涛 - 博客">
-<meta property="og:description" content="获取配置文件参数1AppPropertiesReader.getValue(&amp;quot;aaa.aaa_address_base&amp;quot;)">
+<meta property="og:description" content="获取配置文件参数1AppPropertiesReader.getValue(&amp;quot;aaa.aaa_address_base&amp;quot;) json转对象123456789101112131415import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T15:45:40.000Z">
+<meta property="og:updated_time" content="2018-12-17T13:02:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java常用总结">
-<meta name="twitter:description" content="获取配置文件参数1AppPropertiesReader.getValue(&amp;quot;aaa.aaa_address_base&amp;quot;)">
+<meta name="twitter:description" content="获取配置文件参数1AppPropertiesReader.getValue(&amp;quot;aaa.aaa_address_base&amp;quot;) json转对象123456789101112131415import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMap">
 
 
 
@@ -400,6 +400,7 @@
 
       
         <p>获取配置文件参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>json转对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import com.fasterxml.jackson.core.type.TypeReference;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"></span><br><span class="line">ObjectMapper mapper =new ObjectMapper();</span><br><span class="line">mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span><br><span class="line">DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">mapper.setDateFormat(df);</span><br><span class="line"></span><br><span class="line">if (StringUtils.isNotEmpty(pointPackJson)) &#123;</span><br><span class="line">	//json字符串转集合</span><br><span class="line">    list = mapper.readValue(pointPackJson, new TypeReference&lt;List&lt;InventReseEntity&gt;&gt;() &#123;&#125;);</span><br><span class="line">	</span><br><span class="line">	//json字符串转实体对象</span><br><span class="line">	InventReseEntity entity = mapper.readValue(inventAllocStr, InventReseEntity.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
