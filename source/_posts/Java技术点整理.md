@@ -23,10 +23,13 @@ Tomcat，Nginx
 底层中间件、分布式技术（Redis、mongodb,Zookeeper、Kafka、Elasticsearch,dubbo、memcached、ActiveMQ等）
 分布式系统设计
 OSGi
+http://osgi.com.cn/article/7289372 
  SOA 架构理念 
  多系统集成业务架构
  Storm
- 数据结构、多线程,java反射
+ 数据结构
+ 多线程、java并发编程
+ java反射
  内存模型
  SSM框架
  Linux环境,基本命令
