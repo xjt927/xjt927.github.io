@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="并发,多线程,Runnable,Thread,Callable,Future" />
 
 
 
@@ -90,17 +90,18 @@
 
 
 
-<meta name="description" content="只为记录">
-<meta name="keywords" content="薛江涛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="薛江涛 - 博客">
-<meta property="og:url" content="http://xuejiangtao.com/page/6/index.html">
+<meta name="description" content="实现Runnable接口创建线程 类实现Runnable接口 实现类中重写 void Run() 方法 调用 start() 方法运行  1234567891011121314//类实现Runnable接口class RunnableDemo implements Runnable&amp;#123;	@Override	public void Run()&amp;#123;	//doSomething	&amp;#12">
+<meta name="keywords" content="并发,多线程,Runnable,Thread,Callable,Future">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java并发编程">
+<meta property="og:url" content="http://xuejiangtao.com/posts/3e225941/index.html">
 <meta property="og:site_name" content="薛江涛 - 博客">
-<meta property="og:description" content="只为记录">
+<meta property="og:description" content="实现Runnable接口创建线程 类实现Runnable接口 实现类中重写 void Run() 方法 调用 start() 方法运行  1234567891011121314//类实现Runnable接口class RunnableDemo implements Runnable&amp;#123;	@Override	public void Run()&amp;#123;	//doSomething	&amp;#12">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-19T09:01:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="薛江涛 - 博客">
-<meta name="twitter:description" content="只为记录">
+<meta name="twitter:title" content="Java并发编程">
+<meta name="twitter:description" content="实现Runnable接口创建线程 类实现Runnable接口 实现类中重写 void Run() 方法 调用 start() 方法运行  1234567891011121314//类实现Runnable接口class RunnableDemo implements Runnable&amp;#123;	@Override	public void Run()&amp;#123;	//doSomething	&amp;#12">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://xuejiangtao.com/page/6/"/>
+  <link rel="canonical" href="http://xuejiangtao.com/posts/3e225941/"/>
 
 
 
 
 
-  <title>薛江涛 - 博客</title>
+  <title>Java并发编程 | 薛江涛 - 博客</title>
   
 
 
@@ -174,8 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,9 +312,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1e307c48/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/3e225941/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -344,9 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/1e307c48/" itemprop="url">Spring-SpEL表达式语言(3)</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java并发编程</h1>
         
 
         <div class="post-meta">
@@ -358,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:49:52+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T15:53:00+08:00">
+                2018-12-19
               </time>
             
 
@@ -381,8 +379,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -399,6 +397,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -418,17 +421,62 @@
       
 
       
-        
-          <h1 id="xml风格的配置"><a href="#xml风格的配置" class="headerlink" title="xml风格的配置"></a>xml风格的配置</h1><p>SpEL支持在Bean定义时注入，默认使用“#{SpEL表达式}”表示，其中“#root”根对象默认可以认为是ApplicationContext，只有ApplicationContext实现默认支持SpEL，获取根对象属性其实是获取容器中的Bean。</p>
-<p>首先看下配置方式（chapter5/el1.xml）吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;world&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos; World!&apos;&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello1&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;&#125;#&#123;world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;    </span><br><span class="line">&lt;bean id=&quot;hello2&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + world&#125;&quot;/&gt;  </span><br><span class="line">    &lt;!-- 不支持嵌套的 --&gt;  </span><br><span class="line">    &lt;!--&lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;&quot;/&gt;--&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello3&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + @world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">       模板默认以前缀“#&#123;”开头，以后缀“&#125;”结尾，且不允许嵌套，如“#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;”错误，如“#&#123;&apos;Hello&apos; + world&#125;”中“world”默认解析为Bean。当然可以使用“@bean”引用了。</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/1e307c48/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h1 id="实现Runnable接口创建线程"><a href="#实现Runnable接口创建线程" class="headerlink" title="实现Runnable接口创建线程"></a>实现Runnable接口创建线程</h1><ul>
+<li>类实现Runnable接口</li>
+<li>实现类中重写 void Run() 方法</li>
+<li>调用 start() 方法运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//类实现Runnable接口</span><br><span class="line">class RunnableDemo implements Runnable&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void Run()&#123;</span><br><span class="line">	//doSomething</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//执行线程</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	RunnableDemo runDemo = new RunnableDemo();</span><br><span class="line">	Thread thread = new Thread(runDemo);</span><br><span class="line">	thread.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="继承Thread类创建线程"><a href="#继承Thread类创建线程" class="headerlink" title="继承Thread类创建线程"></a>继承Thread类创建线程</h1><ul>
+<li>类继承Thread类</li>
+<li>类重写void Run()方法</li>
+<li>调用 start() 方法运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//类实现Thread接口</span><br><span class="line">class ThreadDemo extends Thread&#123; </span><br><span class="line">	@Override</span><br><span class="line">	public void Run()&#123;</span><br><span class="line">	//doSomething</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//执行线程</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	Thread thread = new ThreadDemo();</span><br><span class="line">	thread.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Thread的重要方法"><a href="#Thread的重要方法" class="headerlink" title="Thread的重要方法"></a>Thread的重要方法</h1><h2 id="被Thread对象调用的方法"><a href="#被Thread对象调用的方法" class="headerlink" title="被Thread对象调用的方法"></a>被Thread对象调用的方法</h2><ul>
+<li>public void start()<br>使该线程开始执行；Java 虚拟机调用该线程的 run 方法。</li>
+<li>public void run()<br>如果该线程是使用独立的 Runnable 运行对象构造的，则调用该 Runnable 对象的 run 方法；否则，该方法不执行任何操作并返回。</li>
+<li>public final void setName(String name)<br>改变线程名称，使之与参数 name 相同。</li>
+<li>public final void setPriority(int priority)<br>更改线程的优先级。</li>
+<li>public final void setDaemon(boolean on)<br>将该线程标记为守护线程或用户线程。</li>
+<li>public final void join(long millisec)<br>等待该线程终止的时间最长为 millis 毫秒。</li>
+<li>public void interrupt()<br>中断线程。</li>
+<li>public final boolean isAlive()<br>测试线程是否处于活动状态。</li>
+</ul>
+<h2 id="Thread类的静态方法"><a href="#Thread类的静态方法" class="headerlink" title="Thread类的静态方法"></a>Thread类的静态方法</h2><ul>
+<li>public static void yield()<br>暂停当前正在执行的线程对象，并执行其他线程。</li>
+<li>public static void sleep(long millisec)<br>在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</li>
+<li>public static boolean holdsLock(Object x)<br>当且仅当当前线程在指定的对象上保持监视器锁时，才返回 true。</li>
+<li>public static Thread currentThread()<br>返回对当前正在执行的线程对象的引用。</li>
+<li>public static void dumpStack()<br>将当前线程的堆栈跟踪打印至标准错误流。</li>
+</ul>
+<h1 id="通过-Callable-和-Future-、FutureTask-创建线程"><a href="#通过-Callable-和-Future-、FutureTask-创建线程" class="headerlink" title="通过 Callable 和 Future 、FutureTask 创建线程"></a>通过 Callable 和 Future 、FutureTask 创建线程</h1><p>上面通过继承Thread和实现Runnable接口创建线程，这两种方式有一个缺陷：<strong>无法获取执行结果！</strong></p>
+<h2 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h2><p>Callable位于java.util.concurrent包下，它也是一个接口，在它里面也只声明了一个方法，只不过这个方法叫做call()：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public interface Callable&lt;V&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Computes a result, or throws an exception if unable to do so.</span><br><span class="line">     *</span><br><span class="line">     * @return computed result</span><br><span class="line">     * @throws Exception if unable to compute a result</span><br><span class="line">     */</span><br><span class="line">    V call() throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>类实现Callable接口</li>
+<li>实现类中重写 V call() 方法</li>
+<li>call()函数返回的类型就是传递进来的V类型</li>
+<li>配合ExecutorService来使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//实现Callable接口</span><br><span class="line">class CallableDemo implements Callable&lt;Integer&gt;&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Integer call() throws Exception &#123; </span><br><span class="line">	//doSomething</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>Future就是对于具体的Runnable或者Callable任务的执行结果进行取消、查询是否完成、获取结果。必要时可以通过get方法获取执行结果，该方法会阻塞直到任务返回结果。<br>Future类位于java.util.concurrent包下，它是一个接口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface Future&lt;V&gt; &#123;</span><br><span class="line">    boolean cancel(boolean mayInterruptIfRunning);</span><br><span class="line">    boolean isCancelled();</span><br><span class="line">    boolean isDone();</span><br><span class="line">    V get() throws InterruptedException, ExecutionException;</span><br><span class="line">    V get(long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException, ExecutionException, TimeoutException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在Future接口中声明了5个方法，下面依次解释每个方法的作用：</p>
+<ul>
+<li>cancel方法用来取消任务，如果取消任务成功则返回true，如果取消任务失败则返回false。参数mayInterruptIfRunning表示是否允许取消正在执行却没有执行完毕的任务，如果设置true，则表示可以取消正在执行过程中的任务。如果任务已经完成，则无论mayInterruptIfRunning为true还是false，此方法肯定返回false，即如果取消已经完成的任务会返回false；如果任务正在执行，若mayInterruptIfRunning设置为true，则返回true，若mayInterruptIfRunning设置为false，则返回false；如果任务还没有执行，则无论mayInterruptIfRunning为true还是false，肯定返回true。</li>
+<li>isCancelled方法表示任务是否被取消成功，如果在任务正常完成前被取消成功，则返回 true。</li>
+<li>isDone方法表示任务是否已经完成，若任务完成，则返回true；</li>
+<li>get()方法用来获取执行结果，这个方法会产生阻塞，会一直等到任务执行完毕才返回；</li>
+<li>get(long timeout, TimeUnit unit)用来获取执行结果，如果在指定时间内，还没获取到结果，就直接返回null。</li>
+</ul>
+<p><strong>因为Future只是一个接口，所以是无法直接用来创建对象使用的，因此就有了下面的FutureTask。</strong></p>
+<h2 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h2><p>先来看一下FutureTask的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class FutureTask&lt;V&gt; implements RunnableFuture&lt;V&gt;</span><br></pre></td></tr></table></figure></p>
+<p>FutureTask类实现了RunnableFuture接口，我们看一下RunnableFuture接口的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; &#123;</span><br><span class="line">    void run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看出RunnableFuture继承了Runnable接口和Future接口，而FutureTask实现了RunnableFuture接口。所以它既可以作为Runnable被线程执行，又可以作为Future得到Callable的返回值。</p>
+<p>FutureTask提供了2个构造器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public FutureTask(Callable&lt;V&gt; callable) &#123;</span><br><span class="line">&#125;</span><br><span class="line">public FutureTask(Runnable runnable, V result) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>事实上，FutureTask是Future接口的一个唯一实现类。</strong></p>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="Callable-Future获取执行结果"><a href="#Callable-Future获取执行结果" class="headerlink" title="Callable+Future获取执行结果"></a>Callable+Future获取执行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//实现Callable接口</span><br><span class="line">class CallableDemo implements Callable&lt;Integer&gt;&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Integer call() throws Exception &#123; </span><br><span class="line">        int sum = 0;</span><br><span class="line">        for(int i=0;i&lt;100;i++)</span><br><span class="line">            sum += i;</span><br><span class="line">        return sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//执行线程	</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    ExecutorService executor = Executors.newCachedThreadPool();</span><br><span class="line">    CallableDemo callableDemo = new CallableDemo();</span><br><span class="line">    Future&lt;Integer&gt; future = executor.submit(callableDemo);</span><br><span class="line">    executor.shutdown();</span><br><span class="line">    System.out.println(&quot;callableDemo运行结果&quot;+future.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Callable-FutureTask获取执行结果"><a href="#Callable-FutureTask获取执行结果" class="headerlink" title="Callable+FutureTask获取执行结果"></a>Callable+FutureTask获取执行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//实现Callable接口</span><br><span class="line">class CallableDemo implements Callable&lt;Integer&gt;&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Integer call() throws Exception &#123; </span><br><span class="line">        int sum = 0;</span><br><span class="line">        for(int i=0;i&lt;100;i++)</span><br><span class="line">            sum += i;</span><br><span class="line">        return sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//执行线程</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    //第一种方式</span><br><span class="line">    ExecutorService executor = Executors.newCachedThreadPool();</span><br><span class="line">    CallableDemo callableDemo = new CallableDemo();</span><br><span class="line">    FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(callableDemo);</span><br><span class="line">    executor.submit(futureTask);</span><br><span class="line">    executor.shutdown();</span><br><span class="line">	</span><br><span class="line">    //第二种方式，注意这种方式和第一种方式效果是类似的，只不过一个使用的是ExecutorService，一个使用的是Thread</span><br><span class="line">    /*CallableDemo callableDemo = new CallableDemo();</span><br><span class="line">    FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(callableDemo);</span><br><span class="line">    Thread thread = new Thread(futureTask);</span><br><span class="line">    thread.start();*/</span><br><span class="line">	</span><br><span class="line">	System.out.println(&quot;task运行结果&quot;+futureTask.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -438,348 +486,70 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="薛江涛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="薛江涛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/72b4d09/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/72b4d09/" itemprop="url">Spring-SpEL表达式语言(2)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:48:59+08:00">
-                2018-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/多线程/" rel="tag"><i class="fa fa-tag"></i> 多线程</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h1 id="SpEL语法"><a href="#SpEL语法" class="headerlink" title="SpEL语法"></a>SpEL语法</h1><h2 id="基本表达式"><a href="#基本表达式" class="headerlink" title="基本表达式"></a>基本表达式</h2><h3 id="一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"><a href="#一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。" class="headerlink" title="一、字面量表达式： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"></a><strong>一、字面量表达式</strong>： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。</h3><style>
-table th:first-of-type {  
-    width: 100px; 
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">字符串</td>
-<td style="text-align:left">String str1 = parser.parseExpression(“‘Hello World!’”).getValue(String.class);<br> String str2 = parser.parseExpression(“\”Hello World!\””).getValue(String.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">数字类型</td>
-<td style="text-align:left">int int1 = parser.parseExpression(“1”).getValue(Integer.class);<br>long long1 = parser.parseExpression(“-1L”).getValue(long.class);<br>float float1 = parser.parseExpression(“1.1”).getValue(Float.class);<br>double double1 = parser.parseExpression(“1.1E+2”).getValue(double.class);<br>int hex1 = parser.parseExpression(“0xa”).getValue(Integer.class);<br>long hex2 = parser.parseExpression(“0xaL”).getValue(long.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">布尔类型</td>
-<td style="text-align:left">boolean true1 = parser.parseExpression(“true”).getValue(boolean.class);<br>boolean false1 = parser.parseExpression(“false”).getValue(boolean.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">null类型</td>
-<td style="text-align:left">Object null1 = parser.parseExpression(“null”).getValue(Object.class);</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/72b4d09/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/674ebec7/" rel="next" title="C#调用C++接口读取地磅数据，红外线对射">
+                <i class="fa fa-chevron-left"></i> C#调用C++接口读取地磅数据，红外线对射
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2c061eca/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/2c061eca/" itemprop="url">Spring-SpEL表达式语言(1)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:45:38+08:00">
-                2018-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Spring表达式语言全称为“Spring Expression Language”，缩写为“SpEL”，类似于Struts2x中使用的OGNL表达式语言，能在运行时构建复杂表达式、存取对象图属性、对象方法调用等等，并且能与Spring功能完美整合，如能用来配置Bean定义。<br>表达式语言给静态Java语言增加了动态功能。<br>SpEL是单独模块，只依赖于core模块，不依赖于其他模块，可以单独使用。</p>
-<h1 id="能干什么"><a href="#能干什么" class="headerlink" title="能干什么"></a>能干什么</h1><p>表达式语言一般是用最简单的形式完成最主要的工作，减少我们的工作量。<br>SpEL支持如下表达式：</p>
-<ol>
-<li><strong>基本表达式</strong>：字面量表达式、关系，逻辑与算数运算表达式、字符串连接及截取表达式、三目运算及Elivis表达式、正则表达式、括号优先级表达式；</li>
-<li><strong>类相关表达式</strong>：类类型表达式、类实例化、instanceof表达式、变量定义及引用、赋值表达式、自定义函数、对象属性存取及安全导航表达式、对象方法调用、Bean引用；</li>
-<li><strong>集合相关表达式</strong>：内联List、内联数组、集合，字典访问、列表，字典，数组修改、集合投影、集合选择；不支持多维内联数组初始化；不支持内联字典定义；</li>
-<li>其他表达式：模板表达式。<br><strong>注：SpEL表达式中的关键字是不区分大小写的。</strong>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/2c061eca/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -789,309 +559,11 @@ table th:first-of-type {
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/42849e12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/42849e12/" itemprop="url">使用Git下载分支</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T19:52:48+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          使用Git下载指定分支命令为：git clone -b 分支名仓库地址
-1git clone -b develop https://git服务器地址/SERVER.git
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/42849e12/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1ab46bf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/1ab46bf/" itemprop="url">切换IP及DNS上网一键脚本设置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-05T19:56:28+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Bat/" itemprop="url" rel="index">
-                    <span itemprop="name">Bat</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>三种上网设置，bat脚本如下<br>———文件1 select.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@echo off </span><br><span class="line">echo 快速设置IP地址和DNS为&quot;自动获得&quot;</span><br><span class="line">echo.netsh int ip set addr &quot;本地连接&quot; dhcpnetsh int ip set dns &quot;本地连接&quot; dhcp</span><br><span class="line">@echo off    </span><br><span class="line">echo  ----------------------------   </span><br><span class="line">echo (1).自动获取 </span><br><span class="line">echo (2).自由上网  </span><br><span class="line">echo (3).自由上网(备用)</span><br><span class="line">echo  ----------------------------   </span><br><span class="line">echo 选择你要设置的网络:   </span><br><span class="line">set /p x=   </span><br><span class="line">if %x%*==1* goto a   </span><br><span class="line">if %x%*==2* goto b </span><br><span class="line">if %x%*==3* goto c </span><br><span class="line">ipconfig/flushdns </span><br><span class="line">:a   </span><br><span class="line">AutoDNS.bat</span><br><span class="line">:b</span><br><span class="line">PureDNS.bat</span><br><span class="line">:c</span><br><span class="line">PureDNS(pre).bat</span><br><span class="line">echo 即将自动退出。。。</span><br><span class="line">ping -n 6 127.0&gt;nul</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/1ab46bf/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1099,6 +571,12 @@ table th:first-of-type {
 
 
           
+
+  
+	<div id="gitalk-container"></div>
+  
+  
+
 
         </div>
         
@@ -1119,8 +597,17 @@ table th:first-of-type {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1207,6 +694,22 @@ table th:first-of-type {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现Runnable接口创建线程"><span class="nav-number">1.</span> <span class="nav-text">实现Runnable接口创建线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承Thread类创建线程"><span class="nav-number">2.</span> <span class="nav-text">继承Thread类创建线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thread的重要方法"><span class="nav-number">3.</span> <span class="nav-text">Thread的重要方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#被Thread对象调用的方法"><span class="nav-number">3.1.</span> <span class="nav-text">被Thread对象调用的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread类的静态方法"><span class="nav-number">3.2.</span> <span class="nav-text">Thread类的静态方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-Callable-和-Future-、FutureTask-创建线程"><span class="nav-number">4.</span> <span class="nav-text">通过 Callable 和 Future 、FutureTask 创建线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Callable"><span class="nav-number">4.1.</span> <span class="nav-text">Callable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Future"><span class="nav-number">4.2.</span> <span class="nav-text">Future</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FutureTask"><span class="nav-number">4.3.</span> <span class="nav-text">FutureTask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用示例"><span class="nav-number">4.4.</span> <span class="nav-text">使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Callable-Future获取执行结果"><span class="nav-number">4.4.1.</span> <span class="nav-text">Callable+Future获取执行结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Callable-FutureTask获取执行结果"><span class="nav-number">4.4.2.</span> <span class="nav-text">Callable+FutureTask获取执行结果</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1376,6 +879,10 @@ table th:first-of-type {
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1416,6 +923,21 @@ table th:first-of-type {
 
 
  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'baf6205db50605a8511f',
+          clientSecret: '7991d91c3dda491a906203a173153e13028ba541',
+          repo: 'xjt927.github.io',
+          owner: 'xjt927',
+          admin: ['xjt927'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
