@@ -50,6 +50,7 @@ public static void main(String[] args) {
 	thread.start();
 }
 ```
+
 # Thread的重要方法
 
 ## 被Thread对象调用的方法
