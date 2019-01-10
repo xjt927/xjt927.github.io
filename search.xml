@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决Jenkin重复构建的问题]]></title>
+    <url>%2F%2Fposts%2F2858c1bf%2F</url>
+    <content type="text"><![CDATA[项目中使用Jenkins线上发布版本，不得不说Jenkins确实是个好东西，避免打包、拷贝版本等一系列繁琐事，解放劳动力提高发版效率，使你时间更自由，重要的是可以早点下班陪媳妇儿。怎样搭建Jenkins就不说了，大家可以自行google、百度。言归正传，Jenkins刚搭建成功后发布没有问题，前端时间开始，点击构建后会一直自动重复构建项目。猜想一：刚开始以为有人动了Jenkins发版流程配置，检查几遍发现没有没有任何问题。 猜想二：创建构建任务项目时，是复制现有其他任务项目，以为是Jenkins的bug，复制任务项目的问题，遂删除该项目重新创建任务项目，发现还存在重复构建问题。 重点来了 看日志发现有一段这个提示： Multiple candidate revisions Scheduling another build to catch up with 进出厂物流（后端） google了一篇文章 https://issues.jenkins-ci.org/browse/JENKINS-21464 打开自己的gitlab项目，发现不知道啥时候多了一个名称为origin/develop分支，将之删除，再次构建项目，没有重复发版。 多出来的分支 删除后的分支]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis学习一]]></title>
+    <url>%2F%2Fposts%2Fce05fb5e%2F</url>
+    <content type="text"><![CDATA[Redis支持五种数据类型 String - 字符串类型 List - 列表 Set - 集合 Hash - 散列表 ZSet - 有序集合]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[给已存在的项目添加git]]></title>
     <url>%2F%2Fposts%2F9e4dab1%2F</url>
     <content type="text"><![CDATA[前提：先去gitlab或github网站上创建一个新项目 1、打开终端​，cd到已存在项目的目录 ​​​2、输入以下命令行，初始化一个本地仓库：1​git init 3、输入以下命令，把工程所有文件都添加到该仓库中（千万别忘记后面的.号！！！）：1​git add . 4、输入以下命令，把文件提交到本地仓库：1git commit -m &quot;Initial commit&quot;​ 如果出现nothing to commit, working directory clean​说明你已经提交好了。 5、输入以下命令，添加远程仓库地址：1234567输入：git remote add origin + 你的仓库地址例如：git remote add origin https://***.git如果出现fatal: remote origin already exists.​说明你已经添加过远程仓库了，输入以下命令删除远程仓库：git remote rm origin然后再次执行第5步。 6、​输入以下命令，把文件提交到远程仓库：1git push -u origin master​ 然后你就等着它提交完成就完事了。 7、假如第6部失败的话再执行git pull –rebase origin master命令，然后再执行git push -u origin master即可上传成功。 8、完事后假如还是不能拉代码的话再重启项目执行git branch –set-upstream master origin/master即可。]]></content>
@@ -45,7 +61,7 @@
   <entry>
     <title><![CDATA[java常用总结]]></title>
     <url>%2F%2Fposts%2F4bd00030%2F</url>
-    <content type="text"><![CDATA[获取配置文件参数1AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;) json转对象123456789101112131415import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMapper;ObjectMapper mapper =new ObjectMapper();mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);mapper.setDateFormat(df);if (StringUtils.isNotEmpty(pointPackJson)) &#123; //json字符串转集合 list = mapper.readValue(pointPackJson, new TypeReference&lt;List&lt;InventReseEntity&gt;&gt;() &#123;&#125;); //json字符串转实体对象 InventReseEntity entity = mapper.readValue(inventAllocStr, InventReseEntity.class);&#125;]]></content>
+    <content type="text"><![CDATA[获取配置文件参数1AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;) json转对象 方法一：使用ObjectMapper12345678910111213141516import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMapper;String pointPackJson = &quot;json字符串&quot;;ObjectMapper mapper =new ObjectMapper();mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);mapper.setDateFormat(df);if (StringUtils.isNotEmpty(pointPackJson)) &#123; //json字符串转集合 list = mapper.readValue(pointPackJson, new TypeReference&lt;List&lt;InventReseEntity&gt;&gt;() &#123;&#125;); //json字符串转实体对象 InventReseEntity entity = mapper.readValue(inventAllocStr, InventReseEntity.class);&#125; 方法二：使用JSONArray1234567String pointPackJson = &quot;json字符串&quot;;JSONArray jsonArray=JSONArray.fromObject(pointPackJson);for (int i=0;i&lt;jsonArray.size();i++)&#123; Object o=jsonArray.get(i); JSONObject jsonObject=JSONObject.fromObject(o); InventReseEntity entity = (InventReseEntity)JSONObject.toBean(jsonObject, InventReseEntity.class);&#125; double转String, 去掉0结尾的小数位12DecimalFormat decimalFormat = new DecimalFormat(&quot;###################.###########&quot;); System.out.println(decimalFormat.format(number));]]></content>
   </entry>
   <entry>
     <title><![CDATA[tomcat管理页面403 Access Denied的解决方法]]></title>

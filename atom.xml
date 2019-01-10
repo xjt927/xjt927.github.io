@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuejiangtao.com/"/>
-  <updated>2018-12-20T01:21:14.000Z</updated>
+  <updated>2019-01-10T02:52:26.000Z</updated>
   <id>http://xuejiangtao.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决Jenkin重复构建的问题</title>
+    <link href="http://xuejiangtao.com//posts/2858c1bf/"/>
+    <id>http://xuejiangtao.com//posts/2858c1bf/</id>
+    <published>2019-01-10T01:43:10.000Z</published>
+    <updated>2019-01-10T02:52:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目中使用Jenkins线上发布版本，不得不说Jenkins确实是个好东西，避免打包、拷贝版本等一系列繁琐事，解放劳动力提高发版效率，使你时间更自由，重要的是可以早点下班陪媳妇儿。<br>怎样搭建Jenkins就不说了，大家可以自行google、百度。<br>言归正传，Jenkins刚搭建成功后发布没有问题，前端时间开始，点击构建后会一直自动重复构建项目。<br><strong>猜想一</strong>：刚开始以为有人动了Jenkins发版流程配置，检查几遍发现没有没有任何问题。</p><p><strong>猜想二</strong>：创建构建任务项目时，是复制现有其他任务项目，以为是Jenkins的bug，复制任务项目的问题，遂删除该项目重新创建任务项目，发现还存在重复构建问题。</p><a id="more"></a><p><strong>重点来了</strong></p><p>看日志发现有一段这个提示：</p><pre><code>Multiple candidate revisionsScheduling another build to catch up with 进出厂物流（后端）</code></pre><p><img src="http://blog.xuejiangtao.com/blog/20190110/vJgy3DOrCfwE.png?imageslim" alt="mark"></p><p>google了一篇文章 <a href="https://issues.jenkins-ci.org/browse/JENKINS-21464" target="_blank" rel="noopener">https://issues.jenkins-ci.org/browse/JENKINS-21464</a></p><p>打开自己的gitlab项目，发现不知道啥时候多了一个名称为<code>origin/develop</code>分支，将之删除，再次构建项目，没有重复发版。</p><p>多出来的分支<br><img src="http://blog.xuejiangtao.com/blog/20190110/kHeidG3wtOEC.png?imageslim" alt="mark"></p><p>删除后的分支<br><img src="http://blog.xuejiangtao.com/blog/20190110/ukdjOY0t3gI1.png?imageslim" alt="mark"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目中使用Jenkins线上发布版本，不得不说Jenkins确实是个好东西，避免打包、拷贝版本等一系列繁琐事，解放劳动力提高发版效率，使你时间更自由，重要的是可以早点下班陪媳妇儿。&lt;br&gt;怎样搭建Jenkins就不说了，大家可以自行google、百度。&lt;br&gt;言归正传，Jenkins刚搭建成功后发布没有问题，前端时间开始，点击构建后会一直自动重复构建项目。&lt;br&gt;&lt;strong&gt;猜想一&lt;/strong&gt;：刚开始以为有人动了Jenkins发版流程配置，检查几遍发现没有没有任何问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;猜想二&lt;/strong&gt;：创建构建任务项目时，是复制现有其他任务项目，以为是Jenkins的bug，复制任务项目的问题，遂删除该项目重新创建任务项目，发现还存在重复构建问题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="http://xuejiangtao.com/categories/Jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="http://xuejiangtao.com/tags/Jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis学习一</title>
+    <link href="http://xuejiangtao.com//posts/ce05fb5e/"/>
+    <id>http://xuejiangtao.com//posts/ce05fb5e/</id>
+    <published>2018-12-21T07:43:53.000Z</published>
+    <updated>2019-01-10T02:33:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Redis支持五种数据类型</p><ul><li>String - 字符串类型</li><li>List - 列表</li><li>Set  - 集合</li><li>Hash - 散列表</li><li>ZSet - 有序集合</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Redis支持五种数据类型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;String - 字符串类型&lt;/li&gt;
+&lt;li&gt;List - 列表&lt;/li&gt;
+&lt;li&gt;Set  - 集合&lt;/li&gt;
+&lt;li&gt;Hash - 散列表&lt;/li&gt;
+&lt;li&gt;ZSet - 有序集合&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>给已存在的项目添加git</title>
@@ -156,9 +208,9 @@
     <link href="http://xuejiangtao.com//posts/4bd00030/"/>
     <id>http://xuejiangtao.com//posts/4bd00030/</id>
     <published>2018-12-06T09:41:13.000Z</published>
-    <updated>2018-12-17T13:02:04.000Z</updated>
+    <updated>2018-12-21T08:07:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p>获取配置文件参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;)</span><br></pre></td></tr></table></figure></p><p>json转对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import com.fasterxml.jackson.core.type.TypeReference;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"></span><br><span class="line">ObjectMapper mapper =new ObjectMapper();</span><br><span class="line">mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span><br><span class="line">DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">mapper.setDateFormat(df);</span><br><span class="line"></span><br><span class="line">if (StringUtils.isNotEmpty(pointPackJson)) &#123;</span><br><span class="line">//json字符串转集合</span><br><span class="line">    list = mapper.readValue(pointPackJson, new TypeReference&lt;List&lt;InventReseEntity&gt;&gt;() &#123;&#125;);</span><br><span class="line"></span><br><span class="line">//json字符串转实体对象</span><br><span class="line">InventReseEntity entity = mapper.readValue(inventAllocStr, InventReseEntity.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<p>获取配置文件参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;)</span><br></pre></td></tr></table></figure></p><p>json转对象</p><p>方法一：使用ObjectMapper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import com.fasterxml.jackson.core.type.TypeReference;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"></span><br><span class="line">String pointPackJson = &quot;json字符串&quot;;</span><br><span class="line">ObjectMapper mapper =new ObjectMapper();</span><br><span class="line">mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span><br><span class="line">DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">mapper.setDateFormat(df);</span><br><span class="line"></span><br><span class="line">if (StringUtils.isNotEmpty(pointPackJson)) &#123;</span><br><span class="line">//json字符串转集合</span><br><span class="line">    list = mapper.readValue(pointPackJson, new TypeReference&lt;List&lt;InventReseEntity&gt;&gt;() &#123;&#125;);</span><br><span class="line"></span><br><span class="line">//json字符串转实体对象</span><br><span class="line">InventReseEntity entity = mapper.readValue(inventAllocStr, InventReseEntity.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>方法二：使用JSONArray<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String pointPackJson = &quot;json字符串&quot;;</span><br><span class="line">JSONArray jsonArray=JSONArray.fromObject(pointPackJson);</span><br><span class="line">for (int i=0;i&lt;jsonArray.size();i++)&#123;</span><br><span class="line">    Object o=jsonArray.get(i);</span><br><span class="line">    JSONObject jsonObject=JSONObject.fromObject(o);</span><br><span class="line">    InventReseEntity entity = (InventReseEntity)JSONObject.toBean(jsonObject, InventReseEntity.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>double转String, 去掉0结尾的小数位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DecimalFormat decimalFormat = new DecimalFormat(&quot;###################.###########&quot;);  </span><br><span class="line">System.out.println(decimalFormat.format(number));</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
