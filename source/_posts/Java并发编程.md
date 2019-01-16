@@ -51,9 +51,9 @@ public static void main(String[] args) {
 }
 ```
 
-# Thread的重要方法
+## Thread的重要方法
 
-## 被Thread对象调用的方法
+### 被Thread对象调用的方法
 
 - public void start()
 使该线程开始执行；Java 虚拟机调用该线程的 run 方法。
@@ -72,7 +72,7 @@ public static void main(String[] args) {
 - public final boolean isAlive()
 测试线程是否处于活动状态。
 
-## Thread类的静态方法
+### Thread类的静态方法
 - public static void yield()
 暂停当前正在执行的线程对象，并执行其他线程。
 - public static void sleep(long millisec)
