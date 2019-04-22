@@ -50,3 +50,19 @@ double转String, 去掉0结尾的小数位
 DecimalFormat decimalFormat = new DecimalFormat("###################.###########");  
 System.out.println(decimalFormat.format(number));  
 ```
+
+正则表达式
+
+```
+Pattern pattern = Pattern.compile("=\\[\\[([\\s\\S].+?)\\],\\[", Pattern.DOTALL);
+Matcher matcher = pattern.matcher(jsonStr);
+if (matcher.find()) {
+	String gameItems = matcher.group(1);
+	pattern = Pattern.compile("\\[(.*?)abc(.*?)\\]");
+	matcher = pattern.matcher(gameItems);
+	while (matcher.find()) {
+		String gameItem = matcher.group(1);
+		String gameItem2 = matcher.group(2);
+		}
+	}
+```

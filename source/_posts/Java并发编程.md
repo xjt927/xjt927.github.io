@@ -6,28 +6,6 @@ tags: 多线程
 categories: 多线程
 keywords: 并发,多线程,Runnable,Thread,Callable,Future
 ---
-# 实现Runnable接口创建线程
-
-- 类实现Runnable接口
-- 实现类中重写 void Run() 方法
-- 调用 start() 方法运行
-
-```
-//类实现Runnable接口
-class RunnableDemo implements Runnable{
-	@Override
-	public void Run(){
-	//doSomething
-	}
-}
-
-//执行线程
-public static void main(String[] args) {
-	RunnableDemo runDemo = new RunnableDemo();
-	Thread thread = new Thread(runDemo);
-	thread.start();
-}
-```
 
 # 继承Thread类创建线程
 
@@ -84,9 +62,37 @@ public static void main(String[] args) {
 - public static void dumpStack()
 将当前线程的堆栈跟踪打印至标准错误流。
 
-# 通过 Callable 和 Future 、FutureTask 创建线程
+# 实现Runnable接口创建线程
+
+如果自己的类已经extends另一个类，就无法直接extends Thread，此时，必须实现一个Runnable接口
+
+
+- 类实现Runnable接口
+- 实现类中重写 void Run() 方法
+- 调用 start() 方法运行
+
+```
+//类实现Runnable接口
+class RunnableDemo implements Runnable{
+	@Override
+	public void Run(){
+	//doSomething
+	}
+}
+
+//执行线程
+public static void main(String[] args) {
+	RunnableDemo runDemo = new RunnableDemo();
+	Thread thread = new Thread(runDemo);
+	thread.start();
+}
+```
+
+# 通过ExecutorService、Callable 和 Future 、FutureTask 创建线程
 
 上面通过继承Thread和实现Runnable接口创建线程，这两种方式有一个缺陷：**无法获取执行结果！**
+
+ExecutorService、Callable、Future这个对象实际上都是属于Executor框架中的功能类。可返回值的任务必须实现Callable接口，类似的，无返回值的任务必须Runnable接口。执行Callable任务后，可以获取一个Future的对象，在该对象上调用get就可以获取到Callable任务返回的Object了，再结合线程池接口ExecutorService就可以实现传说中有返回结果的多线程了。
 
 ## Callable
 Callable位于java.util.concurrent包下，它也是一个接口，在它里面也只声明了一个方法，只不过这个方法叫做call()：
@@ -218,3 +224,56 @@ public static void main(String[] args) {
 }
 ```
 
+```
+@SuppressWarnings("unchecked")
+public class Test {
+public static void main(String[] args) throws ExecutionException,
+    InterruptedException {
+   System.out.println("----程序开始运行----");
+   Date date1 = new Date();
+
+   int taskSize = 5;
+   // 创建一个线程池
+   ExecutorService pool = Executors.newFixedThreadPool(taskSize);
+   // 创建多个有返回值的任务
+   List<Future> list = new ArrayList<Future>();
+   for (int i = 0; i < taskSize; i++) {
+    Callable c = new MyCallable(i + " ");
+    // 执行任务并获取Future对象
+    Future f = pool.submit(c);
+    // System.out.println(">>>" + f.get().toString());
+    list.add(f);
+   }
+   // 关闭线程池
+   pool.shutdown();
+
+   // 获取所有并发任务的运行结果
+   for (Future f : list) {
+    // 从Future对象上获取任务的返回值，并输出到控制台
+    System.out.println(">>>" + f.get().toString());
+   }
+
+   Date date2 = new Date();
+   System.out.println("----程序结束运行----，程序运行时间【"
+     + (date2.getTime() - date1.getTime()) + "毫秒】");
+}
+}
+
+class MyCallable implements Callable<Object> {
+private String taskNum;
+
+MyCallable(String taskNum) {
+   this.taskNum = taskNum;
+}
+
+public Object call() throws Exception {
+   System.out.println(">>>" + taskNum + "任务启动");
+   Date dateTmp1 = new Date();
+   Thread.sleep(1000);
+   Date dateTmp2 = new Date();
+   long time = dateTmp2.getTime() - dateTmp1.getTime();
+   System.out.println(">>>" + taskNum + "任务终止");
+   return taskNum + "任务返回运行结果,当前任务时间【" + time + "毫秒】";
+}
+}
+```
