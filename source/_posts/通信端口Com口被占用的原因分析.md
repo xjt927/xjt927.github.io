@@ -1,5 +1,6 @@
 ---
 title: 通信端口Com口被占用的原因分析
+abbrlink: b48f125c
 date: 2019-03-06 14:13:11
 tags:
 categories:

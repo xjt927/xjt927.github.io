@@ -1,5 +1,6 @@
 ---
 title: java lambda表达式常用操作
+abbrlink: 5d86d660
 date: 2019-02-14 14:15:06
 tags:
 categories:

@@ -1,5 +1,6 @@
 ---
 title: linux常用命令整理
+abbrlink: f6c82bc1
 date: 2019-03-19 11:14:13
 tags:
 categories:
