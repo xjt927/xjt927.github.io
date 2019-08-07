@@ -1,5 +1,6 @@
 ---
 title: linux下vi命令修改文件及保存的使用方法
+abbrlink: 4d15c433
 date: 2019-04-23 23:01:01
 tags:
 categories:

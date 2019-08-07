@@ -1,5 +1,6 @@
 ---
 title: Linux查看日志常用命令
+abbrlink: a2d7ffe3
 date: 2019-05-06 17:50:59
 tags:
 categories:
@@ -25,9 +26,8 @@ keywords:
     cat： 
 
         tac是倒序查看，是cat单词反写；例子如下：
-
+			tac  es999.log.2019-06-10|grep newbb|more 
             cat -n test.log |grep "debug"   查询关键字的日志
-
  
 
 # 2. 应用场景一：按行号查看---过滤出关键字附近的日志
@@ -60,3 +60,15 @@ keywords:
     (2)使用 >xxx.txt 将其保存到文件中,到时可以拉下这个文件分析
 
             如：cat -n test.log |grep "debug"  >debug.txt
+			
+# 5.统计关键词出现次数
+
+	cat logs* | grep 返回编码 |wc -l
+
+	cat logs* | grep -c 返回编码 		
+	
+分析：
+
+	wc: word count,加参数为统计行数
+
+	grep -c 用统计查找后结果的行数统计	

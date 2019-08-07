@@ -86,6 +86,15 @@ du参数：
 常用命令：
 df -h 
 df -h /etc
+df -i
+du -h *
+
+du -sh : 查看当前目录总共占的容量。
+du -lh --max-depth=1 : 查看当前目录下一级子文件和子目录占用的磁盘容量。
+du -ah --max-depth=1 ：显示当前目录的占用磁盘容量
+
+
+du --apparent-size -h
 
 # 查看内存
 https://www.cnblogs.com/shihaiming/p/5949272.html
@@ -111,6 +120,7 @@ drop_caches的值可以是0-3之间的数字，代表不同的含义：
 ps -ef | grep java
 netstat -nap | grep 进程id
 netstat -tunlp|grep 进程id
+netstat -nap | grep java|grep LISTEN
 
 # linux访问url
 curl https://www.baidu.com/
@@ -129,9 +139,30 @@ ps -ef | grep 查找字符串 | awk '{print $2}' | xargs kill -9
 
 # 修改文件
 vi 文件名称
-wq
-q!
-/
+q  ：退出
+wq ：修改后保存退出
+q! : 强制退出，不保存修改的内容
+ 
+ https://baijiahao.baidu.com/s?id=1588552298343207312&wfr=spider&for=pc
+一、基本的替换
+命令格式1：sed 's/原字符串/新字符串/' 文件 
+命令格式2：sed 's/原字符串/新字符串/g' 文件
+没有“g”表示只替换第一个匹配到的字符串，有“g”表示替换所有能匹配到的字符串，“g”可以认为是“global”（全局的）的缩写
+
+二、替换某行内容
+命令格式1：sed '行号c 新字符串' 文件
+命令格式2：sed '起始行号，终止行号c 新字符串' 文件
+
+三、多条件替换
+命令格式：sed -e 命令1 -e 命令2 -e 命令3
+
+
+保存替换结果到文件中
+sed -i 命令
+
+
+sed -i 's/soccer-22bet-spider/order_web/g' start.sh
+
 # 查看占用cpu最高的进程
 ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head
 
@@ -146,3 +177,15 @@ cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
 ps -mp 3409 -o THREAD,tid,time | sort -rn
 printf "%x\n" 3417
 jstack 3409 |grep d59 -A 30
+
+# 删除文件
+find 路径名 -name 文件名
+
+//查找所有以mp3为扩展的文件
+find / -name "*.mp3"  
+//查找并删除文件
+find / -name "*.mp3" |xargs rm -rf
+
+find /home/xuejiangtao/es999/backup/ -name 'soccer.jar.20190*'
+
+
