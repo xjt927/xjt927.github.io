@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="薛江涛 - 博客">
 <meta property="og:description" content="查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;amp;wfr=spider&amp;amp;for=pcps命令——查看静态的进程统计信息（">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T07:08:30.000Z">
+<meta property="og:updated_time" content="2019-08-01T06:32:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令整理">
 <meta name="twitter:description" content="查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;amp;wfr=spider&amp;amp;for=pcps命令——查看静态的进程统计信息（">
@@ -419,21 +419,31 @@
 <h1 id="查看服务器容量"><a href="#查看服务器容量" class="headerlink" title="查看服务器容量"></a>查看服务器容量</h1><p>df：列出文件系统的整体磁盘使用量；<br>du：评估文件系统的磁盘使用量（常用于评估目录所占容量）</p>
 <p>df参数：<br>-a：列出所有的文件系统，包括系统特有的/proc等文件系统<br>-k：以KB的容量显示各文件系统<br>-m：以MB的容量显示各文件系统<br>-h：以人们较易阅读的GB,MB,KB等格式自行显示<br>-H：以M=1000K替代M=1024K的进位方式<br>-T：连同该分区的文件系统名称（例如ext3）也列出<br>-i：不用硬盘容量，而以inode的数量来显示</p>
 <p>du参数：<br>-a : 列出所有的文件与目录容量，因为默认仅统计目录下面的文件量而已；<br>-h : 以人们较易读的容量格式（G/M）显示；<br>-s : 列出总量，而不列出每个个别的目录占用了容量；<br>-S : 不包括子目录下的总计，与-s有点差别；<br>-k : 以KB列出容量显示；<br>-m : 以MB列出容量显示。</p>
-<p>常用命令：<br>df -h<br>df -h /etc</p>
+<p>常用命令：<br>df -h<br>df -h /etc<br>df -i<br>du -h *</p>
+<p>du -sh : 查看当前目录总共占的容量。<br>du -lh –max-depth=1 : 查看当前目录下一级子文件和子目录占用的磁盘容量。<br>du -ah –max-depth=1 ：显示当前目录的占用磁盘容量</p>
+<p>du –apparent-size -h</p>
 <h1 id="查看内存"><a href="#查看内存" class="headerlink" title="查看内存"></a>查看内存</h1><p><a href="https://www.cnblogs.com/shihaiming/p/5949272.html" target="_blank" rel="noopener">https://www.cnblogs.com/shihaiming/p/5949272.html</a><br><a href="https://blog.csdn.net/vtopqx/article/details/80774669" target="_blank" rel="noopener">https://blog.csdn.net/vtopqx/article/details/80774669</a><br><a href="https://blog.csdn.net/taozhe666/article/details/80744941" target="_blank" rel="noopener">https://blog.csdn.net/taozhe666/article/details/80744941</a><br><a href="https://blog.csdn.net/Gavinmiaoc/article/details/80527717" target="_blank" rel="noopener">https://blog.csdn.net/Gavinmiaoc/article/details/80527717</a></p>
 <p>free -h</p>
 <h1 id="释放内存"><a href="#释放内存" class="headerlink" title="释放内存"></a>释放内存</h1><p>sync<br>echo 1 &gt; /proc/sys/vm/drop_caches<br>echo 2 &gt; /proc/sys/vm/drop_caches<br>echo 3 &gt; /proc/sys/vm/drop_caches</p>
 <p>drop_caches的值可以是0-3之间的数字，代表不同的含义：<br>0：不释放（系统默认值）<br>1：释放页缓存<br>2：释放dentries和inodes<br>3：释放所有缓存</p>
-<h1 id="查看程序端口"><a href="#查看程序端口" class="headerlink" title="查看程序端口"></a>查看程序端口</h1><p>ps -ef | grep java<br>netstat -nap | grep 进程id<br>netstat -tunlp|grep 进程id</p>
+<h1 id="查看程序端口"><a href="#查看程序端口" class="headerlink" title="查看程序端口"></a>查看程序端口</h1><p>ps -ef | grep java<br>netstat -nap | grep 进程id<br>netstat -tunlp|grep 进程id<br>netstat -nap | grep java|grep LISTEN</p>
 <h1 id="linux访问url"><a href="#linux访问url" class="headerlink" title="linux访问url"></a>linux访问url</h1><p>curl <a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a></p>
 <h1 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h1><p>kill -9 进程id</p>
 <p>kill -s 9 <code>pgrep 查找字符串</code></p>
 <p>查找包含字符串的进程，并杀死<br>ps -ef | grep 查找字符串 | grep -v grep | cut -c 9-15 | xargs kill -s 9<br>ps -ef | grep 查找字符串 | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>pgrep 查找字符串 | xargs kill -s 9<br>ps -ef | grep 查找字符串 | awk ‘{print $2}’ | xargs kill -9</p>
-<h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>vi 文件名称<br>wq<br>q!<br>/</p>
+<h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>vi 文件名称<br>q  ：退出<br>wq ：修改后保存退出<br>q! : 强制退出，不保存修改的内容</p>
+<p> <a href="https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc</a><br>一、基本的替换<br>命令格式1：sed ‘s/原字符串/新字符串/‘ 文件<br>命令格式2：sed ‘s/原字符串/新字符串/g’ 文件<br>没有“g”表示只替换第一个匹配到的字符串，有“g”表示替换所有能匹配到的字符串，“g”可以认为是“global”（全局的）的缩写</p>
+<p>二、替换某行内容<br>命令格式1：sed ‘行号c 新字符串’ 文件<br>命令格式2：sed ‘起始行号，终止行号c 新字符串’ 文件</p>
+<p>三、多条件替换<br>命令格式：sed -e 命令1 -e 命令2 -e 命令3</p>
+<p>保存替换结果到文件中<br>sed -i 命令</p>
+<p>sed -i ‘s/soccer-22bet-spider/order_web/g’ start.sh</p>
 <h1 id="查看占用cpu最高的进程"><a href="#查看占用cpu最高的进程" class="headerlink" title="查看占用cpu最高的进程"></a>查看占用cpu最高的进程</h1><p>ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head</p>
 <h1 id="查看占用内存最高的进程"><a href="#查看占用内存最高的进程" class="headerlink" title="查看占用内存最高的进程"></a>查看占用内存最高的进程</h1><p>ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head</p>
 <h1 id="查看CPU信息（型号）"><a href="#查看CPU信息（型号）" class="headerlink" title="查看CPU信息（型号）"></a>查看CPU信息（型号）</h1><p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p>
 <p>ps -mp 3409 -o THREAD,tid,time | sort -rn<br>printf “%x\n” 3417<br>jstack 3409 |grep d59 -A 30</p>
+<h1 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h1><p>find 路径名 -name 文件名</p>
+<p>//查找所有以mp3为扩展的文件<br>find / -name “<em>.mp3”<br>//查找并删除文件<br>find / -name “</em>.mp3” |xargs rm -rf</p>
+<p>find /home/xuejiangtao/es999/backup/ -name ‘soccer.jar.20190*’</p>
 
       
     </div>
@@ -582,7 +592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -660,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看运行程序"><span class="nav-number">1.</span> <span class="nav-text">查看运行程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行脚本命令"><span class="nav-number">2.</span> <span class="nav-text">执行脚本命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看日志"><span class="nav-number">3.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看服务器容量"><span class="nav-number">4.</span> <span class="nav-text">查看服务器容量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看内存"><span class="nav-number">5.</span> <span class="nav-text">查看内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#释放内存"><span class="nav-number">6.</span> <span class="nav-text">释放内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看程序端口"><span class="nav-number">7.</span> <span class="nav-text">查看程序端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux访问url"><span class="nav-number">8.</span> <span class="nav-text">linux访问url</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束进程"><span class="nav-number">9.</span> <span class="nav-text">结束进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改文件"><span class="nav-number">10.</span> <span class="nav-text">修改文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用cpu最高的进程"><span class="nav-number">11.</span> <span class="nav-text">查看占用cpu最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用内存最高的进程"><span class="nav-number">12.</span> <span class="nav-text">查看占用内存最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看CPU信息（型号）"><span class="nav-number">13.</span> <span class="nav-text">查看CPU信息（型号）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看运行程序"><span class="nav-number">1.</span> <span class="nav-text">查看运行程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行脚本命令"><span class="nav-number">2.</span> <span class="nav-text">执行脚本命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看日志"><span class="nav-number">3.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看服务器容量"><span class="nav-number">4.</span> <span class="nav-text">查看服务器容量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看内存"><span class="nav-number">5.</span> <span class="nav-text">查看内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#释放内存"><span class="nav-number">6.</span> <span class="nav-text">释放内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看程序端口"><span class="nav-number">7.</span> <span class="nav-text">查看程序端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux访问url"><span class="nav-number">8.</span> <span class="nav-text">linux访问url</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束进程"><span class="nav-number">9.</span> <span class="nav-text">结束进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改文件"><span class="nav-number">10.</span> <span class="nav-text">修改文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用cpu最高的进程"><span class="nav-number">11.</span> <span class="nav-text">查看占用cpu最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用内存最高的进程"><span class="nav-number">12.</span> <span class="nav-text">查看占用内存最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看CPU信息（型号）"><span class="nav-number">13.</span> <span class="nav-text">查看CPU信息（型号）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除文件"><span class="nav-number">14.</span> <span class="nav-text">删除文件</span></a></li></ol></div>
             
 
           </div>

@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="薛江涛 - 博客">
 <meta property="og:description" content="1.查看日志常用命令tail:      -n  是显示行号；相当于nl命令；例子如下：         tail -100f test.log      实时监控100行日志         tail  -n  10  test.log   查询日志尾部最后10行的日志;          tail -n +10 test.log    查询10行之后的所有日志;  head:        跟">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-06T09:51:26.000Z">
+<meta property="og:updated_time" content="2019-06-11T11:38:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux查看日志常用命令">
 <meta name="twitter:description" content="1.查看日志常用命令tail:      -n  是显示行号；相当于nl命令；例子如下：         tail -100f test.log      实时监控100行日志         tail  -n  10  test.log   查询日志尾部最后10行的日志;          tail -n +10 test.log    查询10行之后的所有日志;  head:        跟">
@@ -417,7 +417,7 @@ head:
 cat： 
 
     tac是倒序查看，是cat单词反写；例子如下：
-
+        tac  es999.log.2019-06-10|grep newbb|more 
         cat -n test.log |grep &quot;debug&quot;   查询关键字的日志
 </code></pre><h1 id="2-应用场景一：按行号查看—过滤出关键字附近的日志"><a href="#2-应用场景一：按行号查看—过滤出关键字附近的日志" class="headerlink" title="2. 应用场景一：按行号查看—过滤出关键字附近的日志"></a>2. 应用场景一：按行号查看—过滤出关键字附近的日志</h1><pre><code>1）cat -n test.log |grep &quot;debug&quot;  得到关键日志的行号
 
@@ -438,6 +438,13 @@ cat：
 (2)使用 &gt;xxx.txt 将其保存到文件中,到时可以拉下这个文件分析
 
         如：cat -n test.log |grep &quot;debug&quot;  &gt;debug.txt
+</code></pre><h1 id="5-统计关键词出现次数"><a href="#5-统计关键词出现次数" class="headerlink" title="5.统计关键词出现次数"></a>5.统计关键词出现次数</h1><pre><code>cat logs* | grep 返回编码 |wc -l
+
+cat logs* | grep -c 返回编码         
+</code></pre><p>分析：</p>
+<pre><code>wc: word count,加参数为统计行数
+
+grep -c 用统计查找后结果的行数统计    
 </code></pre>
       
     </div>
@@ -500,6 +507,10 @@ cat：
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/undefined/" rel="prev" title="ExecutorService四种线程池的例子与说明">
+                ExecutorService四种线程池的例子与说明 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -582,7 +593,7 @@ cat：
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -660,7 +671,7 @@ cat：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-查看日志常用命令"><span class="nav-number">1.</span> <span class="nav-text">1.查看日志常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-应用场景一：按行号查看—过滤出关键字附近的日志"><span class="nav-number">2.</span> <span class="nav-text">2. 应用场景一：按行号查看—过滤出关键字附近的日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-应用场景二：根据日期查询日志"><span class="nav-number">3.</span> <span class="nav-text">3. 应用场景二：根据日期查询日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-应用场景三：日志内容特别多，打印在屏幕上不方便查看"><span class="nav-number">4.</span> <span class="nav-text">4.应用场景三：日志内容特别多，打印在屏幕上不方便查看</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-查看日志常用命令"><span class="nav-number">1.</span> <span class="nav-text">1.查看日志常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-应用场景一：按行号查看—过滤出关键字附近的日志"><span class="nav-number">2.</span> <span class="nav-text">2. 应用场景一：按行号查看—过滤出关键字附近的日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-应用场景二：根据日期查询日志"><span class="nav-number">3.</span> <span class="nav-text">3. 应用场景二：根据日期查询日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-应用场景三：日志内容特别多，打印在屏幕上不方便查看"><span class="nav-number">4.</span> <span class="nav-text">4.应用场景三：日志内容特别多，打印在屏幕上不方便查看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-统计关键词出现次数"><span class="nav-number">5.</span> <span class="nav-text">5.统计关键词出现次数</span></a></li></ol></div>
             
 
           </div>
