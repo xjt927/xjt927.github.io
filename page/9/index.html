@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/72b4d09/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/307aa112/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/72b4d09/" itemprop="url">Spring-SpEL表达式语言(2)</a></h1>
+                <a class="post-title-link" href="/posts/307aa112/" itemprop="url">数据库SQL优化</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:48:59+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T15:51:53+08:00">
+                2019-01-10
               </time>
             
 
@@ -368,28 +368,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -419,41 +397,15 @@
 
       
         
-          <h1 id="SpEL语法"><a href="#SpEL语法" class="headerlink" title="SpEL语法"></a>SpEL语法</h1><h2 id="基本表达式"><a href="#基本表达式" class="headerlink" title="基本表达式"></a>基本表达式</h2><h3 id="一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"><a href="#一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。" class="headerlink" title="一、字面量表达式： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"></a><strong>一、字面量表达式</strong>： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。</h3><style>
-table th:first-of-type {  
-    width: 100px; 
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">字符串</td>
-<td style="text-align:left">String str1 = parser.parseExpression(“‘Hello World!’”).getValue(String.class);<br> String str2 = parser.parseExpression(“\”Hello World!\””).getValue(String.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">数字类型</td>
-<td style="text-align:left">int int1 = parser.parseExpression(“1”).getValue(Integer.class);<br>long long1 = parser.parseExpression(“-1L”).getValue(long.class);<br>float float1 = parser.parseExpression(“1.1”).getValue(Float.class);<br>double double1 = parser.parseExpression(“1.1E+2”).getValue(double.class);<br>int hex1 = parser.parseExpression(“0xa”).getValue(Integer.class);<br>long hex2 = parser.parseExpression(“0xaL”).getValue(long.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">布尔类型</td>
-<td style="text-align:left">boolean true1 = parser.parseExpression(“true”).getValue(boolean.class);<br>boolean false1 = parser.parseExpression(“false”).getValue(boolean.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">null类型</td>
-<td style="text-align:left">Object null1 = parser.parseExpression(“null”).getValue(Object.class);</td>
-</tr>
-</tbody>
-</table>
+          
+           1.对查询进行优化，要尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。
+ 2.应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：1select id from t where num is null
+最好不要给数据库留NULL，尽可能的使用 NOT NULL填充数据库.
+备注、描述、评论之类的可以设置
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/72b4d09/#more" rel="contents">
+            <a class="btn" href="/posts/307aa112/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -504,7 +456,7 @@ table th:first-of-type {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2c061eca/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2858c1bf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -523,7 +475,7 @@ table th:first-of-type {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/2c061eca/" itemprop="url">Spring-SpEL表达式语言(1)</a></h1>
+                <a class="post-title-link" href="/posts/2858c1bf/" itemprop="url">解决Jenkin重复构建的问题</a></h1>
         
 
         <div class="post-meta">
@@ -535,8 +487,8 @@ table th:first-of-type {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:45:38+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T09:43:10+08:00">
+                2019-01-10
               </time>
             
 
@@ -558,8 +510,8 @@ table th:first-of-type {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
                   </a>
                 </span>
 
@@ -596,16 +548,11 @@ table th:first-of-type {
 
       
         
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Spring表达式语言全称为“Spring Expression Language”，缩写为“SpEL”，类似于Struts2x中使用的OGNL表达式语言，能在运行时构建复杂表达式、存取对象图属性、对象方法调用等等，并且能与Spring功能完美整合，如能用来配置Bean定义。<br>表达式语言给静态Java语言增加了动态功能。<br>SpEL是单独模块，只依赖于core模块，不依赖于其他模块，可以单独使用。</p>
-<h1 id="能干什么"><a href="#能干什么" class="headerlink" title="能干什么"></a>能干什么</h1><p>表达式语言一般是用最简单的形式完成最主要的工作，减少我们的工作量。<br>SpEL支持如下表达式：</p>
-<ol>
-<li><strong>基本表达式</strong>：字面量表达式、关系，逻辑与算数运算表达式、字符串连接及截取表达式、三目运算及Elivis表达式、正则表达式、括号优先级表达式；</li>
-<li><strong>类相关表达式</strong>：类类型表达式、类实例化、instanceof表达式、变量定义及引用、赋值表达式、自定义函数、对象属性存取及安全导航表达式、对象方法调用、Bean引用；</li>
-<li><strong>集合相关表达式</strong>：内联List、内联数组、集合，字典访问、列表，字典，数组修改、集合投影、集合选择；不支持多维内联数组初始化；不支持内联字典定义；</li>
-<li>其他表达式：模板表达式。<br><strong>注：SpEL表达式中的关键字是不区分大小写的。</strong>
+          <p>项目中使用Jenkins线上发布版本，不得不说Jenkins确实是个好东西，避免打包、拷贝版本等一系列繁琐事，解放劳动力提高发版效率，使你时间更自由，重要的是可以早点下班陪媳妇儿。<br>怎样搭建Jenkins就不说了，大家可以自行google、百度。<br>言归正传，Jenkins刚搭建成功后发布没有问题，前端时间开始，点击构建后会一直自动重复构建项目。<br><strong>猜想一</strong>：刚开始以为有人动了Jenkins发版流程配置，检查几遍发现没有没有任何问题。</p>
+<p><strong>猜想二</strong>：创建构建任务项目时，是复制现有其他任务项目，以为是Jenkins的bug，复制任务项目的问题，遂删除该项目重新创建任务项目，发现还存在重复构建问题。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/2c061eca/#more" rel="contents">
+            <a class="btn" href="/posts/2858c1bf/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -656,7 +603,7 @@ table th:first-of-type {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/42849e12/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/ce05fb5e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -675,7 +622,7 @@ table th:first-of-type {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/42849e12/" itemprop="url">使用Git下载分支</a></h1>
+                <a class="post-title-link" href="/posts/ce05fb5e/" itemprop="url">Redis学习一</a></h1>
         
 
         <div class="post-meta">
@@ -687,8 +634,142 @@ table th:first-of-type {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T19:52:48+08:00">
-                2018-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T15:43:53+08:00">
+                2018-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Redis支持五种数据类型
+
+String - 字符串类型
+List - 列表
+Set  - 集合
+Hash - 散列表
+ZSet - 有序集合
+
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/ce05fb5e/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9e4dab1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="薛江涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="薛江涛 - 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/9e4dab1/" itemprop="url">给已存在的项目添加git</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T09:12:07+08:00">
+                2018-12-20
               </time>
             
 
@@ -748,13 +829,13 @@ table th:first-of-type {
 
       
         
-          
-          使用Git下载指定分支命令为：git clone -b 分支名仓库地址
-1git clone -b develop https://git服务器地址/SERVER.git
-          
+          <p>前提：先去gitlab或github网站上创建一个新项目</p>
+<p>1、打开终端​，cd到已存在项目的目录</p>
+<p>​​​2、输入以下命令行，初始化一个本地仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​git init</span><br></pre></td></tr></table></figure></p>
+<p>3、输入以下命令，把工程所有文件都添加到该仓库中（千万别忘记后面的<code>.</code>号！！！）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​git add .</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/42849e12/#more" rel="contents">
+            <a class="btn" href="/posts/9e4dab1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -805,7 +886,7 @@ table th:first-of-type {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1ab46bf/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/3e225941/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -824,7 +905,7 @@ table th:first-of-type {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/1ab46bf/" itemprop="url">切换IP及DNS上网一键脚本设置</a></h1>
+                <a class="post-title-link" href="/posts/3e225941/" itemprop="url">Java并发编程</a></h1>
         
 
         <div class="post-meta">
@@ -836,8 +917,8 @@ table th:first-of-type {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-05T19:56:28+08:00">
-                2018-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T15:53:00+08:00">
+                2018-12-19
               </time>
             
 
@@ -859,8 +940,8 @@ table th:first-of-type {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Bat/" itemprop="url" rel="index">
-                    <span itemprop="name">Bat</span>
+                  <a href="/categories/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -897,156 +978,17 @@ table th:first-of-type {
 
       
         
-          <p>三种上网设置，bat脚本如下<br>———文件1 select.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@echo off </span><br><span class="line">echo 快速设置IP地址和DNS为&quot;自动获得&quot;</span><br><span class="line">echo.netsh int ip set addr &quot;本地连接&quot; dhcpnetsh int ip set dns &quot;本地连接&quot; dhcp</span><br><span class="line">@echo off    </span><br><span class="line">echo  ----------------------------   </span><br><span class="line">echo (1).自动获取 </span><br><span class="line">echo (2).自由上网  </span><br><span class="line">echo (3).自由上网(备用)</span><br><span class="line">echo  ----------------------------   </span><br><span class="line">echo 选择你要设置的网络:   </span><br><span class="line">set /p x=   </span><br><span class="line">if %x%*==1* goto a   </span><br><span class="line">if %x%*==2* goto b </span><br><span class="line">if %x%*==3* goto c </span><br><span class="line">ipconfig/flushdns </span><br><span class="line">:a   </span><br><span class="line">AutoDNS.bat</span><br><span class="line">:b</span><br><span class="line">PureDNS.bat</span><br><span class="line">:c</span><br><span class="line">PureDNS(pre).bat</span><br><span class="line">echo 即将自动退出。。。</span><br><span class="line">ping -n 6 127.0&gt;nul</span><br></pre></td></tr></table></figure></p>
+          
+          继承Thread类创建线程
+类继承Thread类
+类重写void Run()方法
+调用 start() 方法运行
+
+12345678910111213//类实现Thread接口class ThreadDemo extends Thread&#123; 	@Override	public void Run()&#123;	//doSomething	&#125;&#125;//执行线程public 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/1ab46bf/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/4e2c0f0c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/4e2c0f0c/" itemprop="url">IntelliJ IDEA 2018.1 注册码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-28T10:00:19+08:00">
-                2018-07-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="IntelliJ-IDEA下载"><a href="#IntelliJ-IDEA下载" class="headerlink" title="IntelliJ IDEA下载"></a>IntelliJ IDEA下载</h1><p>IntelliJ IDEA官网下载地址：<a href="https://www.jetbrains.com/idea/download/previous.html?fromIDE=" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/previous.html?fromIDE=</a><br>选择自己要用的版本，建议最新Ultimate版本。<br><img src="http://blog.xuejiangtao.com/blog/180728/3Ke2lG1c4j.png?imageslim" alt="IntelliJ IDEA 2018.1 注册码"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/4e2c0f0c/#more" rel="contents">
+            <a class="btn" href="/posts/3e225941/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1088,7 +1030,7 @@ table th:first-of-type {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1138,7 +1080,7 @@ table th:first-of-type {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1149,7 +1091,7 @@ table th:first-of-type {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1160,7 +1102,7 @@ table th:first-of-type {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1220,7 +1162,7 @@ table th:first-of-type {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1237,6 +1179,11 @@ table th:first-of-type {
 
 
 
+<div class=BbeiAn-info">
+  京ICP备 -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

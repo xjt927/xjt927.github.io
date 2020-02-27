@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/b26bcbc1/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2708e1c6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/b26bcbc1/" itemprop="url">SmartQQ</a></h1>
+                <a class="post-title-link" href="/posts/2708e1c6/" itemprop="url">@Controller和@RestController的区别？</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-28T17:01:16+08:00">
-                2018-04-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:23:26+08:00">
+                2018-09-29
               </time>
             
 
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WPF/" itemprop="url" rel="index">
-                    <span itemprop="name">WPF</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -419,15 +419,11 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用C#，WPF开发的SmartQQ桌面操作程序。使用Quartz.Net实现定时发送，定时功能不太完善，可以再扩展。</p>
-<ol>
-<li>运行项目会请求SmartQQ获取登录二维码，用户用手机qq扫描下实现登录。<br><strong>登录成功后会记录cookie，下次登录先使用cookie，如果cookie失效，再弹出登录二维码。</strong></li>
-<li>登录成功后获取好友、群分组、讨论组。</li>
-<li>使用：双击qq好友头像、群分组、讨论组，添加到发送列表。</li>
-<li>设置定时发送。
+          <h1 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h1><h2 id="Controller和页面结合使用"><a href="#Controller和页面结合使用" class="headerlink" title="@Controller和页面结合使用"></a>@Controller和页面结合使用</h2><p><code>@Controller</code>用来响应页面, 单独使用<code>@Controller</code>时, 必须配合模版来使用, 才能返回请求页面.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">//@ResponseBody</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value=&quot;/hello&quot;,method= RequestMethod.GET)</span><br><span class="line">    public String sayHello()&#123;</span><br><span class="line">        return &quot;hello&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果直接使用@Controller这个注解，当运行该SpringBoot项目后，在浏览器中输入：local:8080/hello,会得到如下错误提示：<br><img src="http://blog.xuejiangtao.com/blog/180929/8g69gHeBkl.png" alt="mark"><br>出现这种情况的原因在于：没有使用模版。即@Controller 用来响应页面，@Controller必须配合模版来使用。spring-boot 支持多种模版引擎包括：<br>1，FreeMarker<br>2，Groovy<br>3，Thymeleaf （Spring 官网使用这个）<br>4，Velocity<br>5，JSP （貌似Spring Boot官方不推荐，STS创建的项目会在src/main/resources 下有个templates 目录，这里就是让我们放模版文件的，然后并没有生成诸如 SpringMVC 中的webapp目录）<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/b26bcbc1/#more" rel="contents">
+            <a class="btn" href="/posts/2708e1c6/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -478,7 +474,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/431f0136/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/a8c3306f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -497,7 +493,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/431f0136/" itemprop="url">Hexo入门教程（五）-hexo+Github绑定域名</a></h1>
+                <a class="post-title-link" href="/posts/a8c3306f/" itemprop="url">SpringMVC参数传值的几种形式</a></h1>
         
 
         <div class="post-meta">
@@ -509,8 +505,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T15:55:18+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T08:47:41+08:00">
+                2018-09-29
               </time>
             
 
@@ -532,8 +528,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -570,14 +566,12 @@
 
       
         
-          <p>首先要有自己的域名，没有域名的可以去<a href="https://wanwang.aliyun.com/domain/?spm=5176.200001.n2.14.nkOQu9" target="_blank" rel="noopener">阿里云（万网）</a>、<a href="https://www.godaddy.com/" target="_blank" rel="noopener">godaddy</a>上买，我在阿里云买的，比较实力比较强，也用阿里云的服务器。</p>
-<h2 id="一、Github、hexo配置"><a href="#一、Github、hexo配置" class="headerlink" title="一、Github、hexo配置"></a>一、Github、hexo配置</h2><ol>
-<li><p>在github中找到自己的博客仓库，点击“Create new file”新建文件“CNAME”，注意文件名一定要大写，里面只写一行自己域名，域名前不要加http、www。<br><img src="https://github.com/xjt927/filerepository/blob/master/0~%60JL6F%606J067_5BUPTJMO1.png?raw=true" width="700"> </p>
-</li>
-<li><p>在本地hexo-&gt;source文件夹下，新建文本文件“CNAME”，同样名称大写，里面只加一行自己的域名，规则同上，域名前不要加http、www。<br>这样做是因为，当使用<code>hexo d</code>推送到github上的时候会自动将github上的“CNAME”文件覆盖、删除掉，导致域名解析失败。</p>
+          <h2 id="方式一-HttpServletRequest"><a href="#方式一-HttpServletRequest" class="headerlink" title="方式一:HttpServletRequest"></a>方式一:HttpServletRequest</h2><p>HttpServletRequest类是Servlet中的类型，代表了一个Servlet请求。无论Post还是Get请求，都能通过这种方式获取到, 但不能接收json。<br>post方式的时候编码方式需设置为：<code>x-www-form-urlencoded</code>转换为键值对<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//http://localhost:8088/user?username=123&amp;password=123456</span><br><span class="line">@RequestMapping(&quot;/user&quot;)</span><br><span class="line">public void getUser(HttpServletRequest request) &#123;</span><br><span class="line">    String username=request.getParameter(&quot;username&quot;);</span><br><span class="line">    String password=request.getParameter(&quot;password&quot;);</span><br><span class="line">    System.out.println(&quot;username is:&quot;+username);</span><br><span class="line">    System.out.println(&quot;password is:&quot;+password); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果username 或者 password 为空，不能直接拿来做参数，可能会抛空指针异常。</p>
+<h2 id="方式二-使用-PathVariable路径变量"><a href="#方式二-使用-PathVariable路径变量" class="headerlink" title="方式二:使用@PathVariable路径变量"></a>方式二:使用@PathVariable路径变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//http://localhost:8088/user1/userName=zhangsan/password=123456</span><br><span class="line">@ResponseBody</span><br><span class="line">@RequestMapping(value=&quot;/user1/&#123;userName&#125;/&#123;password&#125;&quot;,method= RequestMethod.GET)</span><br><span class="line">public void getUser(@PathVariable String userName,@PathVariable String password)&#123;</span><br><span class="line">    System.out.println(&quot;username is:&quot;+userName);</span><br><span class="line">    System.out.println(&quot;password is:&quot;+password);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/431f0136/#more" rel="contents">
+            <a class="btn" href="/posts/a8c3306f/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -628,7 +622,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/30e46490/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/19ed10ec/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -647,7 +641,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/30e46490/" itemprop="url">Hexo入门教程（四）-hexo部署到Github</a></h1>
+                <a class="post-title-link" href="/posts/19ed10ec/" itemprop="url">Ajax中contentType和dataType的使用</a></h1>
         
 
         <div class="post-meta">
@@ -659,8 +653,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T15:54:18+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T10:30:38+08:00">
+                2018-09-27
               </time>
             
 
@@ -682,8 +676,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
                   </a>
                 </span>
 
@@ -720,17 +714,12 @@
 
       
         
-          <h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><h3 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages"></a>什么是Github Pages</h3><ul>
-<li><p>Github Pages 是 github 公司提供的免费的静态网站托管服务，用起来方便而且功能强大，不仅没有空间限制，还可以绑定自己的域名。在 <a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a> 首页上可以看到很多用 Github Pages 托管的网站，很漂亮。另外很多非常著名的公司和项目也都用这种方式来搭建网站，如<a href="http://microsoft.github.io/" target="_blank" rel="noopener">微软</a>和 <a href="http://twitter.github.io/" target="_blank" rel="noopener">twitter</a> 的网站，还有 谷歌的 <a href="http://google.github.io/material-design-icons/" target="_blank" rel="noopener">Material Design</a> 图标 网站。</p>
-</li>
-<li><p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过<a href="http://username.github.io" target="_blank" rel="noopener">http://username.github.io</a> 来访问你的个人主页。</p>
-</li>
-<li><p>每一个github账户最多只能创建一个，这样可以直接使用域名访问仓库。</p>
-</li>
-<li><p><strong>这里特别提醒一下，需要注意的个人主页的网站内容是在master分支下的。</strong></p>
+          
+          123456789101112131415161718192021222324252627getUserType:function()&#123;    $.ajax(&#123;        url: getUserTypeUrl + &apos;?now=&apos; + Math.random(),        data: &#123;&quot;userId&quot;:userId&
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/30e46490/#more" rel="contents">
+            <a class="btn" href="/posts/19ed10ec/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -781,7 +770,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/fbe5044a/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/59b10f7f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -800,7 +789,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/fbe5044a/" itemprop="url">Hexo入门教程（三）-hexo新建文章&发布文章</a></h1>
+                <a class="post-title-link" href="/posts/59b10f7f/" itemprop="url">readyState=4并且status=200时，还进error方法</a></h1>
         
 
         <div class="post-meta">
@@ -812,8 +801,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T15:53:18+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T10:14:00+08:00">
+                2018-09-27
               </time>
             
 
@@ -835,8 +824,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
                   </a>
                 </span>
 
@@ -873,21 +862,12 @@
 
       
         
-          <h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>使用cmd进入hexo网站按照目录下，在命令行中输入以下命令：</p>
-<p><code>hexo new [layout] &lt;title&gt;</code></p>
-<blockquote>
-<p><strong>[layout]</strong> 为指定文章的布局（layout），默认为 <code>post</code>，可以通过修改 <code>_config.yml</code> 中的 <code>default_layout</code> 参数来指定默认布局。 </p>
-</blockquote>
-<blockquote>
-<p><strong>[layout]</strong> 可以不用写，不写就是默认布局。<code>hexo new &lt;title&gt;</code> </p>
-</blockquote>
-<blockquote>
-<p><strong><code>&lt;title&gt;</code></strong> 为你要创建的文章标题。</p>
-</blockquote>
-<p>之后在 <code>source/_posts</code> 目录下面，多了一个<code>&lt;title&gt;.md</code> 的文件。<br>
+          
+          在使用jQuery.ajax方法去调用后台方法时，ajax中得参数data类型是”JSON”,后台DEBUG调试，运行正常，返回正常的结果集.但是前端一直都进到ajax的error方法，百思不得其解，后要一探究竟，在error方法的参数中加了data后，发现data中的readyState = 4 并且 status=200，这两个状态也证明ajax访问没有问题，没有出现异常。回过头发现我在后台返
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/fbe5044a/#more" rel="contents">
+            <a class="btn" href="/posts/59b10f7f/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -938,7 +918,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/c0129f56/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/105963c3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -957,7 +937,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/c0129f56/" itemprop="url">Hexo入门教程（二）-hexo网站目录机构介绍</a></h1>
+                <a class="post-title-link" href="/posts/105963c3/" itemprop="url">[JPA] javax.persistence.EntityNotFoundException处理</a></h1>
         
 
         <div class="post-meta">
@@ -969,8 +949,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T15:52:18+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T11:31:36+08:00">
+                2018-09-25
               </time>
             
 
@@ -992,8 +972,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/JPA/" itemprop="url" rel="index">
+                    <span itemprop="name">JPA</span>
                   </a>
                 </span>
 
@@ -1030,11 +1010,11 @@
 
       
         
-          <p>继上一篇介绍hexo如何搭建，来了解一下hexo网站的目录结构。<br>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes</p>
-<p><strong>_config.yml</strong><br>网站的 <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。<br>
+          <p>通过hibernate映射关系加载数据时遇到了如下错误： <code>javax.persistence.EntityNotFoundException: Unable to find 对象名 with id xxxxx</code>。</p>
+<p>原因：<br>无论是<code>@OneToOne</code> 还是<code>@ManyToOne</code>，出现这个原因都是因为子表（被关联表）中没有主表（关联表）中ID所对应的记录。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/c0129f56/#more" rel="contents">
+            <a class="btn" href="/posts/105963c3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1076,7 +1056,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1126,7 +1106,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1137,7 +1117,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1148,7 +1128,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1208,7 +1188,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1225,6 +1205,11 @@
 
 
 
+<div class=BbeiAn-info">
+  京ICP备 -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

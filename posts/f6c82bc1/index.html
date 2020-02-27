@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="薛江涛 - 博客">
 <meta property="og:description" content="查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;amp;wfr=spider&amp;amp;for=pcps命令——查看静态的进程统计信息（">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T06:32:08.000Z">
+<meta property="og:updated_time" content="2019-12-08T02:10:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令整理">
 <meta name="twitter:description" content="查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;amp;wfr=spider&amp;amp;for=pcps命令——查看静态的进程统计信息（">
@@ -444,6 +444,20 @@
 <h1 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h1><p>find 路径名 -name 文件名</p>
 <p>//查找所有以mp3为扩展的文件<br>find / -name “<em>.mp3”<br>//查找并删除文件<br>find / -name “</em>.mp3” |xargs rm -rf</p>
 <p>find /home/xuejiangtao/es999/backup/ -name ‘soccer.jar.20190*’</p>
+<h1 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h1><p>跨目录<br>cp 源路径/test.txt 目标路径/</p>
+<p>同级目录<br>cp -r dir1 dir2</p>
+<h1 id="跨服务器拷贝文件"><a href="#跨服务器拷贝文件" class="headerlink" title="跨服务器拷贝文件"></a>跨服务器拷贝文件</h1><p>跨服务器拷贝需要用到的命令是scp.</p>
+<p>———————-拷贝文件夹———————————————-</p>
+<p>把当前文件夹tempA拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下</p>
+<p>scp -r /tmp/tempA/ <a href="mailto:wasadmin@10.127.40.25" target="_blank" rel="noopener">wasadmin@10.127.40.25</a>:/tmp/wang/</p>
+<p>其中wasadmin是目标服务器的用户名，执行命令提示输入密码，然后输入密码即可</p>
+<p>———————-拷贝文件———————————————-</p>
+<p>把当前文件夹tempA.txt拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下</p>
+<p>scp  /tmp/tempA.txt <a href="mailto:wasadmin@10.127.40.25" target="_blank" rel="noopener">wasadmin@10.127.40.25</a>:/tmp/wang/</p>
+<p>其中wasadmin是目标服务器的用户名，执行命令提示输入密码，然后输入密码即可</p>
+<h1 id="文本文件中查找字符串"><a href="#文本文件中查找字符串" class="headerlink" title="文本文件中查找字符串"></a>文本文件中查找字符串</h1><p>在normal模式下按下<code>/</code>即可进入查找模式，输入要查找的字符串并按下回车。</p>
+<p>Vim会跳转到第一个匹配。按下<code>n</code>查找下一个，按下<code>N</code>查找上一个。</p>
+<p>Vim查找支持正则表达式，例如<code>/vim$</code>匹配行尾的<code>&quot;vim&quot;</code>。 需要查找特殊字符需要转义，例如<code>/vim\$</code>匹配<code>&quot;vim$&quot;</code>。</p>
 
       
     </div>
@@ -592,7 +606,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +617,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -614,7 +628,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -670,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看运行程序"><span class="nav-number">1.</span> <span class="nav-text">查看运行程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行脚本命令"><span class="nav-number">2.</span> <span class="nav-text">执行脚本命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看日志"><span class="nav-number">3.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看服务器容量"><span class="nav-number">4.</span> <span class="nav-text">查看服务器容量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看内存"><span class="nav-number">5.</span> <span class="nav-text">查看内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#释放内存"><span class="nav-number">6.</span> <span class="nav-text">释放内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看程序端口"><span class="nav-number">7.</span> <span class="nav-text">查看程序端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux访问url"><span class="nav-number">8.</span> <span class="nav-text">linux访问url</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束进程"><span class="nav-number">9.</span> <span class="nav-text">结束进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改文件"><span class="nav-number">10.</span> <span class="nav-text">修改文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用cpu最高的进程"><span class="nav-number">11.</span> <span class="nav-text">查看占用cpu最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用内存最高的进程"><span class="nav-number">12.</span> <span class="nav-text">查看占用内存最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看CPU信息（型号）"><span class="nav-number">13.</span> <span class="nav-text">查看CPU信息（型号）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除文件"><span class="nav-number">14.</span> <span class="nav-text">删除文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看运行程序"><span class="nav-number">1.</span> <span class="nav-text">查看运行程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行脚本命令"><span class="nav-number">2.</span> <span class="nav-text">执行脚本命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看日志"><span class="nav-number">3.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看服务器容量"><span class="nav-number">4.</span> <span class="nav-text">查看服务器容量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看内存"><span class="nav-number">5.</span> <span class="nav-text">查看内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#释放内存"><span class="nav-number">6.</span> <span class="nav-text">释放内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看程序端口"><span class="nav-number">7.</span> <span class="nav-text">查看程序端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux访问url"><span class="nav-number">8.</span> <span class="nav-text">linux访问url</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束进程"><span class="nav-number">9.</span> <span class="nav-text">结束进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改文件"><span class="nav-number">10.</span> <span class="nav-text">修改文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用cpu最高的进程"><span class="nav-number">11.</span> <span class="nav-text">查看占用cpu最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看占用内存最高的进程"><span class="nav-number">12.</span> <span class="nav-text">查看占用内存最高的进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看CPU信息（型号）"><span class="nav-number">13.</span> <span class="nav-text">查看CPU信息（型号）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除文件"><span class="nav-number">14.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拷贝文件"><span class="nav-number">15.</span> <span class="nav-text">拷贝文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨服务器拷贝文件"><span class="nav-number">16.</span> <span class="nav-text">跨服务器拷贝文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本文件中查找字符串"><span class="nav-number">17.</span> <span class="nav-text">文本文件中查找字符串</span></a></li></ol></div>
             
 
           </div>
@@ -690,7 +704,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -707,6 +721,11 @@
 
 
 
+<div class=BbeiAn-info">
+  京ICP备 -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

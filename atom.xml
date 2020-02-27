@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuejiangtao.com/"/>
-  <updated>2019-08-07T10:00:46.000Z</updated>
+  <updated>2020-02-27T02:41:00.000Z</updated>
   <id>http://xuejiangtao.com/</id>
   
   <author>
@@ -17,11 +17,665 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>idea生成类注释和方法注释</title>
+    <link href="http://xuejiangtao.com//posts/54ef10dc/"/>
+    <id>http://xuejiangtao.com//posts/54ef10dc/</id>
+    <published>2020-01-08T09:01:54.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>groovyScript(“def result=’’; def params=\”${_1}\”.replaceAll(‘[\\[|\\]|\\s]’, ‘’).split(‘,’).toList(); for(i = 0; i &lt; params.size(); i++) {if(params[i] == ‘’) return result;if(i==0) result += ‘\n’; result+=’  * @param ‘ + params[i] +’: ‘+ ((i &lt; params.size() - 1) ? ‘\n’ : ‘’)}; return result”, methodParameters())</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;groovyScript(“def result=’’; def params=\”${_1}\”.replaceAll(‘[\\[|\\]|\\s]’, ‘’).split(‘,’).toList(); for(i = 0; i &amp;lt; params.size(); i
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vo、po、dto、bo、pojo、entity、mode如何区分</title>
+    <link href="http://xuejiangtao.com//posts/ad1820bf/"/>
+    <id>http://xuejiangtao.com//posts/ad1820bf/</id>
+    <published>2020-01-03T03:53:11.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Java Bean：一种可重用组件，即“一次编写，任何地方执行，任何地方重用”。满足三个条件</p><p>类必须是具体的和公共的<br>具有无参构造器<br>提供一致性设计模式的公共方法将内部域或暴露成员属性<br>VO<br>value object：值对象<br>通常用于业务层之间的数据传递，由new创建，由GC回收<br>和PO一样也是仅仅包含数据而已，但应是抽象出的业务对象，可以和表对应，也可以不是</p><p>PO<br>persistant object：持久层对象<br>是ORM(Objevt Relational Mapping)框架中Entity，PO属性和数据库中表的字段形成一一对应关系<br>VO和PO，都是属性加上属性的get和set方法；表面看没什么不同，但代表的含义是完全不同的</p><p>DTO<br>data transfer object：数据传输对象<br>是一种设计模式之间传输数据的软件应用系统，数据传输目标往往是数据访问对象从数据库中检索数据<br>数据传输对象与数据交互对象或数据访问对象之间的差异是一个以不具任何行为除了存储和检索的数据（访问和存取器）<br>简而言之，就是接口之间传递的数据封装<br>表里面有十几个字段：id，name，gender（M/F)，age……<br>页面需要展示三个字段：name，gender(男/女)，age<br>DTO由此产生，一是能提高数据传输的速度(减少了传输字段)，二能隐藏后端表结构<br>DTO</p><p>BO<br>business object：业务对象<br>BO把业务逻辑封转为一个对象，通过调用DAO方法，结合PO或VO进行业务操作<br>PO组合，如投保人是一个PO，被保险人是一个PO，险种信息是一个PO等等，他们组合气来是第一张保单的BO</p><p>POJO<br>plian ordinary java object：简单无规则java对象<br>纯的传统意义的java对象，最基本的Java Bean只有属性加上属性的get和set方法</p><p>可以额转化为PO、DTO、VO；比如POJO在传输过程中就是DTO</p><p>DAO<br>data access object：数据访问对象<br>是sun的一个标准j2ee设计模式，这个模式中有个接口就是DAO，负责持久层的操作<br>主要用来封装对数据的访问，注意，是对数据的访问，不是对数据库的访问<br>DAO对数据的访问</p><p>其他的还有model/module/domain/entity</p><p>Entity<br>实体，和PO的功能类似，和数据表一一对应，一个实体一张表</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Java Bean：一种可重用组件，即“一次编写，任何地方执行，任何地方重用”。满足三个条件&lt;/p&gt;
+&lt;p&gt;类必须是具体的和公共的&lt;br&gt;具有无参构造器&lt;br&gt;提供一致性设计模式的公共方法将内部域或暴露成员属性&lt;br&gt;VO&lt;br&gt;value object：值对象&lt;br&gt;通常
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis传入多个参数</title>
+    <link href="http://xuejiangtao.com//posts/eae51fdb/"/>
+    <id>http://xuejiangtao.com//posts/eae51fdb/</id>
+    <published>2020-01-02T02:08:58.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="一、单个参数"><a href="#一、单个参数" class="headerlink" title="一、单个参数"></a>一、单个参数</h5><p>mapper</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Test&gt; getTestList(String id);</span><br></pre></td></tr></table></figure><p>xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id = &quot;getTestList&quot; parameterType = &quot;java.lang.String&quot; resultType = &quot;com.test.Test&quot;&gt;</span><br><span class="line">　　select t.* from test t where t.id = #&#123;id&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p><h5 id="二、多个参数"><a href="#二、多个参数" class="headerlink" title="二、多个参数"></a>二、多个参数</h5><h6 id="1、使用索引"><a href="#1、使用索引" class="headerlink" title="1、使用索引"></a>1、使用索引</h6><p>mapper</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Test&gt; getTestList(String id, String name);</span><br></pre></td></tr></table></figure><p>xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id = &quot;getTestList&quot; resultType = &quot;com.test.Test&quot;&gt;</span><br><span class="line">　　select t.* from test t where t.id = #&#123;0&#125; and t.name = #&#123;1&#125; </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p><h6 id="2、使用Map封装多参数"><a href="#2、使用Map封装多参数" class="headerlink" title="2、使用Map封装多参数"></a>2、使用Map封装多参数</h6><p>mapper</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Test&gt; getTestList(HashMap map);</span><br></pre></td></tr></table></figure><p>xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id = &quot;getTestList&quot; parameterType = &quot;hashmap&quot; resultType = &quot;com.test.Test&quot;&gt;</span><br><span class="line">　　select t.* from test t where t.id = #&#123;id&#125; and t.name= #&#123;name&#125; </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p><p> <strong>#{}中的变量名要和map中的key对应。</strong></p><h6 id="3、使用注解"><a href="#3、使用注解" class="headerlink" title="3、使用注解"></a>3、使用注解</h6><p>mapper</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Test&gt; getTestList(@Param(&quot;id&quot;)int id, @Param(&quot;name&quot;)int name);</span><br></pre></td></tr></table></figure><p>xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id = &quot;getTestList&quot; resultMap = &quot;com.test.Test&quot;&gt;</span><br><span class="line">   select t.* from test t where t.id = #&#123;id&#125; and t.name = #&#123;name&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;一、单个参数&quot;&gt;&lt;a href=&quot;#一、单个参数&quot; class=&quot;headerlink&quot; title=&quot;一、单个参数&quot;&gt;&lt;/a&gt;一、单个参数&lt;/h5&gt;&lt;p&gt;mapper&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;
+      
+    
+    </summary>
+    
+      <category term="mybatis" scheme="http://xuejiangtao.com/categories/mybatis/"/>
+    
+    
+      <category term="mybatis" scheme="http://xuejiangtao.com/tags/mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReentrantLock(重入锁)功能详解和应用演示</title>
+    <link href="http://xuejiangtao.com//posts/a169cdaf/"/>
+    <id>http://xuejiangtao.com//posts/a169cdaf/</id>
+    <published>2019-12-17T13:45:02.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/takumicx/p/9338983.html" target="_blank" rel="noopener">https://www.cnblogs.com/takumicx/p/9338983.html</a></p><p>多线程实现原理java<br>hashmap实现原理<br>分解关联查询</p><p>redis击穿，穿透，雪崩以及解决方案<br><a href="https://blog.csdn.net/qq_27409289/article/details/85885121" target="_blank" rel="noopener">https://blog.csdn.net/qq_27409289/article/details/85885121</a></p><p>mysql三层体系<br><a href="https://www.cnblogs.com/lbg-database/p/10108393.html" target="_blank" rel="noopener">https://www.cnblogs.com/lbg-database/p/10108393.html</a></p><p>常见Mysql的慢查询优化方式<br><a href="https://blog.csdn.net/qq_35571554/article/details/82800463" target="_blank" rel="noopener">https://blog.csdn.net/qq_35571554/article/details/82800463</a></p><p>并发编程之美，带你深入理解java多线程原理<br><a href="https://www.cnblogs.com/wenbinshen/p/9727262.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenbinshen/p/9727262.html</a></p><p>JDK1.8 HashMap源码分析<br><a href="https://blog.csdn.net/lizhongkaide/article/details/50595719" target="_blank" rel="noopener">https://blog.csdn.net/lizhongkaide/article/details/50595719</a></p><p>List、Set、Map 底层实现和使用推荐<br><a href="https://blog.csdn.net/zx_android/article/details/79464778" target="_blank" rel="noopener">https://blog.csdn.net/zx_android/article/details/79464778</a></p><p>MySQL 对于千万级的大表要怎么优化？（读写分离、水平拆分、垂直拆分）<br><a href="https://blog.csdn.net/qq_35393693/article/details/79793014" target="_blank" rel="noopener">https://blog.csdn.net/qq_35393693/article/details/79793014</a></p><p>面试官：为什么mysql不建议执行超过3表以上的多表关联查询？<br><a href="https://segmentfault.com/a/1190000019425008" target="_blank" rel="noopener">https://segmentfault.com/a/1190000019425008</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/takumicx/p/9338983.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/takumicx/p/9338983.html&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【Java 并发笔记】volatile 相关整理</title>
+    <link href="http://xuejiangtao.com//posts/e62ac93e/"/>
+    <id>http://xuejiangtao.com//posts/e62ac93e/</id>
+    <published>2019-12-17T13:43:56.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/ccfe24b63d87" target="_blank" rel="noopener">https://www.jianshu.com/p/ccfe24b63d87</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/ccfe24b63d87&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/ccfe24b63d87&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redis击穿，穿透，雪崩以及解决方案</title>
+    <link href="http://xuejiangtao.com//posts/86df660/"/>
+    <id>http://xuejiangtao.com//posts/86df660/</id>
+    <published>2019-12-12T14:24:59.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_27409289/article/details/85885121" target="_blank" rel="noopener">https://blog.csdn.net/qq_27409289/article/details/85885121</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_27409289/article/details/85885121&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_27409289/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux关闭防火墙命令</title>
+    <link href="http://xuejiangtao.com//posts/62cb6811/"/>
+    <id>http://xuejiangtao.com//posts/62cb6811/</id>
+    <published>2019-12-09T14:24:56.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>下面是red hat/CentOs7关闭防火墙的命令!</p><p>1:查看防火状态</p><p>systemctl status firewalld</p><p>service  iptables status</p><p>2:暂时关闭防火墙</p><p>systemctl stop firewalld</p><p>service  iptables stop</p><p>3:永久关闭防火墙</p><p>systemctl disable firewalld</p><p>chkconfig iptables off</p><p>4:重启防火墙</p><p>systemctl enable firewalld</p><p>service iptables restart  </p><p>5:永久关闭后重启</p><p>//暂时还没有试过</p><p>chkconfig iptables on</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;下面是red hat/CentOs7关闭防火墙的命令!&lt;/p&gt;
+&lt;p&gt;1:查看防火状态&lt;/p&gt;
+&lt;p&gt;systemctl status firewalld&lt;/p&gt;
+&lt;p&gt;service  iptables status&lt;/p&gt;
+&lt;p&gt;2:暂时关闭防火墙&lt;/p&gt;
+&lt;p&gt;sys
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决从github下载资源慢</title>
+    <link href="http://xuejiangtao.com//posts/3d1f8262/"/>
+    <id>http://xuejiangtao.com//posts/3d1f8262/</id>
+    <published>2019-12-08T13:04:13.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一步：去这个网站查询3个域名对应的IP地址，不能用ping来获取IP地址哦</p><p><a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a></p><p>第二步：在/etc/hosts文件中添加类似下面的3行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line"></span><br><span class="line">140.82.114.4 github.com</span><br><span class="line">199.232.5.194 github.global.ssl.fastly.net</span><br><span class="line">140.82.113.10 codeload.github.com</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br><span class="line">52.216.9.27 github-cloud.s3.amazonaws.com</span><br><span class="line">52.216.206.51 github-production-release-asset-2e65be.s3.amazonaws.com</span><br><span class="line">192.168.226.102 localhost</span><br></pre></td></tr></table></figure></p><p>第三步：重启网络</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/networking restart </span><br><span class="line">或</span><br><span class="line">service network restart</span><br></pre></td></tr></table></figure><p>现在可以飞快的下载Github上的代码了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;第一步：去这个网站查询3个域名对应的IP地址，不能用ping来获取IP地址哦&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ipaddress.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.ipaddress.c
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>rabbitmq安装</title>
+    <link href="http://xuejiangtao.com//posts/e28448e6/"/>
+    <id>http://xuejiangtao.com//posts/e28448e6/</id>
+    <published>2019-12-08T12:35:34.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#rabbitmq linux卸载</p><p>rabbitmq是运行在erlang环境下的，所以卸载时应将erlang卸载。</p><p>1、卸载rabbitmq相关</p><p>卸载前先停掉rabbitmq服务，执行命令</p><p>$ service rabbitmq-server stop<br>查看rabbitmq安装的相关列表</p><p>$ yum list | grep rabbitmq<br>卸载rabbitmq已安装的相关内容</p><p>$ yum -y remove rabbitmq-server.noarch<br>2、卸载erlang</p><p>查看erlang安装的相关列表</p><p>$ yum list | grep erlang<br>卸载erlang已安装的相关内容</p><p>$ yum -y remove erlang-*<br>$ yum remove erlang.x86_64<br>卸载完之后就可以重新安装了</p><p>3.删除相关文件</p><p>rm -rf /usr/lib64/erlang<br>rm -rf /var/lib/rabbitmq<br>rm -rf /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.1/<br>rm -rf /etc/rabbitmq/<br>rm -rf /var/log/rabbitmq</p><p><a href="https://www.jianshu.com/p/f9b4305585b0" target="_blank" rel="noopener">https://www.jianshu.com/p/f9b4305585b0</a></p><p><a href="https://www.cnblogs.com/cjyboy/p/11732070.html" target="_blank" rel="noopener">https://www.cnblogs.com/cjyboy/p/11732070.html</a></p><p><a href="https://ken.io/note/centos7-rabbitmq-install-setup" target="_blank" rel="noopener">https://ken.io/note/centos7-rabbitmq-install-setup</a></p><p>#安装erlang<br><a href="https://github.com/rabbitmq/erlang-rpm/releases" target="_blank" rel="noopener">https://github.com/rabbitmq/erlang-rpm/releases</a><br>rpm -ivh erlang-21.3.8.6-1.el7.x86_64.rpm</p><p>#安装rabbitmq<br><a href="https://www.rabbitmq.com/install-rpm.html#downloads" target="_blank" rel="noopener">https://www.rabbitmq.com/install-rpm.html#downloads</a><br>rpm -ivh rabbitmq-server-3.8.1-1.el7.noarch.rpm</p><p>#后台运行<br>/usr/sbin/rabbitmq-server -detached</p><p>#开机启动<br>chkconfig rabbitmq-server on</p><p>#启动rabbitmq服务<br>service rabbitmq-server start</p><p>#开启管理控制台<br>/usr/sbin/rabbitmq-plugins list<br>/usr/sbin/rabbitmq-plugins enable rabbitmq_management</p><p>创建账户：<br>rabbitmqctl add_user  admin  admin<br>设置用户角色<br>rabbitmqctl set_user_tags admin administrator<br>设置用户权限<br>rabbitmqctl add_vhost admin<br>设置用户权限<br>rabbitmqctl set_permissions -p admin  admin “.<em>“ “.</em>“ “.*”<br>设置完成后可以查看当前用户和角色(需要开启服务)<br>rabbitmqctl list_users</p><p>#开启远程访问</p><p>#cd /etc/rabbitmq  </p><p>#cp /usr/share/doc/rabbitmq-server-3.5.6/rabbitmq.config.example /etc/rabbitmq/   </p><p>#mv rabbitmq.config.example rabbitmq.config<br>vim /etc/rabbitmq/rabbitmq.config<br>添加： {loopback_users, []}<br>重启mq<br>service rabbitmq-server restart</p><p>#访问<br><a href="http://ip:15672" target="_blank" rel="noopener">http://ip:15672</a>   guest  guest</p><p>#异常<br>1.Error: unable to perform an operation on node ‘rabbit@localhost’. Please see diagnostics information and suggestions below.<br>解决：<br>直接用 echo 192.168.174.131 rabbitmq&gt;&gt;/etc/hosts 其中的IP是服务器的IP<br>重启rabbitmq<br><code>service rabbitmq-server restart</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#rabbitmq linux卸载&lt;/p&gt;
+&lt;p&gt;rabbitmq是运行在erlang环境下的，所以卸载时应将erlang卸载。&lt;/p&gt;
+&lt;p&gt;1、卸载rabbitmq相关&lt;/p&gt;
+&lt;p&gt;卸载前先停掉rabbitmq服务，执行命令&lt;/p&gt;
+&lt;p&gt;$ service rabb
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux下设置redis开机启动</title>
+    <link href="http://xuejiangtao.com//posts/1a0fe82/"/>
+    <id>http://xuejiangtao.com//posts/1a0fe82/</id>
+    <published>2019-12-08T07:13:08.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>步骤1：设置redis.conf中daemonize为yes,确保守护进程开启。<br>步骤2：编写开机自启动脚本</p><p>基本原理为：<br>系统开机启动时会去加载/etc/init.d/下面的脚本，通常而言每个脚本文件会自定义实现程序的启动；若想将新的程序开机自启动，只需在该目录下添加一个自定义启动程序的脚本，然后设置相应规则即可。<br>如在这里我们在/etc/init.d/下新建一个 redis 的脚本，开机启动时会去加载执行该脚本。</p><figure class="highlight vim"><figcaption><span>/etc/init.d/redis```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">脚本内容如下：</span><br></pre></td></tr></table></figure><p>#!/bin/sh  </p><p>#chkconfig: 2345 80 90  </p><h1 id="Simple-Redis-init-d-script-conceived-to-work-on-Linux-systems"><a href="#Simple-Redis-init-d-script-conceived-to-work-on-Linux-systems" class="headerlink" title="Simple Redis init.d script conceived to work on Linux systems"></a>Simple Redis init.d script conceived to work on Linux systems</h1><h1 id="as-it-does-use-of-the-proc-filesystem"><a href="#as-it-does-use-of-the-proc-filesystem" class="headerlink" title="as it does use of the /proc filesystem."></a>as it does use of the /proc filesystem.</h1><p>REDISPORT=6379                          #端口号，这是默认的，如果你安装的时候不是默认端口号，则需要修改<br>REDISPATH=/usr/local/bin/                #redis-server启动脚本的所在目录，你如果忘了可以用find / -name redis-server 或whereis redis-server找到<br>EXEC=${REDISPATH}/redis-server<br>CLIEXEC=${REDISPATH}/redis-cli<br>PIDFILE=/var/run/redis.pid  #在redis.conf中可找到该路径   /var/run/redis_${REDISPORT}.pid<br>CONF=”${REDISPATH}/redis.conf”           #redis.conf的位置, 如果不和redis-server在同一目录要修改成你的redis.conf所在目录<br>case “$1” in<br>  start)<br>    if [ -f $PIDFILE ]<br>    then<br>        echo “$PIDFILE exists, process is already running or crashed”<br>    else<br>        echo “Starting Redis server…”<br>        $EXEC $CONF<br>    fi<br>    ;;<br>  stop)<br>    if [ ! -f $PIDFILE ]<br>    then<br>        echo “$PIDFILE does not exist, process is not running”<br>    else<br>        PID=$(cat $PIDFILE)<br>        echo “Stopping …”<br>        $CLIEXEC -p $REDISPORT shutdown<br>        while [ -x /proc/${PID} ]<br>        do<br>          echo “Waiting for Redis to shutdown …”<br>          sleep 1<br>        done<br>        echo “Redis stopped”<br>    fi<br>    ;;<br>  *)<br>    echo “Please use start or stop as first argument”<br>    ;;<br>esac<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">写完后wq保存退出</span><br><span class="line"></span><br><span class="line">设置可执行权限：</span><br><span class="line"></span><br><span class="line">```chmod 777 /etc/init.d/redis</span><br></pre></td></tr></table></figure></p><p>启动redis:<br><figure class="highlight plain"><figcaption><span>start```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">执行结束之后用redis-cli 或者 ps aux|grep redis 查看redis是否成功启动.</span><br><span class="line"></span><br><span class="line">设置开机启动:</span><br></pre></td></tr></table></figure></p><p>chkconfig redis on<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">关机重启测试:</span><br><span class="line">```reboot</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;步骤1：设置redis.conf中daemonize为yes,确保守护进程开启。&lt;br&gt;步骤2：编写开机自启动脚本&lt;/p&gt;
+&lt;p&gt;基本原理为：&lt;br&gt;系统开机启动时会去加载/etc/init.d/下面的脚本，通常而言每个脚本文件会自定义实现程序的启动；若想将新的程序开机自启
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何保证Redis与数据库的双写一致性？</title>
+    <link href="http://xuejiangtao.com//posts/db7dc98d/"/>
+    <id>http://xuejiangtao.com//posts/db7dc98d/</id>
+    <published>2019-12-03T02:27:01.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/c72ba33ea49e" target="_blank" rel="noopener">https://www.jianshu.com/p/c72ba33ea49e</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/c72ba33ea49e&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/c72ba33ea49e&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySql实现读写分离</title>
+    <link href="http://xuejiangtao.com//posts/14c107ab/"/>
+    <id>http://xuejiangtao.com//posts/14c107ab/</id>
+    <published>2019-12-02T01:52:58.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_15092079/article/details/81672920" target="_blank" rel="noopener">https://blog.csdn.net/qq_15092079/article/details/81672920</a></p><p><a href="https://blog.csdn.net/why15732625998/article/details/80463041" target="_blank" rel="noopener">https://blog.csdn.net/why15732625998/article/details/80463041</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_15092079/article/details/81672920&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_15092079/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下如何解压 tar.xz格式文件</title>
+    <link href="http://xuejiangtao.com//posts/bbcf0b85/"/>
+    <id>http://xuejiangtao.com//posts/bbcf0b85/</id>
+    <published>2019-11-21T10:21:23.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/83449532" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/83449532</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/83449532&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装与设置Vim编辑器</title>
+    <link href="http://xuejiangtao.com//posts/f84c0771/"/>
+    <id>http://xuejiangtao.com//posts/f84c0771/</id>
+    <published>2019-11-21T10:20:16.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/84025231" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/84025231</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/84025231&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装Maven</title>
+    <link href="http://xuejiangtao.com//posts/4e663754/"/>
+    <id>http://xuejiangtao.com//posts/4e663754/</id>
+    <published>2019-11-21T10:19:06.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/83474216" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/83474216</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/83474216&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装Mysql</title>
+    <link href="http://xuejiangtao.com//posts/1da03cb6/"/>
+    <id>http://xuejiangtao.com//posts/1da03cb6/</id>
+    <published>2019-11-21T10:18:10.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/83476394" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/83476394</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/83476394&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装Nginx</title>
+    <link href="http://xuejiangtao.com//posts/2cf79a8f/"/>
+    <id>http://xuejiangtao.com//posts/2cf79a8f/</id>
+    <published>2019-11-21T10:17:09.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/84065217" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/84065217</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/84065217&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装zookeeper</title>
+    <link href="http://xuejiangtao.com//posts/f802c28c/"/>
+    <id>http://xuejiangtao.com//posts/f802c28c/</id>
+    <published>2019-11-21T10:15:59.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/84032759" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/84032759</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/84032759&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装Dubbo监控中心</title>
+    <link href="http://xuejiangtao.com//posts/65d07e7a/"/>
+    <id>http://xuejiangtao.com//posts/65d07e7a/</id>
+    <published>2019-11-21T10:06:44.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/84034692" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/84034692</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/84034692&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装Tomcat</title>
+    <link href="http://xuejiangtao.com//posts/76c6f4a3/"/>
+    <id>http://xuejiangtao.com//posts/76c6f4a3/</id>
+    <published>2019-11-21T09:54:15.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/83448086" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/83448086</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/83448086&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装JDK</title>
+    <link href="http://xuejiangtao.com//posts/b92abb25/"/>
+    <id>http://xuejiangtao.com//posts/b92abb25/</id>
+    <published>2019-11-21T09:53:42.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/83445012" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/83445012</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/83445012&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java关键字transient和volatile</title>
+    <link href="http://xuejiangtao.com//posts/9ac39d03/"/>
+    <id>http://xuejiangtao.com//posts/9ac39d03/</id>
+    <published>2019-11-20T14:35:08.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h1><p>词义：<em>短暂的</em></p><p>首先说说“序列化”，把一个对象的表示转化为字节流的过程称为串行化（也称为序列化，serialization），从字节流中把对象重建出来称为反串行化（也称为为反序列化，deserialization）。<br><strong>transient为不应被串行化的数据提供了一个语言级的标记数据方法</strong>。</p><p><code>transient</code>是类型修饰符，只能用来修饰字段。在对象序列化的过程中，标记为<code>transient</code>的变量<strong>不会被序列化</strong>。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Test &#123;</span><br><span class="line">transient int a; // 不会被持久化</span><br><span class="line">int b; // 持久化</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当类Test的实例对象被序列化（比如将Test类的实例对象 t 写入硬盘的文本文件t.txt中），变量 a 的内容不会被保存，变量 b 的内容则会被保存。</p><h1 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h1><p>词义：<em>易变的</em><br><code>volatile</code>也是变量修饰符，只能用来修饰变量。<code>volatile</code>修饰的成员变量在每次被线程访问时，都强迫从共享内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。<br>在此解释一下Java的内存机制：<br>Java使用一个主内存来保存变量当前值，而每个线程则有其独立的工作内存。线程访问变量的时候会将变量的值拷贝到自己的工作内存中，这样，当线程对自己工作内存中的变量进行操作之后，就造成了工作内存中的变量拷贝的值与主内存中的变量值不同。<br>Java语言规范中指出：<strong>为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才与共享成员变量的原始值对比。</strong><br>这样当多个线程同时与某个对象交互时，就必须要注意到要让线程及时的得到共享成员变量的变化。<br>而<code>volatile</code>关键字就是提示VM：<strong>对于这个成员变量不能保存它的私有拷贝，而应直接与共享成员变量交互。</strong></p><p>对于volatile类型的变量，系统每次用到他的时候都是直接从对应的内存当中提取，而不会利用cache当中的原有数值，以适应它的未知何时会发生的变化，系统对这种变量的处理不会做优化——显然也是因为它的数值随时都可能变化的情况。</p><p>典型的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0; i&lt;100000; i++);</span><br></pre></td></tr></table></figure></p><p>这个语句用来测试空循环的速度的<br>但是编译器肯定要把它优化掉，根本就不执行<br>如果你写成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(volatile int i=0; i&lt;100000; i++);</span><br></pre></td></tr></table></figure><p>它就会执行了</p><p>使用建议：在两个或者更多的线程访问的成员变量上使用<code>volatile</code>。当要访问的变量已在<code>synchronized</code>代码块中，或者为常量时，不必使用。由于使用<code>volatile</code>屏蔽掉了VM中必要的代码优化，所以在效率上比较低，因此一定在必要时才使用此关键字。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;transient&quot;&gt;&lt;a href=&quot;#transient&quot; class=&quot;headerlink&quot; title=&quot;transient&quot;&gt;&lt;/a&gt;transient&lt;/h1&gt;&lt;p&gt;词义：&lt;em&gt;短暂的&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;首先说说“序列化”，把一个对象的表示转
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SynchronousQueue</title>
+    <link href="http://xuejiangtao.com//posts/f715f7b8/"/>
+    <id>http://xuejiangtao.com//posts/f715f7b8/</id>
+    <published>2019-11-20T14:22:26.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>SynchronousQueue</code>类实现了<code>BlockingQueue</code>接口。阅读<code>BlockingQueue</code>文本以获取有关的更多信息。</p><p><code>SynchronousQueue</code>是一个内部只能包含一个元素的队列。插入元素到队列的线程被阻塞，直到另一个线程从队列中获取了队列中存储的元素。同样，如果线程尝试获取元素并且当前不存在任何元素，则该线程将被阻塞，直到线程将元素插入队列。 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;SynchronousQueue&lt;/code&gt;类实现了&lt;code&gt;BlockingQueue&lt;/code&gt;接口。阅读&lt;code&gt;BlockingQueue&lt;/code&gt;文本以获取有关的更多信息。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SynchronousQueue&lt;/co
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下搭建Redis5.0版集群</title>
+    <link href="http://xuejiangtao.com//posts/4e183092/"/>
+    <id>http://xuejiangtao.com//posts/4e183092/</id>
+    <published>2019-11-20T08:34:51.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/84189397" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/84189397</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/84189397&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下安装Redis</title>
+    <link href="http://xuejiangtao.com//posts/f3a5f49b/"/>
+    <id>http://xuejiangtao.com//posts/f3a5f49b/</id>
+    <published>2019-11-20T08:33:55.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_39135287/article/details/83474865" target="_blank" rel="noopener">https://blog.csdn.net/qq_39135287/article/details/83474865</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_39135287/article/details/83474865&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_39135287/art
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>索引的原理和实现的方式</title>
+    <link href="http://xuejiangtao.com//posts/b944c9ac/"/>
+    <id>http://xuejiangtao.com//posts/b944c9ac/</id>
+    <published>2019-11-14T02:18:39.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>聊聊HTTPS和SSL/TLS协议<br><a href="https://www.cnblogs.com/softidea/p/7832094.html" target="_blank" rel="noopener">https://www.cnblogs.com/softidea/p/7832094.html</a></p><p>JVM 优化<br><a href="https://www.jianshu.com/p/8fe2b5422917" target="_blank" rel="noopener">https://www.jianshu.com/p/8fe2b5422917</a></p><p>一次生产的JVM优化<br><a href="https://my.oschina.net/u/3627055/blog/2995973?from=timeline&amp;isappinstalled=0" target="_blank" rel="noopener">https://my.oschina.net/u/3627055/blog/2995973?from=timeline&amp;isappinstalled=0</a></p><p>HashMap和Hashtable的区别<br><a href="https://www.jianshu.com/p/d3664a1e7c2b" target="_blank" rel="noopener">https://www.jianshu.com/p/d3664a1e7c2b</a></p><p>JavaIO流常见面试题<br><a href="https://blog.csdn.net/qq_37875585/article/details/89385688" target="_blank" rel="noopener">https://blog.csdn.net/qq_37875585/article/details/89385688</a></p><p>Java IO流处理 面试题汇总<br><a href="https://blog.csdn.net/chengyuqiang/article/details/79183748" target="_blank" rel="noopener">https://blog.csdn.net/chengyuqiang/article/details/79183748</a></p><p>java面试题之—-IO与NIO的区别<br><a href="https://www.cnblogs.com/xuxinstyle/p/9546052.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuxinstyle/p/9546052.html</a></p><p>Java虚拟机（JVM）你只要看这一篇就够了！<br><a href="https://blog.csdn.net/qq_41701956/article/details/81664921" target="_blank" rel="noopener">https://blog.csdn.net/qq_41701956/article/details/81664921</a></p><p>Java面试之JVM原理总结<br><a href="https://www.cnblogs.com/hujinshui/p/10398958.html" target="_blank" rel="noopener">https://www.cnblogs.com/hujinshui/p/10398958.html</a></p><p>jvm之java类加载机制和类加载器(ClassLoader)的详解<br><a href="https://blog.csdn.net/m0_38075425/article/details/81627349" target="_blank" rel="noopener">https://blog.csdn.net/m0_38075425/article/details/81627349</a></p><p>Tomcat 面试题汇总<br><a href="https://blog.csdn.net/qq_25934401/article/details/81536958" target="_blank" rel="noopener">https://blog.csdn.net/qq_25934401/article/details/81536958</a></p><p>CAS单点登录原理<br><a href="https://blog.csdn.net/ban_tang/article/details/80015946" target="_blank" rel="noopener">https://blog.csdn.net/ban_tang/article/details/80015946</a></p><p>互联网java高级进阶<br><a href="https://github.com/doocs/advanced-java/tree/master/docs/distributed-system" target="_blank" rel="noopener">https://github.com/doocs/advanced-java/tree/master/docs/distributed-system</a></p><p><a href="https://blog.csdn.net/pmdream/article/details/87094291" target="_blank" rel="noopener">https://blog.csdn.net/pmdream/article/details/87094291</a></p><p>关于高并发和分布式中的幂等处理<br><a href="https://www.jianshu.com/p/cea3675a590b" target="_blank" rel="noopener">https://www.jianshu.com/p/cea3675a590b</a></p><p>RabbitMQ如何保证消息的可达性<br><a href="https://www.jianshu.com/p/62e70ac00eb4" target="_blank" rel="noopener">https://www.jianshu.com/p/62e70ac00eb4</a></p><p>MQ 面试常问问题及解答<br><a href="https://www.jianshu.com/p/18c45f23f859" target="_blank" rel="noopener">https://www.jianshu.com/p/18c45f23f859</a></p><p>MQ面试常问的问题<br><a href="https://blog.csdn.net/lettyisme/article/details/85233008" target="_blank" rel="noopener">https://blog.csdn.net/lettyisme/article/details/85233008</a></p><p>如何保证消息的顺序性<br><a href="https://blog.csdn.net/zengdongwen/article/details/100609348" target="_blank" rel="noopener">https://blog.csdn.net/zengdongwen/article/details/100609348</a></p><p>RabbitMQ四种交换机类型介绍<br><a href="https://www.cnblogs.com/linyufeng/p/9885020.html" target="_blank" rel="noopener">https://www.cnblogs.com/linyufeng/p/9885020.html</a></p><p>RabbitMQ入门教程(十)：队列声明queueDeclare<br><a href="https://blog.csdn.net/vbirdbest/article/details/78670550" target="_blank" rel="noopener">https://blog.csdn.net/vbirdbest/article/details/78670550</a></p><p>Redis常见面试题<br><a href="https://www.cnblogs.com/jasontec/p/9699242.html" target="_blank" rel="noopener">https://www.cnblogs.com/jasontec/p/9699242.html</a></p><p>RPC框架<br><a href="https://www.jianshu.com/p/44368535796f" target="_blank" rel="noopener">https://www.jianshu.com/p/44368535796f</a></p><p>聊聊Dubbo（一）：为何选择<br><a href="https://www.jianshu.com/p/0b6e2c920014" target="_blank" rel="noopener">https://www.jianshu.com/p/0b6e2c920014</a></p><p>大牛总结<br><a href="https://www.jianshu.com/u/657c611b2e07" target="_blank" rel="noopener">https://www.jianshu.com/u/657c611b2e07</a></p><p>互联网 Java 工程师进阶知识完全扫盲<br><a href="https://doocs.github.io/advanced-java/#/?id=%e4%ba%92%e8%81%94%e7%bd%91-java-%e5%b7%a5%e7%a8%8b%e5%b8%88%e8%bf%9b%e9%98%b6%e7%9f%a5%e8%af%86%e5%ae%8c%e5%85%a8%e6%89%ab%e7%9b%b2%c2%a9" target="_blank" rel="noopener">https://doocs.github.io/advanced-java/#/?id=%e4%ba%92%e8%81%94%e7%bd%91-java-%e5%b7%a5%e7%a8%8b%e5%b8%88%e8%bf%9b%e9%98%b6%e7%9f%a5%e8%af%86%e5%ae%8c%e5%85%a8%e6%89%ab%e7%9b%b2%c2%a9</a></p><p>zookeeper<br>主要是用来解决分布式应用中经常遇到的一些数据管理问题，如：统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等。<br>核心词就是一个单词：协调。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;聊聊HTTPS和SSL/TLS协议&lt;br&gt;&lt;a href=&quot;https://www.cnblogs.com/softidea/p/7832094.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/sof
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>RabbitMQ使用</title>
+    <link href="http://xuejiangtao.com//posts/fef34902/"/>
+    <id>http://xuejiangtao.com//posts/fef34902/</id>
+    <published>2019-11-13T05:58:04.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/62e70ac00eb4" target="_blank" rel="noopener">https://www.jianshu.com/p/62e70ac00eb4</a><br><a href="https://www.cnblogs.com/lfalex0831/p/8963247.html" target="_blank" rel="noopener">https://www.cnblogs.com/lfalex0831/p/8963247.html</a></p><p><a href="https://www.jianshu.com/p/18c45f23f859" target="_blank" rel="noopener">https://www.jianshu.com/p/18c45f23f859</a><br>1）系统解耦<br>2）异步调用<br>3）流量削峰 </p><p>RabbitMQ 重复消费的思路以及解决方案<br><a href="https://pleuvoir.github.io/2019/02/18/rabbitmq-chong-fu-xiao-fei/" target="_blank" rel="noopener">https://pleuvoir.github.io/2019/02/18/rabbitmq-chong-fu-xiao-fei/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62e70ac00eb4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/62e70ac00eb4&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;ht
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux安装rabbitmq</title>
+    <link href="http://xuejiangtao.com//posts/fb99bc05/"/>
+    <id>http://xuejiangtao.com//posts/fb99bc05/</id>
+    <published>2019-11-11T09:00:24.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一.安装erlang<br>yum install erlang</p><p>二.安装rabbitMQ<br>1.去官网查看最新版本，并下载<br><a href="https://www.rabbitmq.com/releases/rabbitmq-server/" target="_blank" rel="noopener">https://www.rabbitmq.com/releases/rabbitmq-server/</a></p><p>wget -c <a href="http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-generic-unix-3.6.15.tar.xz" target="_blank" rel="noopener">http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-generic-unix-3.6.15.tar.xz</a></p><p>解压：<br>xz -d rabbitmq-server-generic-unix-3.6.15.tar.xz<br>tar -xvf rabbitmq-server-generic-unix-3.6.15.tar<br>vim /etc/profile</p><p>2.配置rabbitmq的环境变量<br>vim /etc/profile<br>export PATH=$PATH:/usr/local/rabbitmq_server-3.6.15/sbin<br>source /etc/profile</p><p>3.rabbitmq的基本操作：<br>启动：rabbitmq-server -detached<br>重启：service rabbitmq-server restart<br>关闭：rabbitmqctl stop<br>查看状态：rabbitmqctl status</p><p>4.配置rabbitmq网页管理插件<br>启用插件：rabbitmq-plugins enable rabbitmq_management<br>本地访问管理页面：<a href="http://127.0.0.1:15672" target="_blank" rel="noopener">http://127.0.0.1:15672</a><br>端口默认为15672<br>默认登陆账号密码：guest/guest<br>由于账号guest具有所有的操作权限，并且又是默认账号，出于安全因素的考虑，guest用户只能通过localhost登陆使用</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一.安装erlang&lt;br&gt;yum install erlang&lt;/p&gt;
+&lt;p&gt;二.安装rabbitMQ&lt;br&gt;1.去官网查看最新版本，并下载&lt;br&gt;&lt;a href=&quot;https://www.rabbitmq.com/releases/rabbitmq-server/&quot; t
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>设置RabbitMQ远程ip登录</title>
+    <link href="http://xuejiangtao.com//posts/a1c44b3a/"/>
+    <id>http://xuejiangtao.com//posts/a1c44b3a/</id>
+    <published>2019-11-11T08:56:54.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于账号guest具有所有的操作权限，并且又是默认账号，出于安全因素的考虑，guest用户只能通过localhost登陆使用，并建议修改guest用户的密码以及新建其他账号管理使用rabbitmq。<br>这里我们以创建个test帐号，密码123456为例，创建一个账号并支持远程ip访问。</p><p>创建账号<br>rabbitmqctl add_user test 123456<br>设置用户角色<br>rabbitmqctl  set_user_tags  test  administrator<br>设置用户权限<br>rabbitmqctl set_permissions -p “/“ test “.<em>“ “.</em>“ “.*”<br>设置完成后可以查看当前用户和角色(需要开启服务)<br>rabbitmqctl list_users<br>这是你就可以通过其他主机的访问RabbitMQ的Web管理界面了，访问方式，浏览器输入：serverip:15672。其中serverip是RabbitMQ-Server所在主机的ip。</p><p>RabbitMQ常用操作：<br>1、用户管理<br>用户管理包括增加用户，删除用户，查看用户列表，修改用户密码。<br>(1) 新增一个用户</p><p>rabbitmqctl  add_user  Username  Password<br>(2) 删除一个用户</p><p>rabbitmqctl  delete_user  Username<br>(3) 修改用户的密码</p><p>rabbitmqctl  change_password  Username  Newpassword<br>(4) 查看当前用户列表</p><p>rabbitmqctl  list_users<br>2、 用户角色<br>按照个人理解，用户角色可分为五类，超级管理员, 监控者, 策略制定者, 普通管理者以及其他。<br>(1) 超级管理员(administrator)<br>可登陆管理控制台(启用management plugin的情况下)，可查看所有的信息，并且可以对用户，策略(policy)进行操作。<br>(2) 监控者(monitoring)<br>可登陆管理控制台(启用management plugin的情况下)，同时可以查看rabbitmq节点的相关信息(进程数，内存使用情况，磁盘使用情况等)<br>(3) 策略制定者(policymaker)<br>可登陆管理控制台(启用management plugin的情况下), 同时可以对policy进行管理。但无法查看节点的相关信息(上图红框标识的部分)。与administrator的对比，administrator能看到这些内容。<br>(4) 普通管理者(management)<br>仅可登陆管理控制台(启用management plugin的情况下)，无法看到节点信息，也无法对策略进行管理。<br>(5) 其他<br>无法登陆管理控制台，通常就是普通的生产者和消费者。</p><p>了解了这些后，就可以根据需要给不同的用户设置不同的角色，以便按需管理。</p><p>设置用户角色的命令为：</p><p>rabbitmqctl  set_user_tags  User  Tag<br>User为用户名， Tag为角色名(对应于上面的administrator，monitoring，policymaker，management，或其他自定义名称)。</p><p>也可以给同一用户设置多个角色，例如</p><p>rabbitmqctl  set_user_tags  username  monitoring  policymaker<br>3、用户权限<br>用户权限指的是用户对exchange，queue的操作权限，包括配置权限，读写权限。配置权限会影响到exchange，queue的声明和删除。读写权限影响到从queue里取消息，向exchange发送消息以及queue和exchange的绑定(bind)操作。</p><p>例如： 将queue绑定到某exchange上，需要具有queue的可写权限，以及exchange的可读权限；向exchange发送消息需要具有exchange的可写权限；从queue里取数据需要具有queue的可读权限。详细请参考官方文档中”How permissions work”部分。</p><p>相关命令为：<br>(1) 设置用户权限</p><p>rabbitmqctl  set_permissions  -p  VHostPath  User  ConfP  WriteP  ReadP<br>(2) 查看(指定hostpath)所有用户的权限信息</p><p>rabbitmqctl  list_permissions  [-p  VHostPath]<br>(3) 查看指定用户的权限信息</p><p>rabbitmqctl  list_user_permissions  User<br>(4) 清除用户的权限信息</p><p>rabbitmqctl  clear_permissions  [-p VHostPath]  User</p><p>作者：dzgdp888<br>链接：<a href="https://www.jianshu.com/p/e3af4cf97820" target="_blank" rel="noopener">https://www.jianshu.com/p/e3af4cf97820</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于账号guest具有所有的操作权限，并且又是默认账号，出于安全因素的考虑，guest用户只能通过localhost登陆使用，并建议修改guest用户的密码以及新建其他账号管理使用rabbitmq。&lt;br&gt;这里我们以创建个test帐号，密码123456为例，创建一个账号并支
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis 密码设置和查看密码</title>
+    <link href="http://xuejiangtao.com//posts/d96a93bd/"/>
+    <id>http://xuejiangtao.com//posts/d96a93bd/</id>
+    <published>2019-08-08T03:15:13.000Z</published>
+    <updated>2020-02-27T02:41:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>   redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。</p><p>   1、初始化Redis密码：</p><p>   在配置文件中有个参数： requirepass  这个就是配置redis访问密码的参数；</p><p>   比如 requirepass test123；</p><p>   （Ps:需重启Redis才能生效）</p><p>   redis的查询速度是非常快的，外部用户一秒内可以尝试多大150K个密码；所以密码要尽量长（对于DBA 没有必要必须记住密码）；</p><p>   2、不重启Redis设置密码：</p><p>   在配置文件中配置requirepass的密码（当redis重启时密码依然有效）。</p><p>   redis 127.0.0.1:6379&gt; config set requirepass test123</p><p>   查询密码：</p><p>   redis 127.0.0.1:6379&gt; config get requirepass<br>   (error) ERR operation not permitted</p><p>   密码验证：</p><p>   redis 127.0.0.1:6379&gt; auth test123<br>   OK</p><p>   再次查询：</p><p>   redis 127.0.0.1:6379&gt; config get requirepass<br>   1) “requirepass”<br>   2) “test123”</p><p>   PS：如果配置文件中没添加密码 那么redis重启后，密码失效；</p><p>   3、登陆有密码的Redis：</p><p>   在登录的时候的时候输入密码：</p><p>   redis-cli -p 6379 -a test123</p><p>   先登陆后验证：</p><p>   redis-cli -p 6379</p><p>   redis 127.0.0.1:6379&gt; auth test123<br>   OK</p><p>   AUTH命令跟其他redis命令一样，是没有加密的；阻止不了攻击者在网络上窃取你的密码；</p><p>   认证层的目标是提供多一层的保护。如果防火墙或者用来保护redis的系统防御外部攻击失败的话，外部用户如果没有通过密码认证还是无法访问redis的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;   redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。&lt;/p&gt;
+&lt;p&gt;   1、初始化Redis密码：&lt;/p&gt;
+&lt;p&gt;   在配置文件中有个参数： requirepass  这个就是配置redis访问密码的参
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>HTTP网页请求状态码</title>
     <link href="http://xuejiangtao.com//posts/a44983eb/"/>
     <id>http://xuejiangtao.com//posts/a44983eb/</id>
     <published>2019-08-07T09:55:24.000Z</published>
-    <updated>2019-08-07T10:00:46.000Z</updated>
+    <updated>2019-08-07T10:05:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>HTTP状态码:</p><p>1xx   （临时响应） 表示临时响应并需要请求者继续执行操作的状态码。</p><p>100   （继续）   请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。<br>101   （切换协议）   请求者已要求服务器切换协议，服务器已确认并准备切换。</p><p>2xx    （请求成功）表示成功处理了请求的状态代码。</p><p>200   （成功）  服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。<br>201   （已创建）  请求成功并且服务器创建了新的资源。<br>202   （已接受）  服务器已接受请求，但尚未处理。<br>203   （非授权信息）  服务器已成功处理了请求，但返回的信息可能来自另一来源。<br>204   （无内容）  服务器成功处理了请求，但没有返回任何内容。<br>205   （重置内容） 服务器成功处理了请求，但没有返回任何内容。<br>206   （部分内容）  服务器成功处理了部分 GET 请求。</p><p>3xx    （请求被重定向）表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</p><p>300   （多种选择）  针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。<br>301   （永久移动）  请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。<br>302   （临时移动）  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。<br>303   （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。<br>304   （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。<br>305   （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。<br>307   （临时重定向）  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p><p>4xx    （请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。</p><p>400   （错误请求） 服务器不理解请求的语法。<br>401   （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。<br>403   （禁止） 服务器拒绝请求。<br>404   （未找到） 服务器找不到请求的网页。<br>405   （方法禁用） 禁用请求中指定的方法。<br>406   （不接受） 无法使用请求的内容特性响应请求的网页。<br>407   （需要代理授权） 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。<br>408   （请求超时）  服务器等候请求时发生超时。<br>409   （冲突）  服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。<br>410   （已删除）  如果请求的资源已永久删除，服务器就会返回此响应。<br>411   （需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。<br>412   （未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。<br>413   （请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。<br>414   （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。<br>415   （不支持的媒体类型） 请求的格式不受请求页面的支持。<br>416   （请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态代码。<br>417   （未满足期望值） 服务器未满足”期望”请求标头字段的要求。</p><p>5xx   （服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</p><p>500   （服务器内部错误）  服务器遇到错误，无法完成请求。<br>501   （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。<br>502   （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。<br>503   （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。<br>504   （网关超时）  服务器作为网关或代理，但是没有及时从上游服务器收到请求。<br>505   （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</p>]]></content>
     
@@ -44,7 +698,7 @@
     <link href="http://xuejiangtao.com//posts/4a3a5e7f/"/>
     <id>http://xuejiangtao.com//posts/4a3a5e7f/</id>
     <published>2019-07-26T08:58:14.000Z</published>
-    <updated>2019-07-26T08:58:32.000Z</updated>
+    <updated>2019-08-07T10:05:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>#!/bin/sh</p><p>JAVA_HOME=/usr/java</p><p>process=<code>ps -ef | grep java |grep /home/xuejiangtao/m88/soccer | awk &#39;{print $2}&#39;</code></p><p>if [ “$process” != “” ]; then<br>        echo ‘应用下线…….’<br>        echo ‘杀死进程’$process<br>        kill -9 $process<br>fi</p><p>echo ‘重新启动中,请耐心等待5s……’<br>cd /home/xuejiangtao/m88<br>cp /home/xuejiangtao/m88/backup/soccer.jar /home/xuejiangtao/m88/</p><p>datef=<code>date  +%Y%m%d%H%M%S</code><br>cp /home/xuejiangtao/m88/backup/soccer.jar /home/xuejiangtao/m88/backup/soccer.jar.${datef}</p><p>nohup ${JAVA_HOME}/bin/java   -Xmx500m \<br>                        -Xms500m \<br>                        -XX:MetaspaceSize=64m \<br>                        -XX:+UseConcMarkSweepGC \<br>                        -XX:ParallelCMSThreads=2 \<br>                        -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=80 -XX:+CMSParallelRemarkEnabled \<br>                        -Xloggc:./logs/gc.log \<br>                        -XX:+PrintGCDetails \<br>                        -XX:+PrintGCTimeStamps \<br>                        -XX:+PrintGCDateStamps  \<br>                        -XX:+PrintGCApplicationConcurrentTime \<br>                        -XX:+PrintGCApplicationStoppedTime \</p><pre><code>-Djava.rmi.server.hostname=39.106.4.13 \-Dcom.sun.management.jmxremote \-Dcom.sun.management.jmxremote.port=9094 \-Dcom.sun.management.jmxremote.authenticate=false \-Dcom.sun.management.jmxremote.ssl=false \-jar /home/xuejiangtao/m88/soccer.jar \ &gt;/dev/null 2&gt;&amp;1 &amp;</code></pre><p>“start.sh” 52L, 1809C</p>]]></content>
     
@@ -182,9 +836,9 @@ vi /pattern filename：打开文件,并将光
     <link href="http://xuejiangtao.com//posts/f6c82bc1/"/>
     <id>http://xuejiangtao.com//posts/f6c82bc1/</id>
     <published>2019-03-19T03:14:13.000Z</published>
-    <updated>2019-08-01T06:32:08.000Z</updated>
+    <updated>2019-12-08T02:10:16.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="查看运行程序"><a href="#查看运行程序" class="headerlink" title="查看运行程序"></a>查看运行程序</h1><p><a href="https://www.cnblogs.com/zwgblog/p/5971462.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwgblog/p/5971462.html</a><br><a href="https://www.cnblogs.com/liuzhengliang/p/4609632.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuzhengliang/p/4609632.html</a><br><a href="https://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pc</a><br>ps命令——查看静态的进程统计信息（Processes Statistic）<br>a：显示当前终端下的所有进程信息，包括其他用户的进程。<br>u：使用以用户为主的格式输出进程信息。<br>x：显示当前用户在所有终端下的进程。<br>-e：显示系统内的所有进程信息。<br>-l：使用长（long）格式显示进程信息。<br>-f：使用完整的（full）格式显示进程信息。</p><p>ps aux<br>ps -elf</p><p>ps -ef|grep chrome</p><p>ps -ef | grep java | awk ‘{print $2}’</p><p>ps aux | grep program_filter_word,ps -ef |grep tomcat<br>ps -ef|grep java|grep -v grep </p><h1 id="执行脚本命令"><a href="#执行脚本命令" class="headerlink" title="执行脚本命令"></a>执行脚本命令</h1><ul><li>sh script.sh    回车</li><li>./script.sh     回车</li><li>/home/xuejiangtao/LinuxStudy/shellStudy/script.sh  回车   指定脚本文件的绝对路径，即可执行</li></ul><h1 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h1><p><a href="https://www.cnblogs.com/kbkiss/p/7567725.html" target="_blank" rel="noopener">https://www.cnblogs.com/kbkiss/p/7567725.html</a><br>cat 1.log | grep key<br>可以写为：<br>grep key 1.log</p><p>查看倒数200行<br>tail es999.log -n 200<br>head es999.log -n 200</p><p>more es999.log |grep session|grep “2273212”</p><p>cat  test.log | head -n 200　　# 查看test.log前200行<br>cat  test.log | tail -n 200　　# 查看test.log倒数200行</p><p>grep 过滤内容 文件名 | sort -r<br>sort 是排序<br>sort -r 是倒序</p><p>在taobao.log日志文件中查找为‘发送’的关键字，查找日志末尾200行，按正序排序<br>grep 发送  toabao.log | tail -n 200 | sort<br>grep 发送  toabao.log | tail -n 200 | sort -r</p><p>tail -f taobao.log </p><h1 id="查看服务器容量"><a href="#查看服务器容量" class="headerlink" title="查看服务器容量"></a>查看服务器容量</h1><p>df：列出文件系统的整体磁盘使用量；<br>du：评估文件系统的磁盘使用量（常用于评估目录所占容量）</p><p>df参数：<br>-a：列出所有的文件系统，包括系统特有的/proc等文件系统<br>-k：以KB的容量显示各文件系统<br>-m：以MB的容量显示各文件系统<br>-h：以人们较易阅读的GB,MB,KB等格式自行显示<br>-H：以M=1000K替代M=1024K的进位方式<br>-T：连同该分区的文件系统名称（例如ext3）也列出<br>-i：不用硬盘容量，而以inode的数量来显示</p><p>du参数：<br>-a : 列出所有的文件与目录容量，因为默认仅统计目录下面的文件量而已；<br>-h : 以人们较易读的容量格式（G/M）显示；<br>-s : 列出总量，而不列出每个个别的目录占用了容量；<br>-S : 不包括子目录下的总计，与-s有点差别；<br>-k : 以KB列出容量显示；<br>-m : 以MB列出容量显示。</p><p>常用命令：<br>df -h<br>df -h /etc<br>df -i<br>du -h *</p><p>du -sh : 查看当前目录总共占的容量。<br>du -lh –max-depth=1 : 查看当前目录下一级子文件和子目录占用的磁盘容量。<br>du -ah –max-depth=1 ：显示当前目录的占用磁盘容量</p><p>du –apparent-size -h</p><h1 id="查看内存"><a href="#查看内存" class="headerlink" title="查看内存"></a>查看内存</h1><p><a href="https://www.cnblogs.com/shihaiming/p/5949272.html" target="_blank" rel="noopener">https://www.cnblogs.com/shihaiming/p/5949272.html</a><br><a href="https://blog.csdn.net/vtopqx/article/details/80774669" target="_blank" rel="noopener">https://blog.csdn.net/vtopqx/article/details/80774669</a><br><a href="https://blog.csdn.net/taozhe666/article/details/80744941" target="_blank" rel="noopener">https://blog.csdn.net/taozhe666/article/details/80744941</a><br><a href="https://blog.csdn.net/Gavinmiaoc/article/details/80527717" target="_blank" rel="noopener">https://blog.csdn.net/Gavinmiaoc/article/details/80527717</a></p><p>free -h</p><h1 id="释放内存"><a href="#释放内存" class="headerlink" title="释放内存"></a>释放内存</h1><p>sync<br>echo 1 &gt; /proc/sys/vm/drop_caches<br>echo 2 &gt; /proc/sys/vm/drop_caches<br>echo 3 &gt; /proc/sys/vm/drop_caches</p><p>drop_caches的值可以是0-3之间的数字，代表不同的含义：<br>0：不释放（系统默认值）<br>1：释放页缓存<br>2：释放dentries和inodes<br>3：释放所有缓存</p><h1 id="查看程序端口"><a href="#查看程序端口" class="headerlink" title="查看程序端口"></a>查看程序端口</h1><p>ps -ef | grep java<br>netstat -nap | grep 进程id<br>netstat -tunlp|grep 进程id<br>netstat -nap | grep java|grep LISTEN</p><h1 id="linux访问url"><a href="#linux访问url" class="headerlink" title="linux访问url"></a>linux访问url</h1><p>curl <a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a></p><h1 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h1><p>kill -9 进程id</p><p>kill -s 9 <code>pgrep 查找字符串</code></p><p>查找包含字符串的进程，并杀死<br>ps -ef | grep 查找字符串 | grep -v grep | cut -c 9-15 | xargs kill -s 9<br>ps -ef | grep 查找字符串 | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>pgrep 查找字符串 | xargs kill -s 9<br>ps -ef | grep 查找字符串 | awk ‘{print $2}’ | xargs kill -9</p><h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>vi 文件名称<br>q  ：退出<br>wq ：修改后保存退出<br>q! : 强制退出，不保存修改的内容</p><p> <a href="https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc</a><br>一、基本的替换<br>命令格式1：sed ‘s/原字符串/新字符串/‘ 文件<br>命令格式2：sed ‘s/原字符串/新字符串/g’ 文件<br>没有“g”表示只替换第一个匹配到的字符串，有“g”表示替换所有能匹配到的字符串，“g”可以认为是“global”（全局的）的缩写</p><p>二、替换某行内容<br>命令格式1：sed ‘行号c 新字符串’ 文件<br>命令格式2：sed ‘起始行号，终止行号c 新字符串’ 文件</p><p>三、多条件替换<br>命令格式：sed -e 命令1 -e 命令2 -e 命令3</p><p>保存替换结果到文件中<br>sed -i 命令</p><p>sed -i ‘s/soccer-22bet-spider/order_web/g’ start.sh</p><h1 id="查看占用cpu最高的进程"><a href="#查看占用cpu最高的进程" class="headerlink" title="查看占用cpu最高的进程"></a>查看占用cpu最高的进程</h1><p>ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head</p><h1 id="查看占用内存最高的进程"><a href="#查看占用内存最高的进程" class="headerlink" title="查看占用内存最高的进程"></a>查看占用内存最高的进程</h1><p>ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head</p><h1 id="查看CPU信息（型号）"><a href="#查看CPU信息（型号）" class="headerlink" title="查看CPU信息（型号）"></a>查看CPU信息（型号）</h1><p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p><p>ps -mp 3409 -o THREAD,tid,time | sort -rn<br>printf “%x\n” 3417<br>jstack 3409 |grep d59 -A 30</p><h1 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h1><p>find 路径名 -name 文件名</p><p>//查找所有以mp3为扩展的文件<br>find / -name “<em>.mp3”<br>//查找并删除文件<br>find / -name “</em>.mp3” |xargs rm -rf</p><p>find /home/xuejiangtao/es999/backup/ -name ‘soccer.jar.20190*’</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="查看运行程序"><a href="#查看运行程序" class="headerlink" title="查看运行程序"></a>查看运行程序</h1><p><a href="https://www.cnblogs.com/zwgblog/p/5971462.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwgblog/p/5971462.html</a><br><a href="https://www.cnblogs.com/liuzhengliang/p/4609632.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuzhengliang/p/4609632.html</a><br><a href="https://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pc</a><br>ps命令——查看静态的进程统计信息（Processes Statistic）<br>a：显示当前终端下的所有进程信息，包括其他用户的进程。<br>u：使用以用户为主的格式输出进程信息。<br>x：显示当前用户在所有终端下的进程。<br>-e：显示系统内的所有进程信息。<br>-l：使用长（long）格式显示进程信息。<br>-f：使用完整的（full）格式显示进程信息。</p><p>ps aux<br>ps -elf</p><p>ps -ef|grep chrome</p><p>ps -ef | grep java | awk ‘{print $2}’</p><p>ps aux | grep program_filter_word,ps -ef |grep tomcat<br>ps -ef|grep java|grep -v grep </p><h1 id="执行脚本命令"><a href="#执行脚本命令" class="headerlink" title="执行脚本命令"></a>执行脚本命令</h1><ul><li>sh script.sh    回车</li><li>./script.sh     回车</li><li>/home/xuejiangtao/LinuxStudy/shellStudy/script.sh  回车   指定脚本文件的绝对路径，即可执行</li></ul><h1 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h1><p><a href="https://www.cnblogs.com/kbkiss/p/7567725.html" target="_blank" rel="noopener">https://www.cnblogs.com/kbkiss/p/7567725.html</a><br>cat 1.log | grep key<br>可以写为：<br>grep key 1.log</p><p>查看倒数200行<br>tail es999.log -n 200<br>head es999.log -n 200</p><p>more es999.log |grep session|grep “2273212”</p><p>cat  test.log | head -n 200　　# 查看test.log前200行<br>cat  test.log | tail -n 200　　# 查看test.log倒数200行</p><p>grep 过滤内容 文件名 | sort -r<br>sort 是排序<br>sort -r 是倒序</p><p>在taobao.log日志文件中查找为‘发送’的关键字，查找日志末尾200行，按正序排序<br>grep 发送  toabao.log | tail -n 200 | sort<br>grep 发送  toabao.log | tail -n 200 | sort -r</p><p>tail -f taobao.log </p><h1 id="查看服务器容量"><a href="#查看服务器容量" class="headerlink" title="查看服务器容量"></a>查看服务器容量</h1><p>df：列出文件系统的整体磁盘使用量；<br>du：评估文件系统的磁盘使用量（常用于评估目录所占容量）</p><p>df参数：<br>-a：列出所有的文件系统，包括系统特有的/proc等文件系统<br>-k：以KB的容量显示各文件系统<br>-m：以MB的容量显示各文件系统<br>-h：以人们较易阅读的GB,MB,KB等格式自行显示<br>-H：以M=1000K替代M=1024K的进位方式<br>-T：连同该分区的文件系统名称（例如ext3）也列出<br>-i：不用硬盘容量，而以inode的数量来显示</p><p>du参数：<br>-a : 列出所有的文件与目录容量，因为默认仅统计目录下面的文件量而已；<br>-h : 以人们较易读的容量格式（G/M）显示；<br>-s : 列出总量，而不列出每个个别的目录占用了容量；<br>-S : 不包括子目录下的总计，与-s有点差别；<br>-k : 以KB列出容量显示；<br>-m : 以MB列出容量显示。</p><p>常用命令：<br>df -h<br>df -h /etc<br>df -i<br>du -h *</p><p>du -sh : 查看当前目录总共占的容量。<br>du -lh –max-depth=1 : 查看当前目录下一级子文件和子目录占用的磁盘容量。<br>du -ah –max-depth=1 ：显示当前目录的占用磁盘容量</p><p>du –apparent-size -h</p><h1 id="查看内存"><a href="#查看内存" class="headerlink" title="查看内存"></a>查看内存</h1><p><a href="https://www.cnblogs.com/shihaiming/p/5949272.html" target="_blank" rel="noopener">https://www.cnblogs.com/shihaiming/p/5949272.html</a><br><a href="https://blog.csdn.net/vtopqx/article/details/80774669" target="_blank" rel="noopener">https://blog.csdn.net/vtopqx/article/details/80774669</a><br><a href="https://blog.csdn.net/taozhe666/article/details/80744941" target="_blank" rel="noopener">https://blog.csdn.net/taozhe666/article/details/80744941</a><br><a href="https://blog.csdn.net/Gavinmiaoc/article/details/80527717" target="_blank" rel="noopener">https://blog.csdn.net/Gavinmiaoc/article/details/80527717</a></p><p>free -h</p><h1 id="释放内存"><a href="#释放内存" class="headerlink" title="释放内存"></a>释放内存</h1><p>sync<br>echo 1 &gt; /proc/sys/vm/drop_caches<br>echo 2 &gt; /proc/sys/vm/drop_caches<br>echo 3 &gt; /proc/sys/vm/drop_caches</p><p>drop_caches的值可以是0-3之间的数字，代表不同的含义：<br>0：不释放（系统默认值）<br>1：释放页缓存<br>2：释放dentries和inodes<br>3：释放所有缓存</p><h1 id="查看程序端口"><a href="#查看程序端口" class="headerlink" title="查看程序端口"></a>查看程序端口</h1><p>ps -ef | grep java<br>netstat -nap | grep 进程id<br>netstat -tunlp|grep 进程id<br>netstat -nap | grep java|grep LISTEN</p><h1 id="linux访问url"><a href="#linux访问url" class="headerlink" title="linux访问url"></a>linux访问url</h1><p>curl <a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a></p><h1 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h1><p>kill -9 进程id</p><p>kill -s 9 <code>pgrep 查找字符串</code></p><p>查找包含字符串的进程，并杀死<br>ps -ef | grep 查找字符串 | grep -v grep | cut -c 9-15 | xargs kill -s 9<br>ps -ef | grep 查找字符串 | grep -v grep | awk ‘{print $2}’ | xargs kill -9<br>pgrep 查找字符串 | xargs kill -s 9<br>ps -ef | grep 查找字符串 | awk ‘{print $2}’ | xargs kill -9</p><h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>vi 文件名称<br>q  ：退出<br>wq ：修改后保存退出<br>q! : 强制退出，不保存修改的内容</p><p> <a href="https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc</a><br>一、基本的替换<br>命令格式1：sed ‘s/原字符串/新字符串/‘ 文件<br>命令格式2：sed ‘s/原字符串/新字符串/g’ 文件<br>没有“g”表示只替换第一个匹配到的字符串，有“g”表示替换所有能匹配到的字符串，“g”可以认为是“global”（全局的）的缩写</p><p>二、替换某行内容<br>命令格式1：sed ‘行号c 新字符串’ 文件<br>命令格式2：sed ‘起始行号，终止行号c 新字符串’ 文件</p><p>三、多条件替换<br>命令格式：sed -e 命令1 -e 命令2 -e 命令3</p><p>保存替换结果到文件中<br>sed -i 命令</p><p>sed -i ‘s/soccer-22bet-spider/order_web/g’ start.sh</p><h1 id="查看占用cpu最高的进程"><a href="#查看占用cpu最高的进程" class="headerlink" title="查看占用cpu最高的进程"></a>查看占用cpu最高的进程</h1><p>ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head</p><h1 id="查看占用内存最高的进程"><a href="#查看占用内存最高的进程" class="headerlink" title="查看占用内存最高的进程"></a>查看占用内存最高的进程</h1><p>ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head</p><h1 id="查看CPU信息（型号）"><a href="#查看CPU信息（型号）" class="headerlink" title="查看CPU信息（型号）"></a>查看CPU信息（型号）</h1><p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p><p>ps -mp 3409 -o THREAD,tid,time | sort -rn<br>printf “%x\n” 3417<br>jstack 3409 |grep d59 -A 30</p><h1 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h1><p>find 路径名 -name 文件名</p><p>//查找所有以mp3为扩展的文件<br>find / -name “<em>.mp3”<br>//查找并删除文件<br>find / -name “</em>.mp3” |xargs rm -rf</p><p>find /home/xuejiangtao/es999/backup/ -name ‘soccer.jar.20190*’</p><h1 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h1><p>跨目录<br>cp 源路径/test.txt 目标路径/</p><p>同级目录<br>cp -r dir1 dir2</p><h1 id="跨服务器拷贝文件"><a href="#跨服务器拷贝文件" class="headerlink" title="跨服务器拷贝文件"></a>跨服务器拷贝文件</h1><p>跨服务器拷贝需要用到的命令是scp.</p><p>———————-拷贝文件夹———————————————-</p><p>把当前文件夹tempA拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下</p><p>scp -r /tmp/tempA/ <a href="mailto:wasadmin@10.127.40.25" target="_blank" rel="noopener">wasadmin@10.127.40.25</a>:/tmp/wang/</p><p>其中wasadmin是目标服务器的用户名，执行命令提示输入密码，然后输入密码即可</p><p>———————-拷贝文件———————————————-</p><p>把当前文件夹tempA.txt拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下</p><p>scp  /tmp/tempA.txt <a href="mailto:wasadmin@10.127.40.25" target="_blank" rel="noopener">wasadmin@10.127.40.25</a>:/tmp/wang/</p><p>其中wasadmin是目标服务器的用户名，执行命令提示输入密码，然后输入密码即可</p><h1 id="文本文件中查找字符串"><a href="#文本文件中查找字符串" class="headerlink" title="文本文件中查找字符串"></a>文本文件中查找字符串</h1><p>在normal模式下按下<code>/</code>即可进入查找模式，输入要查找的字符串并按下回车。</p><p>Vim会跳转到第一个匹配。按下<code>n</code>查找下一个，按下<code>N</code>查找上一个。</p><p>Vim查找支持正则表达式，例如<code>/vim$</code>匹配行尾的<code>&quot;vim&quot;</code>。 需要查找特殊字符需要转义，例如<code>/vim\$</code>匹配<code>&quot;vim$&quot;</code>。</p>]]></content>
     
     <summary type="html">
     

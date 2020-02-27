@@ -1,6 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[idea生成类注释和方法注释]]></title>
+    <url>%2F%2Fposts%2F54ef10dc%2F</url>
+    <content type="text"><![CDATA[groovyScript(“def result=’’; def params=\”${_1}\”.replaceAll(‘[\\[|\\]|\\s]’, ‘’).split(‘,’).toList(); for(i = 0; i &lt; params.size(); i++) {if(params[i] == ‘’) return result;if(i==0) result += ‘\n’; result+=’ * @param ‘ + params[i] +’: ‘+ ((i &lt; params.size() - 1) ? ‘\n’ : ‘’)}; return result”, methodParameters())]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[vo、po、dto、bo、pojo、entity、mode如何区分]]></title>
+    <url>%2F%2Fposts%2Fad1820bf%2F</url>
+    <content type="text"><![CDATA[Java Bean：一种可重用组件，即“一次编写，任何地方执行，任何地方重用”。满足三个条件 类必须是具体的和公共的具有无参构造器提供一致性设计模式的公共方法将内部域或暴露成员属性VOvalue object：值对象通常用于业务层之间的数据传递，由new创建，由GC回收和PO一样也是仅仅包含数据而已，但应是抽象出的业务对象，可以和表对应，也可以不是 POpersistant object：持久层对象是ORM(Objevt Relational Mapping)框架中Entity，PO属性和数据库中表的字段形成一一对应关系VO和PO，都是属性加上属性的get和set方法；表面看没什么不同，但代表的含义是完全不同的 DTOdata transfer object：数据传输对象是一种设计模式之间传输数据的软件应用系统，数据传输目标往往是数据访问对象从数据库中检索数据数据传输对象与数据交互对象或数据访问对象之间的差异是一个以不具任何行为除了存储和检索的数据（访问和存取器）简而言之，就是接口之间传递的数据封装表里面有十几个字段：id，name，gender（M/F)，age……页面需要展示三个字段：name，gender(男/女)，ageDTO由此产生，一是能提高数据传输的速度(减少了传输字段)，二能隐藏后端表结构DTO BObusiness object：业务对象BO把业务逻辑封转为一个对象，通过调用DAO方法，结合PO或VO进行业务操作PO组合，如投保人是一个PO，被保险人是一个PO，险种信息是一个PO等等，他们组合气来是第一张保单的BO POJOplian ordinary java object：简单无规则java对象纯的传统意义的java对象，最基本的Java Bean只有属性加上属性的get和set方法 可以额转化为PO、DTO、VO；比如POJO在传输过程中就是DTO DAOdata access object：数据访问对象是sun的一个标准j2ee设计模式，这个模式中有个接口就是DAO，负责持久层的操作主要用来封装对数据的访问，注意，是对数据的访问，不是对数据库的访问DAO对数据的访问 其他的还有model/module/domain/entity Entity实体，和PO的功能类似，和数据表一一对应，一个实体一张表]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Mybatis传入多个参数]]></title>
+    <url>%2F%2Fposts%2Feae51fdb%2F</url>
+    <content type="text"><![CDATA[一、单个参数mapper 1public List&lt;Test&gt; getTestList(String id); xml123&lt;select id = &quot;getTestList&quot; parameterType = &quot;java.lang.String&quot; resultType = &quot;com.test.Test&quot;&gt; select t.* from test t where t.id = #&#123;id&#125;&lt;/select&gt; 二、多个参数1、使用索引mapper 1public List&lt;Test&gt; getTestList(String id, String name); xml123&lt;select id = &quot;getTestList&quot; resultType = &quot;com.test.Test&quot;&gt; select t.* from test t where t.id = #&#123;0&#125; and t.name = #&#123;1&#125; &lt;/select&gt; 2、使用Map封装多参数mapper 1public List&lt;Test&gt; getTestList(HashMap map); xml123&lt;select id = &quot;getTestList&quot; parameterType = &quot;hashmap&quot; resultType = &quot;com.test.Test&quot;&gt; select t.* from test t where t.id = #&#123;id&#125; and t.name= #&#123;name&#125; &lt;/select&gt; #{}中的变量名要和map中的key对应。 3、使用注解mapper 1public List&lt;Test&gt; getTestList(@Param(&quot;id&quot;)int id, @Param(&quot;name&quot;)int name); xml123&lt;select id = &quot;getTestList&quot; resultMap = &quot;com.test.Test&quot;&gt; select t.* from test t where t.id = #&#123;id&#125; and t.name = #&#123;name&#125;&lt;/select&gt;]]></content>
+      <categories>
+        <category>mybatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ReentrantLock(重入锁)功能详解和应用演示]]></title>
+    <url>%2F%2Fposts%2Fa169cdaf%2F</url>
+    <content type="text"><![CDATA[https://www.cnblogs.com/takumicx/p/9338983.html 多线程实现原理javahashmap实现原理分解关联查询 redis击穿，穿透，雪崩以及解决方案https://blog.csdn.net/qq_27409289/article/details/85885121 mysql三层体系https://www.cnblogs.com/lbg-database/p/10108393.html 常见Mysql的慢查询优化方式https://blog.csdn.net/qq_35571554/article/details/82800463 并发编程之美，带你深入理解java多线程原理https://www.cnblogs.com/wenbinshen/p/9727262.html JDK1.8 HashMap源码分析https://blog.csdn.net/lizhongkaide/article/details/50595719 List、Set、Map 底层实现和使用推荐https://blog.csdn.net/zx_android/article/details/79464778 MySQL 对于千万级的大表要怎么优化？（读写分离、水平拆分、垂直拆分）https://blog.csdn.net/qq_35393693/article/details/79793014 面试官：为什么mysql不建议执行超过3表以上的多表关联查询？https://segmentfault.com/a/1190000019425008]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[【Java 并发笔记】volatile 相关整理]]></title>
+    <url>%2F%2Fposts%2Fe62ac93e%2F</url>
+    <content type="text"><![CDATA[https://www.jianshu.com/p/ccfe24b63d87]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[redis击穿，穿透，雪崩以及解决方案]]></title>
+    <url>%2F%2Fposts%2F86df660%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_27409289/article/details/85885121]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux关闭防火墙命令]]></title>
+    <url>%2F%2Fposts%2F62cb6811%2F</url>
+    <content type="text"><![CDATA[下面是red hat/CentOs7关闭防火墙的命令! 1:查看防火状态 systemctl status firewalld service iptables status 2:暂时关闭防火墙 systemctl stop firewalld service iptables stop 3:永久关闭防火墙 systemctl disable firewalld chkconfig iptables off 4:重启防火墙 systemctl enable firewalld service iptables restart 5:永久关闭后重启 //暂时还没有试过 chkconfig iptables on]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[解决从github下载资源慢]]></title>
+    <url>%2F%2Fposts%2F3d1f8262%2F</url>
+    <content type="text"><![CDATA[第一步：去这个网站查询3个域名对应的IP地址，不能用ping来获取IP地址哦 https://www.ipaddress.com/ 第二步：在/etc/hosts文件中添加类似下面的3行12345678910127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4::1 localhost localhost.localdomain localhost6 localhost6.localdomain6140.82.114.4 github.com199.232.5.194 github.global.ssl.fastly.net140.82.113.10 codeload.github.com185.199.108.153 assets-cdn.github.com52.216.9.27 github-cloud.s3.amazonaws.com52.216.206.51 github-production-release-asset-2e65be.s3.amazonaws.com192.168.226.102 localhost 第三步：重启网络 123sudo /etc/init.d/networking restart 或service network restart 现在可以飞快的下载Github上的代码了]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[rabbitmq安装]]></title>
+    <url>%2F%2Fposts%2Fe28448e6%2F</url>
+    <content type="text"><![CDATA[#rabbitmq linux卸载 rabbitmq是运行在erlang环境下的，所以卸载时应将erlang卸载。 1、卸载rabbitmq相关 卸载前先停掉rabbitmq服务，执行命令 $ service rabbitmq-server stop查看rabbitmq安装的相关列表 $ yum list | grep rabbitmq卸载rabbitmq已安装的相关内容 $ yum -y remove rabbitmq-server.noarch2、卸载erlang 查看erlang安装的相关列表 $ yum list | grep erlang卸载erlang已安装的相关内容 $ yum -y remove erlang-*$ yum remove erlang.x86_64卸载完之后就可以重新安装了 3.删除相关文件 rm -rf /usr/lib64/erlangrm -rf /var/lib/rabbitmqrm -rf /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.1/rm -rf /etc/rabbitmq/rm -rf /var/log/rabbitmq https://www.jianshu.com/p/f9b4305585b0 https://www.cnblogs.com/cjyboy/p/11732070.html https://ken.io/note/centos7-rabbitmq-install-setup #安装erlanghttps://github.com/rabbitmq/erlang-rpm/releasesrpm -ivh erlang-21.3.8.6-1.el7.x86_64.rpm #安装rabbitmqhttps://www.rabbitmq.com/install-rpm.html#downloadsrpm -ivh rabbitmq-server-3.8.1-1.el7.noarch.rpm #后台运行/usr/sbin/rabbitmq-server -detached #开机启动chkconfig rabbitmq-server on #启动rabbitmq服务service rabbitmq-server start #开启管理控制台/usr/sbin/rabbitmq-plugins list/usr/sbin/rabbitmq-plugins enable rabbitmq_management 创建账户：rabbitmqctl add_user admin admin设置用户角色rabbitmqctl set_user_tags admin administrator设置用户权限rabbitmqctl add_vhost admin设置用户权限rabbitmqctl set_permissions -p admin admin “.“ “.“ “.*”设置完成后可以查看当前用户和角色(需要开启服务)rabbitmqctl list_users #开启远程访问 #cd /etc/rabbitmq #cp /usr/share/doc/rabbitmq-server-3.5.6/rabbitmq.config.example /etc/rabbitmq/ #mv rabbitmq.config.example rabbitmq.configvim /etc/rabbitmq/rabbitmq.config添加： {loopback_users, []}重启mqservice rabbitmq-server restart #访问http://ip:15672 guest guest #异常1.Error: unable to perform an operation on node ‘rabbit@localhost’. Please see diagnostics information and suggestions below.解决：直接用 echo 192.168.174.131 rabbitmq&gt;&gt;/etc/hosts 其中的IP是服务器的IP重启rabbitmqservice rabbitmq-server restart]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[linux下设置redis开机启动]]></title>
+    <url>%2F%2Fposts%2F1a0fe82%2F</url>
+    <content type="text"><![CDATA[步骤1：设置redis.conf中daemonize为yes,确保守护进程开启。步骤2：编写开机自启动脚本 基本原理为：系统开机启动时会去加载/etc/init.d/下面的脚本，通常而言每个脚本文件会自定义实现程序的启动；若想将新的程序开机自启动，只需在该目录下添加一个自定义启动程序的脚本，然后设置相应规则即可。如在这里我们在/etc/init.d/下新建一个 redis 的脚本，开机启动时会去加载执行该脚本。 /etc/init.d/redis```12脚本内容如下： #!/bin/sh #chkconfig: 2345 80 90 Simple Redis init.d script conceived to work on Linux systemsas it does use of the /proc filesystem.REDISPORT=6379 #端口号，这是默认的，如果你安装的时候不是默认端口号，则需要修改REDISPATH=/usr/local/bin/ #redis-server启动脚本的所在目录，你如果忘了可以用find / -name redis-server 或whereis redis-server找到EXEC=${REDISPATH}/redis-serverCLIEXEC=${REDISPATH}/redis-cliPIDFILE=/var/run/redis.pid #在redis.conf中可找到该路径 /var/run/redis_${REDISPORT}.pidCONF=”${REDISPATH}/redis.conf” #redis.conf的位置, 如果不和redis-server在同一目录要修改成你的redis.conf所在目录case “$1” in start) if [ -f $PIDFILE ] then echo “$PIDFILE exists, process is already running or crashed” else echo “Starting Redis server…” $EXEC $CONF fi ;; stop) if [ ! -f $PIDFILE ] then echo “$PIDFILE does not exist, process is not running” else PID=$(cat $PIDFILE) echo “Stopping …” $CLIEXEC -p $REDISPORT shutdown while [ -x /proc/${PID} ] do echo “Waiting for Redis to shutdown …” sleep 1 done echo “Redis stopped” fi ;; *) echo “Please use start or stop as first argument” ;;esac123456写完后wq保存退出设置可执行权限：```chmod 777 /etc/init.d/redis 启动redis:start```1234执行结束之后用redis-cli 或者 ps aux|grep redis 查看redis是否成功启动.设置开机启动: chkconfig redis on123关机重启测试:```reboot]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[如何保证Redis与数据库的双写一致性？]]></title>
+    <url>%2F%2Fposts%2Fdb7dc98d%2F</url>
+    <content type="text"><![CDATA[https://www.jianshu.com/p/c72ba33ea49e]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[MySql实现读写分离]]></title>
+    <url>%2F%2Fposts%2F14c107ab%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_15092079/article/details/81672920 https://blog.csdn.net/why15732625998/article/details/80463041]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下如何解压 tar.xz格式文件]]></title>
+    <url>%2F%2Fposts%2Fbbcf0b85%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/83449532]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装与设置Vim编辑器]]></title>
+    <url>%2F%2Fposts%2Ff84c0771%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/84025231]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装Maven]]></title>
+    <url>%2F%2Fposts%2F4e663754%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/83474216]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装Mysql]]></title>
+    <url>%2F%2Fposts%2F1da03cb6%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/83476394]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装Nginx]]></title>
+    <url>%2F%2Fposts%2F2cf79a8f%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/84065217]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装zookeeper]]></title>
+    <url>%2F%2Fposts%2Ff802c28c%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/84032759]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装Dubbo监控中心]]></title>
+    <url>%2F%2Fposts%2F65d07e7a%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/84034692]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装Tomcat]]></title>
+    <url>%2F%2Fposts%2F76c6f4a3%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/83448086]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装JDK]]></title>
+    <url>%2F%2Fposts%2Fb92abb25%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/83445012]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Java关键字transient和volatile]]></title>
+    <url>%2F%2Fposts%2F9ac39d03%2F</url>
+    <content type="text"><![CDATA[transient词义：短暂的 首先说说“序列化”，把一个对象的表示转化为字节流的过程称为串行化（也称为序列化，serialization），从字节流中把对象重建出来称为反串行化（也称为为反序列化，deserialization）。transient为不应被串行化的数据提供了一个语言级的标记数据方法。 transient是类型修饰符，只能用来修饰字段。在对象序列化的过程中，标记为transient的变量不会被序列化。 1234class Test &#123; transient int a; // 不会被持久化 int b; // 持久化&#125; 当类Test的实例对象被序列化（比如将Test类的实例对象 t 写入硬盘的文本文件t.txt中），变量 a 的内容不会被保存，变量 b 的内容则会被保存。 volatile词义：易变的volatile也是变量修饰符，只能用来修饰变量。volatile修饰的成员变量在每次被线程访问时，都强迫从共享内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。在此解释一下Java的内存机制：Java使用一个主内存来保存变量当前值，而每个线程则有其独立的工作内存。线程访问变量的时候会将变量的值拷贝到自己的工作内存中，这样，当线程对自己工作内存中的变量进行操作之后，就造成了工作内存中的变量拷贝的值与主内存中的变量值不同。Java语言规范中指出：为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才与共享成员变量的原始值对比。这样当多个线程同时与某个对象交互时，就必须要注意到要让线程及时的得到共享成员变量的变化。而volatile关键字就是提示VM：对于这个成员变量不能保存它的私有拷贝，而应直接与共享成员变量交互。 对于volatile类型的变量，系统每次用到他的时候都是直接从对应的内存当中提取，而不会利用cache当中的原有数值，以适应它的未知何时会发生的变化，系统对这种变量的处理不会做优化——显然也是因为它的数值随时都可能变化的情况。 典型的例子1for(int i=0; i&lt;100000; i++); 这个语句用来测试空循环的速度的但是编译器肯定要把它优化掉，根本就不执行如果你写成 1for(volatile int i=0; i&lt;100000; i++); 它就会执行了 使用建议：在两个或者更多的线程访问的成员变量上使用volatile。当要访问的变量已在synchronized代码块中，或者为常量时，不必使用。由于使用volatile屏蔽掉了VM中必要的代码优化，所以在效率上比较低，因此一定在必要时才使用此关键字。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[SynchronousQueue]]></title>
+    <url>%2F%2Fposts%2Ff715f7b8%2F</url>
+    <content type="text"><![CDATA[SynchronousQueue类实现了BlockingQueue接口。阅读BlockingQueue文本以获取有关的更多信息。 SynchronousQueue是一个内部只能包含一个元素的队列。插入元素到队列的线程被阻塞，直到另一个线程从队列中获取了队列中存储的元素。同样，如果线程尝试获取元素并且当前不存在任何元素，则该线程将被阻塞，直到线程将元素插入队列。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下搭建Redis5.0版集群]]></title>
+    <url>%2F%2Fposts%2F4e183092%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/84189397]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux下安装Redis]]></title>
+    <url>%2F%2Fposts%2Ff3a5f49b%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/qq_39135287/article/details/83474865]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[索引的原理和实现的方式]]></title>
+    <url>%2F%2Fposts%2Fb944c9ac%2F</url>
+    <content type="text"><![CDATA[聊聊HTTPS和SSL/TLS协议https://www.cnblogs.com/softidea/p/7832094.html JVM 优化https://www.jianshu.com/p/8fe2b5422917 一次生产的JVM优化https://my.oschina.net/u/3627055/blog/2995973?from=timeline&amp;isappinstalled=0 HashMap和Hashtable的区别https://www.jianshu.com/p/d3664a1e7c2b JavaIO流常见面试题https://blog.csdn.net/qq_37875585/article/details/89385688 Java IO流处理 面试题汇总https://blog.csdn.net/chengyuqiang/article/details/79183748 java面试题之—-IO与NIO的区别https://www.cnblogs.com/xuxinstyle/p/9546052.html Java虚拟机（JVM）你只要看这一篇就够了！https://blog.csdn.net/qq_41701956/article/details/81664921 Java面试之JVM原理总结https://www.cnblogs.com/hujinshui/p/10398958.html jvm之java类加载机制和类加载器(ClassLoader)的详解https://blog.csdn.net/m0_38075425/article/details/81627349 Tomcat 面试题汇总https://blog.csdn.net/qq_25934401/article/details/81536958 CAS单点登录原理https://blog.csdn.net/ban_tang/article/details/80015946 互联网java高级进阶https://github.com/doocs/advanced-java/tree/master/docs/distributed-system https://blog.csdn.net/pmdream/article/details/87094291 关于高并发和分布式中的幂等处理https://www.jianshu.com/p/cea3675a590b RabbitMQ如何保证消息的可达性https://www.jianshu.com/p/62e70ac00eb4 MQ 面试常问问题及解答https://www.jianshu.com/p/18c45f23f859 MQ面试常问的问题https://blog.csdn.net/lettyisme/article/details/85233008 如何保证消息的顺序性https://blog.csdn.net/zengdongwen/article/details/100609348 RabbitMQ四种交换机类型介绍https://www.cnblogs.com/linyufeng/p/9885020.html RabbitMQ入门教程(十)：队列声明queueDeclarehttps://blog.csdn.net/vbirdbest/article/details/78670550 Redis常见面试题https://www.cnblogs.com/jasontec/p/9699242.html RPC框架https://www.jianshu.com/p/44368535796f 聊聊Dubbo（一）：为何选择https://www.jianshu.com/p/0b6e2c920014 大牛总结https://www.jianshu.com/u/657c611b2e07 互联网 Java 工程师进阶知识完全扫盲https://doocs.github.io/advanced-java/#/?id=%e4%ba%92%e8%81%94%e7%bd%91-java-%e5%b7%a5%e7%a8%8b%e5%b8%88%e8%bf%9b%e9%98%b6%e7%9f%a5%e8%af%86%e5%ae%8c%e5%85%a8%e6%89%ab%e7%9b%b2%c2%a9 zookeeper主要是用来解决分布式应用中经常遇到的一些数据管理问题，如：统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等。核心词就是一个单词：协调。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[RabbitMQ使用]]></title>
+    <url>%2F%2Fposts%2Ffef34902%2F</url>
+    <content type="text"><![CDATA[https://www.jianshu.com/p/62e70ac00eb4https://www.cnblogs.com/lfalex0831/p/8963247.html https://www.jianshu.com/p/18c45f23f8591）系统解耦2）异步调用3）流量削峰 RabbitMQ 重复消费的思路以及解决方案https://pleuvoir.github.io/2019/02/18/rabbitmq-chong-fu-xiao-fei/]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[linux安装rabbitmq]]></title>
+    <url>%2F%2Fposts%2Ffb99bc05%2F</url>
+    <content type="text"><![CDATA[一.安装erlangyum install erlang 二.安装rabbitMQ1.去官网查看最新版本，并下载https://www.rabbitmq.com/releases/rabbitmq-server/ wget -c http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-generic-unix-3.6.15.tar.xz 解压：xz -d rabbitmq-server-generic-unix-3.6.15.tar.xztar -xvf rabbitmq-server-generic-unix-3.6.15.tarvim /etc/profile 2.配置rabbitmq的环境变量vim /etc/profileexport PATH=$PATH:/usr/local/rabbitmq_server-3.6.15/sbinsource /etc/profile 3.rabbitmq的基本操作：启动：rabbitmq-server -detached重启：service rabbitmq-server restart关闭：rabbitmqctl stop查看状态：rabbitmqctl status 4.配置rabbitmq网页管理插件启用插件：rabbitmq-plugins enable rabbitmq_management本地访问管理页面：http://127.0.0.1:15672端口默认为15672默认登陆账号密码：guest/guest由于账号guest具有所有的操作权限，并且又是默认账号，出于安全因素的考虑，guest用户只能通过localhost登陆使用]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[设置RabbitMQ远程ip登录]]></title>
+    <url>%2F%2Fposts%2Fa1c44b3a%2F</url>
+    <content type="text"><![CDATA[由于账号guest具有所有的操作权限，并且又是默认账号，出于安全因素的考虑，guest用户只能通过localhost登陆使用，并建议修改guest用户的密码以及新建其他账号管理使用rabbitmq。这里我们以创建个test帐号，密码123456为例，创建一个账号并支持远程ip访问。 创建账号rabbitmqctl add_user test 123456设置用户角色rabbitmqctl set_user_tags test administrator设置用户权限rabbitmqctl set_permissions -p “/“ test “.“ “.“ “.*”设置完成后可以查看当前用户和角色(需要开启服务)rabbitmqctl list_users这是你就可以通过其他主机的访问RabbitMQ的Web管理界面了，访问方式，浏览器输入：serverip:15672。其中serverip是RabbitMQ-Server所在主机的ip。 RabbitMQ常用操作：1、用户管理用户管理包括增加用户，删除用户，查看用户列表，修改用户密码。(1) 新增一个用户 rabbitmqctl add_user Username Password(2) 删除一个用户 rabbitmqctl delete_user Username(3) 修改用户的密码 rabbitmqctl change_password Username Newpassword(4) 查看当前用户列表 rabbitmqctl list_users2、 用户角色按照个人理解，用户角色可分为五类，超级管理员, 监控者, 策略制定者, 普通管理者以及其他。(1) 超级管理员(administrator)可登陆管理控制台(启用management plugin的情况下)，可查看所有的信息，并且可以对用户，策略(policy)进行操作。(2) 监控者(monitoring)可登陆管理控制台(启用management plugin的情况下)，同时可以查看rabbitmq节点的相关信息(进程数，内存使用情况，磁盘使用情况等)(3) 策略制定者(policymaker)可登陆管理控制台(启用management plugin的情况下), 同时可以对policy进行管理。但无法查看节点的相关信息(上图红框标识的部分)。与administrator的对比，administrator能看到这些内容。(4) 普通管理者(management)仅可登陆管理控制台(启用management plugin的情况下)，无法看到节点信息，也无法对策略进行管理。(5) 其他无法登陆管理控制台，通常就是普通的生产者和消费者。 了解了这些后，就可以根据需要给不同的用户设置不同的角色，以便按需管理。 设置用户角色的命令为： rabbitmqctl set_user_tags User TagUser为用户名， Tag为角色名(对应于上面的administrator，monitoring，policymaker，management，或其他自定义名称)。 也可以给同一用户设置多个角色，例如 rabbitmqctl set_user_tags username monitoring policymaker3、用户权限用户权限指的是用户对exchange，queue的操作权限，包括配置权限，读写权限。配置权限会影响到exchange，queue的声明和删除。读写权限影响到从queue里取消息，向exchange发送消息以及queue和exchange的绑定(bind)操作。 例如： 将queue绑定到某exchange上，需要具有queue的可写权限，以及exchange的可读权限；向exchange发送消息需要具有exchange的可写权限；从queue里取数据需要具有queue的可读权限。详细请参考官方文档中”How permissions work”部分。 相关命令为：(1) 设置用户权限 rabbitmqctl set_permissions -p VHostPath User ConfP WriteP ReadP(2) 查看(指定hostpath)所有用户的权限信息 rabbitmqctl list_permissions [-p VHostPath](3) 查看指定用户的权限信息 rabbitmqctl list_user_permissions User(4) 清除用户的权限信息 rabbitmqctl clear_permissions [-p VHostPath] User 作者：dzgdp888链接：https://www.jianshu.com/p/e3af4cf97820来源：简书著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis 密码设置和查看密码]]></title>
+    <url>%2F%2Fposts%2Fd96a93bd%2F</url>
+    <content type="text"><![CDATA[redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。 1、初始化Redis密码： 在配置文件中有个参数： requirepass 这个就是配置redis访问密码的参数； 比如 requirepass test123； （Ps:需重启Redis才能生效） redis的查询速度是非常快的，外部用户一秒内可以尝试多大150K个密码；所以密码要尽量长（对于DBA 没有必要必须记住密码）； 2、不重启Redis设置密码： 在配置文件中配置requirepass的密码（当redis重启时密码依然有效）。 redis 127.0.0.1:6379&gt; config set requirepass test123 查询密码： redis 127.0.0.1:6379&gt; config get requirepass (error) ERR operation not permitted 密码验证： redis 127.0.0.1:6379&gt; auth test123 OK 再次查询： redis 127.0.0.1:6379&gt; config get requirepass 1) “requirepass” 2) “test123” PS：如果配置文件中没添加密码 那么redis重启后，密码失效； 3、登陆有密码的Redis： 在登录的时候的时候输入密码： redis-cli -p 6379 -a test123 先登陆后验证： redis-cli -p 6379 redis 127.0.0.1:6379&gt; auth test123 OK AUTH命令跟其他redis命令一样，是没有加密的；阻止不了攻击者在网络上窃取你的密码； 认证层的目标是提供多一层的保护。如果防火墙或者用来保护redis的系统防御外部攻击失败的话，外部用户如果没有通过密码认证还是无法访问redis的。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[HTTP网页请求状态码]]></title>
     <url>%2F%2Fposts%2Fa44983eb%2F</url>
     <content type="text"><![CDATA[HTTP状态码: 1xx （临时响应） 表示临时响应并需要请求者继续执行操作的状态码。 100 （继续） 请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。101 （切换协议） 请求者已要求服务器切换协议，服务器已确认并准备切换。 2xx （请求成功）表示成功处理了请求的状态代码。 200 （成功） 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。201 （已创建） 请求成功并且服务器创建了新的资源。202 （已接受） 服务器已接受请求，但尚未处理。203 （非授权信息） 服务器已成功处理了请求，但返回的信息可能来自另一来源。204 （无内容） 服务器成功处理了请求，但没有返回任何内容。205 （重置内容） 服务器成功处理了请求，但没有返回任何内容。206 （部分内容） 服务器成功处理了部分 GET 请求。 3xx （请求被重定向）表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。 300 （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。302 （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。303 （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。304 （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。305 （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。307 （临时重定向） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 4xx （请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。 400 （错误请求） 服务器不理解请求的语法。401 （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。403 （禁止） 服务器拒绝请求。404 （未找到） 服务器找不到请求的网页。405 （方法禁用） 禁用请求中指定的方法。406 （不接受） 无法使用请求的内容特性响应请求的网页。407 （需要代理授权） 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。408 （请求超时） 服务器等候请求时发生超时。409 （冲突） 服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。410 （已删除） 如果请求的资源已永久删除，服务器就会返回此响应。411 （需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。412 （未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。413 （请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。414 （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。415 （不支持的媒体类型） 请求的格式不受请求页面的支持。416 （请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态代码。417 （未满足期望值） 服务器未满足”期望”请求标头字段的要求。 5xx （服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。 500 （服务器内部错误） 服务器遇到错误，无法完成请求。501 （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。504 （网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。505 （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。]]></content>
@@ -38,7 +194,7 @@
   <entry>
     <title><![CDATA[linux常用命令整理]]></title>
     <url>%2F%2Fposts%2Ff6c82bc1%2F</url>
-    <content type="text"><![CDATA[查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pcps命令——查看静态的进程统计信息（Processes Statistic）a：显示当前终端下的所有进程信息，包括其他用户的进程。u：使用以用户为主的格式输出进程信息。x：显示当前用户在所有终端下的进程。-e：显示系统内的所有进程信息。-l：使用长（long）格式显示进程信息。-f：使用完整的（full）格式显示进程信息。 ps auxps -elf ps -ef|grep chrome ps -ef | grep java | awk ‘{print $2}’ ps aux | grep program_filter_word,ps -ef |grep tomcatps -ef|grep java|grep -v grep 执行脚本命令 sh script.sh 回车 ./script.sh 回车 /home/xuejiangtao/LinuxStudy/shellStudy/script.sh 回车 指定脚本文件的绝对路径，即可执行 查看日志https://www.cnblogs.com/kbkiss/p/7567725.htmlcat 1.log | grep key可以写为：grep key 1.log 查看倒数200行tail es999.log -n 200head es999.log -n 200 more es999.log |grep session|grep “2273212” cat test.log | head -n 200 # 查看test.log前200行cat test.log | tail -n 200 # 查看test.log倒数200行 grep 过滤内容 文件名 | sort -rsort 是排序sort -r 是倒序 在taobao.log日志文件中查找为‘发送’的关键字，查找日志末尾200行，按正序排序grep 发送 toabao.log | tail -n 200 | sortgrep 发送 toabao.log | tail -n 200 | sort -r tail -f taobao.log 查看服务器容量df：列出文件系统的整体磁盘使用量；du：评估文件系统的磁盘使用量（常用于评估目录所占容量） df参数：-a：列出所有的文件系统，包括系统特有的/proc等文件系统-k：以KB的容量显示各文件系统-m：以MB的容量显示各文件系统-h：以人们较易阅读的GB,MB,KB等格式自行显示-H：以M=1000K替代M=1024K的进位方式-T：连同该分区的文件系统名称（例如ext3）也列出-i：不用硬盘容量，而以inode的数量来显示 du参数：-a : 列出所有的文件与目录容量，因为默认仅统计目录下面的文件量而已；-h : 以人们较易读的容量格式（G/M）显示；-s : 列出总量，而不列出每个个别的目录占用了容量；-S : 不包括子目录下的总计，与-s有点差别；-k : 以KB列出容量显示；-m : 以MB列出容量显示。 常用命令：df -hdf -h /etcdf -idu -h * du -sh : 查看当前目录总共占的容量。du -lh –max-depth=1 : 查看当前目录下一级子文件和子目录占用的磁盘容量。du -ah –max-depth=1 ：显示当前目录的占用磁盘容量 du –apparent-size -h 查看内存https://www.cnblogs.com/shihaiming/p/5949272.htmlhttps://blog.csdn.net/vtopqx/article/details/80774669https://blog.csdn.net/taozhe666/article/details/80744941https://blog.csdn.net/Gavinmiaoc/article/details/80527717 free -h 释放内存syncecho 1 &gt; /proc/sys/vm/drop_cachesecho 2 &gt; /proc/sys/vm/drop_cachesecho 3 &gt; /proc/sys/vm/drop_caches drop_caches的值可以是0-3之间的数字，代表不同的含义：0：不释放（系统默认值）1：释放页缓存2：释放dentries和inodes3：释放所有缓存 查看程序端口ps -ef | grep javanetstat -nap | grep 进程idnetstat -tunlp|grep 进程idnetstat -nap | grep java|grep LISTEN linux访问urlcurl https://www.baidu.com/ 结束进程kill -9 进程id kill -s 9 pgrep 查找字符串 查找包含字符串的进程，并杀死ps -ef | grep 查找字符串 | grep -v grep | cut -c 9-15 | xargs kill -s 9ps -ef | grep 查找字符串 | grep -v grep | awk ‘{print $2}’ | xargs kill -9pgrep 查找字符串 | xargs kill -s 9ps -ef | grep 查找字符串 | awk ‘{print $2}’ | xargs kill -9 修改文件vi 文件名称q ：退出wq ：修改后保存退出q! : 强制退出，不保存修改的内容 https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc一、基本的替换命令格式1：sed ‘s/原字符串/新字符串/‘ 文件命令格式2：sed ‘s/原字符串/新字符串/g’ 文件没有“g”表示只替换第一个匹配到的字符串，有“g”表示替换所有能匹配到的字符串，“g”可以认为是“global”（全局的）的缩写 二、替换某行内容命令格式1：sed ‘行号c 新字符串’ 文件命令格式2：sed ‘起始行号，终止行号c 新字符串’ 文件 三、多条件替换命令格式：sed -e 命令1 -e 命令2 -e 命令3 保存替换结果到文件中sed -i 命令 sed -i ‘s/soccer-22bet-spider/order_web/g’ start.sh 查看占用cpu最高的进程ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head 查看占用内存最高的进程ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head 查看CPU信息（型号）cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c ps -mp 3409 -o THREAD,tid,time | sort -rnprintf “%x\n” 3417jstack 3409 |grep d59 -A 30 删除文件find 路径名 -name 文件名 //查找所有以mp3为扩展的文件find / -name “.mp3”//查找并删除文件find / -name “.mp3” |xargs rm -rf find /home/xuejiangtao/es999/backup/ -name ‘soccer.jar.20190*’]]></content>
+    <content type="text"><![CDATA[查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pcps命令——查看静态的进程统计信息（Processes Statistic）a：显示当前终端下的所有进程信息，包括其他用户的进程。u：使用以用户为主的格式输出进程信息。x：显示当前用户在所有终端下的进程。-e：显示系统内的所有进程信息。-l：使用长（long）格式显示进程信息。-f：使用完整的（full）格式显示进程信息。 ps auxps -elf ps -ef|grep chrome ps -ef | grep java | awk ‘{print $2}’ ps aux | grep program_filter_word,ps -ef |grep tomcatps -ef|grep java|grep -v grep 执行脚本命令 sh script.sh 回车 ./script.sh 回车 /home/xuejiangtao/LinuxStudy/shellStudy/script.sh 回车 指定脚本文件的绝对路径，即可执行 查看日志https://www.cnblogs.com/kbkiss/p/7567725.htmlcat 1.log | grep key可以写为：grep key 1.log 查看倒数200行tail es999.log -n 200head es999.log -n 200 more es999.log |grep session|grep “2273212” cat test.log | head -n 200 # 查看test.log前200行cat test.log | tail -n 200 # 查看test.log倒数200行 grep 过滤内容 文件名 | sort -rsort 是排序sort -r 是倒序 在taobao.log日志文件中查找为‘发送’的关键字，查找日志末尾200行，按正序排序grep 发送 toabao.log | tail -n 200 | sortgrep 发送 toabao.log | tail -n 200 | sort -r tail -f taobao.log 查看服务器容量df：列出文件系统的整体磁盘使用量；du：评估文件系统的磁盘使用量（常用于评估目录所占容量） df参数：-a：列出所有的文件系统，包括系统特有的/proc等文件系统-k：以KB的容量显示各文件系统-m：以MB的容量显示各文件系统-h：以人们较易阅读的GB,MB,KB等格式自行显示-H：以M=1000K替代M=1024K的进位方式-T：连同该分区的文件系统名称（例如ext3）也列出-i：不用硬盘容量，而以inode的数量来显示 du参数：-a : 列出所有的文件与目录容量，因为默认仅统计目录下面的文件量而已；-h : 以人们较易读的容量格式（G/M）显示；-s : 列出总量，而不列出每个个别的目录占用了容量；-S : 不包括子目录下的总计，与-s有点差别；-k : 以KB列出容量显示；-m : 以MB列出容量显示。 常用命令：df -hdf -h /etcdf -idu -h * du -sh : 查看当前目录总共占的容量。du -lh –max-depth=1 : 查看当前目录下一级子文件和子目录占用的磁盘容量。du -ah –max-depth=1 ：显示当前目录的占用磁盘容量 du –apparent-size -h 查看内存https://www.cnblogs.com/shihaiming/p/5949272.htmlhttps://blog.csdn.net/vtopqx/article/details/80774669https://blog.csdn.net/taozhe666/article/details/80744941https://blog.csdn.net/Gavinmiaoc/article/details/80527717 free -h 释放内存syncecho 1 &gt; /proc/sys/vm/drop_cachesecho 2 &gt; /proc/sys/vm/drop_cachesecho 3 &gt; /proc/sys/vm/drop_caches drop_caches的值可以是0-3之间的数字，代表不同的含义：0：不释放（系统默认值）1：释放页缓存2：释放dentries和inodes3：释放所有缓存 查看程序端口ps -ef | grep javanetstat -nap | grep 进程idnetstat -tunlp|grep 进程idnetstat -nap | grep java|grep LISTEN linux访问urlcurl https://www.baidu.com/ 结束进程kill -9 进程id kill -s 9 pgrep 查找字符串 查找包含字符串的进程，并杀死ps -ef | grep 查找字符串 | grep -v grep | cut -c 9-15 | xargs kill -s 9ps -ef | grep 查找字符串 | grep -v grep | awk ‘{print $2}’ | xargs kill -9pgrep 查找字符串 | xargs kill -s 9ps -ef | grep 查找字符串 | awk ‘{print $2}’ | xargs kill -9 修改文件vi 文件名称q ：退出wq ：修改后保存退出q! : 强制退出，不保存修改的内容 https://baijiahao.baidu.com/s?id=1588552298343207312&amp;wfr=spider&amp;for=pc一、基本的替换命令格式1：sed ‘s/原字符串/新字符串/‘ 文件命令格式2：sed ‘s/原字符串/新字符串/g’ 文件没有“g”表示只替换第一个匹配到的字符串，有“g”表示替换所有能匹配到的字符串，“g”可以认为是“global”（全局的）的缩写 二、替换某行内容命令格式1：sed ‘行号c 新字符串’ 文件命令格式2：sed ‘起始行号，终止行号c 新字符串’ 文件 三、多条件替换命令格式：sed -e 命令1 -e 命令2 -e 命令3 保存替换结果到文件中sed -i 命令 sed -i ‘s/soccer-22bet-spider/order_web/g’ start.sh 查看占用cpu最高的进程ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head 查看占用内存最高的进程ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head 查看CPU信息（型号）cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c ps -mp 3409 -o THREAD,tid,time | sort -rnprintf “%x\n” 3417jstack 3409 |grep d59 -A 30 删除文件find 路径名 -name 文件名 //查找所有以mp3为扩展的文件find / -name “.mp3”//查找并删除文件find / -name “.mp3” |xargs rm -rf find /home/xuejiangtao/es999/backup/ -name ‘soccer.jar.20190*’ 拷贝文件跨目录cp 源路径/test.txt 目标路径/ 同级目录cp -r dir1 dir2 跨服务器拷贝文件跨服务器拷贝需要用到的命令是scp. ———————-拷贝文件夹———————————————- 把当前文件夹tempA拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下 scp -r /tmp/tempA/ wasadmin@10.127.40.25:/tmp/wang/ 其中wasadmin是目标服务器的用户名，执行命令提示输入密码，然后输入密码即可 ———————-拷贝文件———————————————- 把当前文件夹tempA.txt拷贝到 目标服务器10.127.40.25 服务器的 /tmp/wang/文件夹下 scp /tmp/tempA.txt wasadmin@10.127.40.25:/tmp/wang/ 其中wasadmin是目标服务器的用户名，执行命令提示输入密码，然后输入密码即可 文本文件中查找字符串在normal模式下按下/即可进入查找模式，输入要查找的字符串并按下回车。 Vim会跳转到第一个匹配。按下n查找下一个，按下N查找上一个。 Vim查找支持正则表达式，例如/vim$匹配行尾的&quot;vim&quot;。 需要查找特殊字符需要转义，例如/vim\$匹配&quot;vim$&quot;。]]></content>
   </entry>
   <entry>
     <title><![CDATA[通信端口Com口被占用的原因分析]]></title>

@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/aa219816/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/4d15c433/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/aa219816/" itemprop="url">Java 泛型中 extends 和 super 的区別？</a></h1>
+                <a class="post-title-link" href="/posts/4d15c433/" itemprop="url">linux下vi命令修改文件及保存的使用方法</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T09:28:56+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T23:01:01+08:00">
+                2019-04-23
               </time>
             
 
@@ -368,28 +368,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -419,15 +397,19 @@
 
       
         
-          <p><img src="http://blog.xuejiangtao.com/blog/180925/10KFkc17fI.png?imageslim" alt="mark"></p>
-<p><code>&lt;? extends T&gt;</code>和<code>&lt;? super T&gt;</code>是Java泛型中的“通配符（Wildcards）”和“边界（Bounds）”的概念。</p>
-<ul>
-<li><code>&lt;? extends T&gt;</code>：是指 “上界通配符（Upper Bounds Wildcards）”</li>
-<li><code>&lt;? super T&gt;</code>：是指 “下界通配符（Lower Bounds Wildcards）”</li>
-</ul>
+          
+          进入vi的命令
+
+vi filename :打开或新建文件,并将光标置于第一行首
+vi n filename ：打开文件,并将光标置于第n行首
+vi filename ：打开文件,并将光标置于一行首
+vi /pattern filename：打开文件,并将光标置于第一个与pattern匹配的串处
+vi -r filename ：在上次正用vi编辑时发生系统崩溃,恢复filename
+vi file
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/aa219816/#more" rel="contents">
+            <a class="btn" href="/posts/4d15c433/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -478,7 +460,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/11a14c34/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/10477358/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -497,7 +479,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/11a14c34/" itemprop="url">Hexo错误”expected end of comment, got end of file”</a></h1>
+                <a class="post-title-link" href="/posts/10477358/" itemprop="url">使用selenium模拟登录</a></h1>
         
 
         <div class="post-meta">
@@ -509,8 +491,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-24T20:19:42+08:00">
-                2018-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T14:24:55+08:00">
+                2019-03-19
               </time>
             
 
@@ -548,11 +530,12 @@
 
       
         
-          <p>使用hexo generate命令时报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">Template render error: Error: expected end of comment, got end of file</span><br><span class="line">    at Object._prettifyError (E:\xjt927.github.io\node_modules\nunjucks\src\lib.js:35:11)</span><br><span class="line">    at Template.render (E:\xjt927.github.io\node_modules\nunjucks\src\environment.js:526:21)</span><br><span class="line">    at Environment.renderString (E:\xjt927.github.io\node_modules\nunjucks\src\environment.js:364:17)</span><br><span class="line">    at Promise (E:\xjt927.github.io\node_modules\hexo\lib\extend\tag.js:66:9)</span><br><span class="line">    at Promise._execute (E:\xjt927.github.io\node_modules\bluebird\js\release\debuggability.js:303:9)</span><br><span class="line">    at Promise._resolveFromExecutor (E:\xjt927.github.io\node_modules\bluebird\js\release\promise.js:483:18)</span><br><span class="line">    at new Promise (E:\xjt927.github.io\node_modules\bluebird\js\release\promise.js:79:10)</span><br><span class="line">    at Tag.render (E:\xjt927.github.io\node_modules\hexo\lib\extend\tag.js:64:10)</span><br><span class="line">    at Object.tagFilter [as onRenderEnd] (E:\xjt927.github.io\node_modules\hexo\lib\hexo\post.js:260:16)</span><br><span class="line">    at Promise.then.then.result (E:\xjt927.github.io\node_modules\hexo\lib\hexo\render.js:65:19)</span><br><span class="line">    at tryCatcher (E:\xjt927.github.io\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\xjt927.github.io\node_modules\bluebird\js\release\promise.js:512:31)</span><br><span class="line">    at Promise._settlePromise (E:\xjt927.github.io\node_modules\bluebird\js\release\promise.js:569:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\xjt927.github.io\node_modules\bluebird\js\release\promise.js:614:10)</span><br><span class="line">    at Promise._settlePromises (E:\xjt927.github.io\node_modules\bluebird\js\release\promise.js:693:18)</span><br><span class="line">    at Async._drainQueue (E:\xjt927.github.io\node_modules\bluebird\js\release\async.js:133:16)</span><br><span class="line">    at Async._drainQueues (E:\xjt927.github.io\node_modules\bluebird\js\release\async.js:143:10)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (E:\xjt927.github.io\node_modules\bluebird\js\release\async.js:17:14)</span><br><span class="line">    at runCallback (timers.js:789:20)</span><br><span class="line">    at tryOnImmediate (timers.js:751:5)</span><br><span class="line">    at processImmediate [as _immediateCallback] (timers.js:722:5)</span><br></pre></td></tr></table></figure>
+          
+          Selenium （浏览器自动化测试框架）Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera等。这个工具的主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/11a14c34/#more" rel="contents">
+            <a class="btn" href="/posts/10477358/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -603,7 +586,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/3e3383b1/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/f6c82bc1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -622,7 +605,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/3e3383b1/" itemprop="url">java Collection集合删除某一元素方法汇总</a></h1>
+                <a class="post-title-link" href="/posts/f6c82bc1/" itemprop="url">linux常用命令整理</a></h1>
         
 
         <div class="post-meta">
@@ -634,8 +617,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-24T19:55:13+08:00">
-                2018-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T11:14:13+08:00">
+                2019-03-19
               </time>
             
 
@@ -644,28 +627,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -695,10 +656,12 @@
 
       
         
-          <p>无论在自己写程序玩还是实际项目应用中，操作java.util.Collection结合都是最常用的，而且也是最重要的知识点。从集合中删除某一元素同样是很常用的操作。对了，面试中也总考察，面试官说要考察你的实际编程的能力，谁知道呢。下面总结了从集合中删除某一元素的几种方法<br>
+          
+          查看运行程序https://www.cnblogs.com/zwgblog/p/5971462.htmlhttps://www.cnblogs.com/liuzhengliang/p/4609632.htmlhttps://baijiahao.baidu.com/s?id=1617448120776344096&amp;wfr=spider&amp;for=pcps命令——查看静态的进程统计信息（
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/3e3383b1/#more" rel="contents">
+            <a class="btn" href="/posts/f6c82bc1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -749,7 +712,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/91c24048/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/b48f125c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -768,7 +731,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/91c24048/" itemprop="url">Spring-SpEL表达式语言-公式计算</a></h1>
+                <a class="post-title-link" href="/posts/b48f125c/" itemprop="url">通信端口Com口被占用的原因分析</a></h1>
         
 
         <div class="post-meta">
@@ -780,8 +743,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:51:06+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T14:13:11+08:00">
+                2019-03-06
               </time>
             
 
@@ -790,28 +753,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -841,12 +782,16 @@
 
       
         
-          <p>业务需求,计算财务月报报表,如下:</p>
-<p><img src="http://blog.xuejiangtao.com/blog/180924/K98ml852AA.png" alt="mark"></p>
-<p>将公式写到xml文件中,程序读取到文件内容,将内容使用spel表达式公式计算出来,公式本身也是给list集合赋值的操作.<br>
+          
+          目前在调试地磅读取程序，近一段时间无法读取，排查原因发现是com1端口被占用。
+从网上找了无数个文章，最终得到一条有价值的消息，
+原因如下：
+com1端口不能读取电子地磅的数据了，重启之后发现 有一个驱动在更新Serial BallPoint
+原来Com口连接的设备，因为满足了微软对Serial ballpoint设备的检测要求，被微软误认为Com口连接的是Serial ballpoint设备，操
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/91c24048/#more" rel="contents">
+            <a class="btn" href="/posts/b48f125c/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -897,7 +842,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1e307c48/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/5d86d660/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -916,7 +861,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/1e307c48/" itemprop="url">Spring-SpEL表达式语言(3)</a></h1>
+                <a class="post-title-link" href="/posts/5d86d660/" itemprop="url">java lambda表达式常用操作</a></h1>
         
 
         <div class="post-meta">
@@ -928,8 +873,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:49:52+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-14T14:15:06+08:00">
+                2019-02-14
               </time>
             
 
@@ -938,28 +883,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -989,11 +912,14 @@
 
       
         
-          <h1 id="xml风格的配置"><a href="#xml风格的配置" class="headerlink" title="xml风格的配置"></a>xml风格的配置</h1><p>SpEL支持在Bean定义时注入，默认使用“#{SpEL表达式}”表示，其中“#root”根对象默认可以认为是ApplicationContext，只有ApplicationContext实现默认支持SpEL，获取根对象属性其实是获取容器中的Bean。</p>
-<p>首先看下配置方式（chapter5/el1.xml）吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;world&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos; World!&apos;&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello1&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;&#125;#&#123;world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;    </span><br><span class="line">&lt;bean id=&quot;hello2&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + world&#125;&quot;/&gt;  </span><br><span class="line">    &lt;!-- 不支持嵌套的 --&gt;  </span><br><span class="line">    &lt;!--&lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;&quot;/&gt;--&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello3&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + @world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">       模板默认以前缀“#&#123;”开头，以后缀“&#125;”结尾，且不允许嵌套，如“#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;”错误，如“#&#123;&apos;Hello&apos; + world&#125;”中“world”默认解析为Bean。当然可以使用“@bean”引用了。</span><br></pre></td></tr></table></figure></p>
+          
+          使用lambda表达式查找集合内属性最大值的对象Optional&lt;FillRec &gt; fillRecOp = fillRecList.stream().max(Comparator.comparing(FillRec::getScanTime));
+FillRec fillRec = fillRecOp.get();
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/1e307c48/#more" rel="contents">
+            <a class="btn" href="/posts/5d86d660/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1035,7 +961,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1085,7 +1011,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1096,7 +1022,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1107,7 +1033,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1167,7 +1093,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1184,6 +1110,11 @@
 
 
 
+<div class=BbeiAn-info">
+  京ICP备 -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
