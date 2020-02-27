@@ -1,5 +1,6 @@
 ---
 title: .start.sh启动命令
+abbrlink: 4a3a5e7f
 date: 2019-07-26 16:58:14
 tags:
 categories:

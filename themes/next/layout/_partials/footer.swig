@@ -45,3 +45,9 @@
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+
+<div class=BbeiAn-info">
+  {{ __('京ICP备') }} -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
