@@ -1,5 +1,6 @@
 ---
 title: java获取系统信息
+abbrlink: beb19631
 date: 2020-09-14 12:47:13
 tags:
 categories:

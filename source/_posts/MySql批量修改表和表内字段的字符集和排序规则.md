@@ -1,5 +1,6 @@
 ---
 title: MySql批量修改表和表内字段的字符集和排序规则
+abbrlink: 9cdac662
 date: 2020-09-22 09:14:56
 tags:
 categories:
