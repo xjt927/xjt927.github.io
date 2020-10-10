@@ -82,6 +82,7 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' ;
 ```
 您需要支付0.03比特币（BTC）才能恢复数据库：blog_system, blog_system2, job。 如果您需要证明，请通过以下电子邮件与我们联系：mysqldumps@protonmail.com。
 
+
 To recover your lost Database and avoid leaking it: Send us 0.03 Bitcoin (BTC) to our Bitcoin address 1J8jK64528P9CKJm8Sk5oY6eea2Qm5UHYK and contact us by Email with your Server IP or Domain name and a Proof of Payment. If you are unsure if we have your data, contact us and we will send you a proof. Your Database is downloaded and backed up on our servers. Backups that we have right now: job. If we dont receive your payment in the next 10 Days, we will make your database public or use them otherwise.
 ```
 
