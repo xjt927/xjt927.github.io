@@ -1,5 +1,6 @@
 ---
-title: 'MySQL for Linux错误 ERROR 1045 (28000) 解决方案'
+title: MySQL for Linux错误 ERROR 1045 (28000) 解决方案
+abbrlink: 38a2c632
 date: 2020-10-10 15:25:31
 tags:
 ---

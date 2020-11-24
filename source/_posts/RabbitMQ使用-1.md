@@ -1,5 +1,6 @@
 ---
 title: RabbitMQ使用
+abbrlink: fef34902
 date: 2020-10-16 09:55:39
 tags:
 categories:
