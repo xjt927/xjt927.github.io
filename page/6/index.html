@@ -777,7 +777,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9gwc661/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9awc665/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -796,7 +796,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/9gwc661/" itemprop="url">IO和NIO的区别</a></h1>
+                <a class="post-title-link" href="/posts/9awc665/" itemprop="url">5.分布式理论：一致性协议2PC和3PC</a></h1>
         
 
         <div class="post-meta">
@@ -831,8 +831,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
                   </a>
                 </span>
 
@@ -870,20 +870,14 @@
       
         
           
-          一、概念   NIO即Non-blocking IO，非阻塞IO，这个库是在JDK1.4中才引入的。NIO和IO有相同的作用和目的，但实现方式不同，NIO主要用到的是块，所以NIO的效率要比IO高很多。在Java API中提供了两套NIO，一套是针对标准输入输出NIO，另一套就是网络编程NIO。 
-二、NIO和IO的主要区别下表总结了Java IO和NIO之间的主要区别：
-
-
-
-IO
-NIO
-
-
-
+          分布式理论：一致性协议2PC什么是2PC2PC （ Two-Phase Commit缩写）即两阶段提交协议，是将整个事务流程分为两个阶段，准备阶段（Prepare phase）、提交阶段（commit phase），2是指两个阶段，P是指准备阶段，C是指提交阶段。
+2PC的工作方式P准备阶段可以理解为投票阶段。
+C提交阶段可以理解为执行阶段。
+我们将提议的节点称为协调者(coordinator)，
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/9gwc661/#more" rel="contents">
+            <a class="btn" href="/posts/9awc665/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -934,7 +928,7 @@ NIO
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9aaac662/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9awc667/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -953,7 +947,7 @@ NIO
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/9aaac662/" itemprop="url">Nginx配置详情</a></h1>
+                <a class="post-title-link" href="/posts/9awc667/" itemprop="url">7.分布式理论：一致性算法 Raft算法</a></h1>
         
 
         <div class="post-meta">
@@ -988,8 +982,8 @@ NIO
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
                   </a>
                 </span>
 
@@ -1027,15 +1021,23 @@ NIO
       
         
           
-          Nginx中文文档
-https://www.nginx.cn/doc/index.html
-http://www.ha97.com/5194.html
-https://www.cnblogs.com/bluestorm/p/4574688.html
-123456789101112131415161718192021222324252627282930313233343536373839404142
+          什么是Raft算法Raft 是一种为了管理复制日志的一致性算法。
+Raft提供了和Paxos算法相同的功能和性能，但是它的算法结构和Paxos不同。Raft算法更加容易理解并且更容易构建实际的系统。
+Raft将一致性算法分解成了3模块
+
+领导人选举
+
+日志复制
+
+安全性
+
+
+Raft算法分为两个阶段，首先是选举过程，然后在选举出来的领导人带领进行正常操作，比如日志复制等。
+http://these
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/9aaac662/#more" rel="contents">
+            <a class="btn" href="/posts/9awc667/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
