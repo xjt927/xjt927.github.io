@@ -4,7 +4,7 @@ abbrlink: 9aaac662
 date: 2020-07-10 10:14:56
 tags: ngxin
 categories: nginx
-keywords: nginx,配置
+keywords: nginx 配置
 ---
 
 Nginx中文文档

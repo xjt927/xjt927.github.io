@@ -1,10 +1,5 @@
 ---
-title: JBoss和Tomcat
-abbrlink: 9gwc663
-date: 2020-07-10 10:14:56
-tags: 分布式
-categories: 分布式
-keywords: 
+abbrlink: '0'
 ---
 # 什么是Tomcat？
 

@@ -1,10 +1,5 @@
 ---
-title: BIO、NIO、AIO的理解
-abbrlink: 9awc661
-date: 2020-07-10 10:14:56
-tags: java
-categories: java
-keywords: BIO,NIO,AIO
+abbrlink: '0'
 ---
 # 一、IO 介绍
 

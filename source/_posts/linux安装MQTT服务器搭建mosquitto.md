@@ -2,9 +2,9 @@
 title: linux安装MQTT服务器搭建mosquitto
 abbrlink: 4c465812
 date: 2020-11-02 13:18:50
-tags: mq
-categories: mq
-keywords: mqtt
+tags:
+categories:
+keywords:
 ---
 
 ## Mosquitto

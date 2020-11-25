@@ -2,9 +2,9 @@
 title: Linux下开启/关闭防火墙命令
 abbrlink: '92666433'
 date: 2020-10-10 17:08:22
-tags: linux
-categories: linux
-keywords: linx
+tags:
+categories:
+keywords:
 ---
 
 ## 使用以下命令开启、关闭防火墙
