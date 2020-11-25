@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/3e3383b1/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/a1c44b3a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/3e3383b1/" itemprop="url">java Collection集合删除某一元素方法汇总</a></h1>
+                <a class="post-title-link" href="/posts/a1c44b3a/" itemprop="url">设置RabbitMQ远程ip登录</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-24T19:55:13+08:00">
-                2018-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T16:56:54+08:00">
+                2019-11-11
               </time>
             
 
@@ -368,28 +368,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -419,10 +397,13 @@
 
       
         
-          <p>无论在自己写程序玩还是实际项目应用中，操作java.util.Collection结合都是最常用的，而且也是最重要的知识点。从集合中删除某一元素同样是很常用的操作。对了，面试中也总考察，面试官说要考察你的实际编程的能力，谁知道呢。下面总结了从集合中删除某一元素的几种方法<br>
+          
+          由于账号guest具有所有的操作权限，并且又是默认账号，出于安全因素的考虑，guest用户只能通过localhost登陆使用，并建议修改guest用户的密码以及新建其他账号管理使用rabbitmq。这里我们以创建个test帐号，密码123456为例，创建一个账号并支持远程ip访问。
+创建账号rabbitmqctl add_user test 123456设置用户角色rabbitmqctl  set
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/3e3383b1/#more" rel="contents">
+            <a class="btn" href="/posts/a1c44b3a/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -473,7 +454,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/91c24048/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/d96a93bd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -492,7 +473,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/91c24048/" itemprop="url">Spring-SpEL表达式语言-公式计算</a></h1>
+                <a class="post-title-link" href="/posts/d96a93bd/" itemprop="url">Redis 密码设置和查看密码</a></h1>
         
 
         <div class="post-meta">
@@ -504,8 +485,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:51:06+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T11:15:13+08:00">
+                2019-08-08
               </time>
             
 
@@ -514,28 +495,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -565,12 +524,17 @@
 
       
         
-          <p>业务需求,计算财务月报报表,如下:</p>
-<p><img src="http://blog.xuejiangtao.com/blog/180924/K98ml852AA.png" alt="mark"></p>
-<p>将公式写到xml文件中,程序读取到文件内容,将内容使用spel表达式公式计算出来,公式本身也是给list集合赋值的操作.<br>
+          
+             redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。
+   1、初始化Redis密码：
+   在配置文件中有个参数： requirepass  这个就是配置redis访问密码的参数；
+   比如 requirepass test123；
+   （Ps:需重启Redis才能生效）
+   redis的查询速度是非常快的，外部用户一秒内
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/91c24048/#more" rel="contents">
+            <a class="btn" href="/posts/d96a93bd/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -621,7 +585,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1e307c48/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/a44983eb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -640,7 +604,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/1e307c48/" itemprop="url">Spring-SpEL表达式语言(3)</a></h1>
+                <a class="post-title-link" href="/posts/a44983eb/" itemprop="url">HTTP网页请求状态码</a></h1>
         
 
         <div class="post-meta">
@@ -652,8 +616,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:49:52+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T17:55:24+08:00">
+                2019-08-07
               </time>
             
 
@@ -662,28 +626,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -713,11 +655,16 @@
 
       
         
-          <h1 id="xml风格的配置"><a href="#xml风格的配置" class="headerlink" title="xml风格的配置"></a>xml风格的配置</h1><p>SpEL支持在Bean定义时注入，默认使用“#{SpEL表达式}”表示，其中“#root”根对象默认可以认为是ApplicationContext，只有ApplicationContext实现默认支持SpEL，获取根对象属性其实是获取容器中的Bean。</p>
-<p>首先看下配置方式（chapter5/el1.xml）吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;world&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos; World!&apos;&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello1&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;&#125;#&#123;world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;    </span><br><span class="line">&lt;bean id=&quot;hello2&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + world&#125;&quot;/&gt;  </span><br><span class="line">    &lt;!-- 不支持嵌套的 --&gt;  </span><br><span class="line">    &lt;!--&lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;&quot;/&gt;--&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;bean id=&quot;hello3&quot; class=&quot;java.lang.String&quot;&gt;  </span><br><span class="line">    &lt;constructor-arg value=&quot;#&#123;&apos;Hello&apos; + @world&#125;&quot;/&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">       模板默认以前缀“#&#123;”开头，以后缀“&#125;”结尾，且不允许嵌套，如“#&#123;&apos;Hello&apos;#&#123;world&#125;&#125;”错误，如“#&#123;&apos;Hello&apos; + world&#125;”中“world”默认解析为Bean。当然可以使用“@bean”引用了。</span><br></pre></td></tr></table></figure></p>
+          
+          HTTP状态码:
+1xx   （临时响应） 表示临时响应并需要请求者继续执行操作的状态码。
+100   （继续）   请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。101   （切换协议）   请求者已要求服务器切换协议，服务器已确认并准备切换。
+2xx    （请求成功）表示成功处理了请求的状态代码。
+200   （成功）  服务器已成功处理了请求。 通常，
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/1e307c48/#more" rel="contents">
+            <a class="btn" href="/posts/a44983eb/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -768,7 +715,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/72b4d09/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/4a3a5e7f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -787,7 +734,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/72b4d09/" itemprop="url">Spring-SpEL表达式语言(2)</a></h1>
+                <a class="post-title-link" href="/posts/4a3a5e7f/" itemprop="url">.start.sh启动命令</a></h1>
         
 
         <div class="post-meta">
@@ -799,8 +746,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:48:59+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-26T16:58:14+08:00">
+                2019-07-26
               </time>
             
 
@@ -809,28 +756,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -860,41 +785,15 @@
 
       
         
-          <h1 id="SpEL语法"><a href="#SpEL语法" class="headerlink" title="SpEL语法"></a>SpEL语法</h1><h2 id="基本表达式"><a href="#基本表达式" class="headerlink" title="基本表达式"></a>基本表达式</h2><h3 id="一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"><a href="#一、字面量表达式：-SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。" class="headerlink" title="一、字面量表达式： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。"></a><strong>一、字面量表达式</strong>： SpEL支持的字面量包括：字符串、数字类型（int、long、float、double）、布尔类型、null类型。</h3><style>
-table th:first-of-type {  
-    width: 100px; 
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:left">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">字符串</td>
-<td style="text-align:left">String str1 = parser.parseExpression(“‘Hello World!’”).getValue(String.class);<br> String str2 = parser.parseExpression(“\”Hello World!\””).getValue(String.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">数字类型</td>
-<td style="text-align:left">int int1 = parser.parseExpression(“1”).getValue(Integer.class);<br>long long1 = parser.parseExpression(“-1L”).getValue(long.class);<br>float float1 = parser.parseExpression(“1.1”).getValue(Float.class);<br>double double1 = parser.parseExpression(“1.1E+2”).getValue(double.class);<br>int hex1 = parser.parseExpression(“0xa”).getValue(Integer.class);<br>long hex2 = parser.parseExpression(“0xaL”).getValue(long.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">布尔类型</td>
-<td style="text-align:left">boolean true1 = parser.parseExpression(“true”).getValue(boolean.class);<br>boolean false1 = parser.parseExpression(“false”).getValue(boolean.class);</td>
-</tr>
-<tr>
-<td style="text-align:center">null类型</td>
-<td style="text-align:left">Object null1 = parser.parseExpression(“null”).getValue(Object.class);</td>
-</tr>
-</tbody>
-</table>
+          
+          #!/bin/sh
+JAVA_HOME=/usr/java
+process=ps -ef | grep java |grep /home/xuejiangtao/m88/soccer | awk &#39;{print $2}&#39;
+if [ “$process” != “” ]; then        echo ‘应用下线…….’        echo ‘杀死进程’$process   
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/72b4d09/#more" rel="contents">
+            <a class="btn" href="/posts/4a3a5e7f/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -945,7 +844,7 @@ table th:first-of-type {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/2c061eca/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9b3ac662/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -964,7 +863,7 @@ table th:first-of-type {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/2c061eca/" itemprop="url">Spring-SpEL表达式语言(1)</a></h1>
+                <a class="post-title-link" href="/posts/9b3ac662/" itemprop="url">ExecutorService四种线程池的例子与说明</a></h1>
         
 
         <div class="post-meta">
@@ -976,8 +875,8 @@ table th:first-of-type {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T19:45:38+08:00">
-                2018-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T22:47:27+08:00">
+                2019-05-13
               </time>
             
 
@@ -999,8 +898,8 @@ table th:first-of-type {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -1037,16 +936,15 @@ table th:first-of-type {
 
       
         
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Spring表达式语言全称为“Spring Expression Language”，缩写为“SpEL”，类似于Struts2x中使用的OGNL表达式语言，能在运行时构建复杂表达式、存取对象图属性、对象方法调用等等，并且能与Spring功能完美整合，如能用来配置Bean定义。<br>表达式语言给静态Java语言增加了动态功能。<br>SpEL是单独模块，只依赖于core模块，不依赖于其他模块，可以单独使用。</p>
-<h1 id="能干什么"><a href="#能干什么" class="headerlink" title="能干什么"></a>能干什么</h1><p>表达式语言一般是用最简单的形式完成最主要的工作，减少我们的工作量。<br>SpEL支持如下表达式：</p>
-<ol>
-<li><strong>基本表达式</strong>：字面量表达式、关系，逻辑与算数运算表达式、字符串连接及截取表达式、三目运算及Elivis表达式、正则表达式、括号优先级表达式；</li>
-<li><strong>类相关表达式</strong>：类类型表达式、类实例化、instanceof表达式、变量定义及引用、赋值表达式、自定义函数、对象属性存取及安全导航表达式、对象方法调用、Bean引用；</li>
-<li><strong>集合相关表达式</strong>：内联List、内联数组、集合，字典访问、列表，字典，数组修改、集合投影、集合选择；不支持多维内联数组初始化；不支持内联字典定义；</li>
-<li>其他表达式：模板表达式。<br><strong>注：SpEL表达式中的关键字是不区分大小写的。</strong>
+          
+          1、new Thread的弊端
+执行一个异步任务你还只是如下new Thread吗？
+1234567new Thread(new Runnable() &#123;    @Override    public void run() &#123;        // TODO Auto-generated method stub    &#125;&#125;).start();
+那你就out太多
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/2c061eca/#more" rel="contents">
+            <a class="btn" href="/posts/9b3ac662/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1088,7 +986,7 @@ table th:first-of-type {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1138,7 +1036,7 @@ table th:first-of-type {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">138</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1149,7 +1047,7 @@ table th:first-of-type {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1160,7 +1058,7 @@ table th:first-of-type {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

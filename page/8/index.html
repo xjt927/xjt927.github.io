@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined/" itemprop="url">ExecutorService四种线程池的例子与说明</a></h1>
+                <a class="post-title-link" href="/posts/0/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T22:47:27+08:00">
-                2019-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-03T00:41:54+08:00">
+                2020-08-03
               </time>
             
 
@@ -398,14 +398,17 @@
       
         
           
-          1、new Thread的弊端
-执行一个异步任务你还只是如下new Thread吗？
-1234567new Thread(new Runnable() &#123;    @Override    public void run() &#123;        // TODO Auto-generated method stub    &#125;&#125;).start();
-那你就out太多
+          什么是 Base 理论BASE理论：
+
+全称：Basically Available(基本可用)，Soft state（软状态）,和 Eventually consistent（最终一致性）三个短语的缩写，来自 ebay 的架构师提出。
+
+Base 理论是对 CAP 中一致性和可用性权衡的结果，其来源于对大型互联网分布式实践的总结，是基于 CAP 定理逐步演化而来的。其核心思想是：
+
+即使无法做到
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/undefined/#more" rel="contents">
+            <a class="btn" href="/posts/0/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -456,7 +459,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/a2d7ffe3/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -475,7 +478,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/a2d7ffe3/" itemprop="url">Linux查看日志常用命令</a></h1>
+                <a class="post-title-link" href="/posts/0/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -487,8 +490,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T17:50:59+08:00">
-                2019-05-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-03T00:41:54+08:00">
+                2020-08-03
               </time>
             
 
@@ -527,20 +530,15 @@
       
         
           
-          1.查看日志常用命令tail:  
-   -n  是显示行号；相当于nl命令；例子如下：
-        tail -100f test.log      实时监控100行日志
-        tail  -n  10  test.log   查询日志尾部最后10行的日志;
+          CAP定理的含义
 
-        tail -n +10 test.log    查询10行之后的所有日志;
+2000 年7月的时候，加州大学伯克利分校的Eric Brewer 教授提出了 CAP 猜想，2年后，被 来自于麻省理工的Seth Gilbert 和 Nancy Lynch 从理论上证明了猜想的可能性，从此，CAP 定理正式在学术上成为了分布式计算领域的公认定理。并深深的影响了分布式计算的发展。
 
-head:  
-
-    跟
+CAP 理论含义是：一个分布式系统不可能同时满足一致性（C:Consisten
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/a2d7ffe3/#more" rel="contents">
+            <a class="btn" href="/posts/0/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -591,7 +589,7 @@ head:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/6x507e72/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -610,7 +608,7 @@ head:
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/undefined/" itemprop="url">密码设置和查看密码</a></h1>
+                <a class="post-title-link" href="/posts/6x507e72/" itemprop="url">Zookeeper的leader选举</a></h1>
         
 
         <div class="post-meta">
@@ -622,8 +620,8 @@ head:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T00:35:47+08:00">
-                2019-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-03T00:31:44+08:00">
+                2020-08-03
               </time>
             
 
@@ -632,6 +630,28 @@ head:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/zookeeper/" itemprop="url" rel="index">
+                    <span itemprop="name">zookeeper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -662,16 +682,14 @@ head:
       
         
           
-          redis没有实现访问控制这个功能，但是它提供了一个轻量级的认证方式，可以编辑redis.conf配置来启用认证。
-   1、初始化Redis密码：
-   在配置文件中有个参数： requirepass  这个就是配置redis访问密码的参数；
-   比如 requirepass test123；
-   （Ps:需重启Redis才能生效）
-   redis的查询速度是非常快的，外部用户一秒内可以尝
+          Zookeeper的leader选举进行leader选举有两种情况：
+121. 服务器启动时。2. 服务器运行期间无法与leader保持连接。
+1.服务器启动时leader选举若要进行选举，必须要有超过2台以上的服务器，这里以3台服务器组成的集群为例。
+服务器server1启动时，其单独无法完成选举。当服务器server2启动时，两台服务器进行通信，都试图找到leader，于是进入leader选举
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/undefined/#more" rel="contents">
+            <a class="btn" href="/posts/6x507e72/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -722,7 +740,7 @@ head:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/4d15c433/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9baac662/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -741,7 +759,7 @@ head:
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/4d15c433/" itemprop="url">linux下vi命令修改文件及保存的使用方法</a></h1>
+                <a class="post-title-link" href="/posts/9baac662/" itemprop="url">windows下无法结束ngxin</a></h1>
         
 
         <div class="post-meta">
@@ -753,8 +771,8 @@ head:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T23:01:01+08:00">
-                2019-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-10T11:14:56+08:00">
+                2020-07-10
               </time>
             
 
@@ -763,6 +781,28 @@ head:
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -793,18 +833,12 @@ head:
       
         
           
-          进入vi的命令
+          taskkill /f /t /im nginx.exe
 
-vi filename :打开或新建文件,并将光标置于第一行首
-vi n filename ：打开文件,并将光标置于第n行首
-vi filename ：打开文件,并将光标置于一行首
-vi /pattern filename：打开文件,并将光标置于第一个与pattern匹配的串处
-vi -r filename ：在上次正用vi编辑时发生系统崩溃,恢复filename
-vi file
-          ...
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/4d15c433/#more" rel="contents">
+            <a class="btn" href="/posts/9baac662/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -855,7 +889,7 @@ vi file
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/10477358/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9aaac662/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -874,7 +908,7 @@ vi file
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/10477358/" itemprop="url">使用selenium模拟登录</a></h1>
+                <a class="post-title-link" href="/posts/9aaac662/" itemprop="url">Nginx配置详情</a></h1>
         
 
         <div class="post-meta">
@@ -886,8 +920,8 @@ vi file
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T14:24:55+08:00">
-                2019-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-10T10:14:56+08:00">
+                2020-07-10
               </time>
             
 
@@ -896,6 +930,28 @@ vi file
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -926,11 +982,15 @@ vi file
       
         
           
-          Selenium （浏览器自动化测试框架）Selenium 是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera等。这个工具的主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览
+          Nginx中文文档
+https://www.nginx.cn/doc/index.html
+http://www.ha97.com/5194.html
+https://www.cnblogs.com/bluestorm/p/4574688.html
+123456789101112131415161718192021222324252627282930313233343536373839404142
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/10477358/#more" rel="contents">
+            <a class="btn" href="/posts/9aaac662/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -972,7 +1032,7 @@ vi file
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1022,7 +1082,7 @@ vi file
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">138</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1033,7 +1093,7 @@ vi file
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1044,7 +1104,7 @@ vi file
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

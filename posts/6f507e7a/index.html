@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="dubbo,控制台" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="薛江涛 - 博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Dubbo管理控制台dubbo-admin控制台安装步骤 从git 上下载项目 https://github.com/apache/dubbo-admin  建议使用master分支，因为该分支比较稳定。develop分支一直在更新提交，存在不稳定因素。   修改项目下的配置文件  dubbo-admin-master\dubbo-admin\src\main\resources\applicat">
+<meta name="keywords" content="dubbo,控制台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dubbo管理控制台及常用配置项说明">
+<meta property="og:url" content="http://xuejiangtao.com/posts/6f507e7a/index.html">
+<meta property="og:site_name" content="薛江涛 - 博客">
+<meta property="og:description" content="Dubbo管理控制台dubbo-admin控制台安装步骤 从git 上下载项目 https://github.com/apache/dubbo-admin  建议使用master分支，因为该分支比较稳定。develop分支一直在更新提交，存在不稳定因素。   修改项目下的配置文件  dubbo-admin-master\dubbo-admin\src\main\resources\applicat">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.xuejiangtao.com/blog/20200830/aSmJ4nfcQe3d.png?imageslim">
+<meta property="og:image" content="http://blog.xuejiangtao.com/blog/20200830/rGXdMoxJfUaw.png?imageslim">
+<meta property="og:image" content="http://blog.xuejiangtao.com/blog/20200901/HH5cY0Rp06Cq.png?imageslim">
+<meta property="og:updated_time" content="2020-11-24T15:40:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dubbo管理控制台及常用配置项说明">
+<meta name="twitter:description" content="Dubbo管理控制台dubbo-admin控制台安装步骤 从git 上下载项目 https://github.com/apache/dubbo-admin  建议使用master分支，因为该分支比较稳定。develop分支一直在更新提交，存在不稳定因素。   修改项目下的配置文件  dubbo-admin-master\dubbo-admin\src\main\resources\applicat">
+<meta name="twitter:image" content="http://blog.xuejiangtao.com/blog/20200830/aSmJ4nfcQe3d.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xuejiangtao.com/posts/6f507e7a/"/>
+
+
+
+
+
+  <title>Dubbo管理控制台及常用配置项说明 | 薛江涛 - 博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-118453650-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1c0f229a6c86fb5a82381a7843bd8153";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">薛江涛 - 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做对的事，永远不晚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/6f507e7a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="薛江涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="薛江涛 - 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Dubbo管理控制台及常用配置项说明</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-02T23:30:44+08:00">
+                2020-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dubbo/" itemprop="url" rel="index">
+                    <span itemprop="name">dubbo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Dubbo管理控制台dubbo-admin"><a href="#Dubbo管理控制台dubbo-admin" class="headerlink" title="Dubbo管理控制台dubbo-admin"></a>Dubbo管理控制台dubbo-admin</h1><h2 id="控制台安装步骤"><a href="#控制台安装步骤" class="headerlink" title="控制台安装步骤"></a>控制台安装步骤</h2><ol>
+<li><p>从git 上下载项目 <a href="https://github.com/apache/dubbo-admin" target="_blank" rel="noopener">https://github.com/apache/dubbo-admin</a> </p>
+<p><strong>建议使用master分支</strong>，因为该分支比较稳定。develop分支一直在更新提交，存在不稳定因素。</p>
+<p><img src="http://blog.xuejiangtao.com/blog/20200830/aSmJ4nfcQe3d.png?imageslim" alt="mark" style="zoom:50%;"></p>
+</li>
+<li><p>修改项目下的配置文件 </p>
+<p>dubbo-admin-master\dubbo-admin\src\main\resources\application.properties</p>
+<p>注意dubbo.registry.address对应的值，需要对应当前使用的Zookeeper的ip地址和端口号 </p>
+<p>• dubbo.registry.address=zookeeper://zk所在机器ip:zk端口 </p>
+<p>• dubbo.admin.root.password=root </p>
+<p>• dubbo.admin.guest.password=guest </p>
+</li>
+<li><p>切换到项目所在的路径dubbo-admin-master\dubbo-admin 使用mvn 打包 </p>
+<p>mvn clean package -Dmaven.test.skip=true </p>
+</li>
+<li><p>进入\target目录使用java 命令运行 </p>
+<p>java -jar 对应的jar包</p>
+</li>
+</ol>
+<h2 id="使用控制台"><a href="#使用控制台" class="headerlink" title="使用控制台"></a>使用控制台</h2><p>1.访问<a href="http://localhost:7001（默认端口）" target="_blank" rel="noopener">http://localhost:7001（默认端口）</a> </p>
+<p>2.输入用户名root,密码root </p>
+<p>3.点击菜单 服务治理，查看服务提供者和服务消费者信息</p>
+<h1 id="Dubbo常用配置项说明"><a href="#Dubbo常用配置项说明" class="headerlink" title="Dubbo常用配置项说明"></a>Dubbo常用配置项说明</h1><p>配置文件和普通Spring中属性名称用“.”隔开</p>
+<p>Spring boot中属性名写一起</p>
+<p><a href="http://dubbo.apache.org/zh-cn/docs/user/references/xml/introduction.html" target="_blank" rel="noopener">Dubbo官网schema 配置参考手册</a></p>
+<h2 id="dubbo-application"><a href="#dubbo-application" class="headerlink" title="dubbo:application"></a>dubbo:application</h2><p>对应 org.apache.dubbo.confifig.ApplicationConfifig, 代表当前应用的信息</p>
+<ol>
+<li><p>name: 当前应用程序的名称，在dubbo-admin中我们也可以看到，这个代表这个应用名称。我们在真正时是时也会根据这个参数来进行聚合应用请求。</p>
+</li>
+<li><p>owner: 当前应用程序的负责人，可以通过这个负责人找到其相关的应用列表，用于快速定位到责任人。</p>
+</li>
+<li><p>qosEnable : 是否启动QoS 默认true</p>
+</li>
+<li><p>qosPort : 启动QoS绑定的端口 默认22222</p>
+</li>
+<li><p>qosAcceptForeignIp: 是否允许远程访问 默认是false </p>
+</li>
+</ol>
+<h2 id="Qos使用"><a href="#Qos使用" class="headerlink" title="Qos使用"></a>Qos使用</h2><p><a href="http://dubbo.apache.org/zh-cn/docs/user/references/qos.html" target="_blank" rel="noopener">Dubbo官网Qos命令使用说明</a></p>
+<p>当dubbo持续启动时默认启动qos服务，并为该服务分配默认的 22222端口。</p>
+<p>Qos主要是运维时使用。</p>
+<h3 id="登陆Qos"><a href="#登陆Qos" class="headerlink" title="登陆Qos"></a>登陆Qos</h3><p>打开cmd命令窗口，输入<code>telnet localhost 22222</code></p>
+<p>输入<code>ls</code></p>
+<p><img src="http://blog.xuejiangtao.com/blog/20200830/rGXdMoxJfUaw.png?imageslim" alt="mark" style="zoom:80%;"></p>
+<p>当登录服务后，输入命令报异常：<code>Foreign Ip Not Permitted.</code></p>
+<p>说明没有权限访问该服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">需要在配置文件中将</span><br><span class="line">&lt;dubbo:parameter key=&quot;qos.accept.foreign.ip&quot; value=&quot;false&quot;&gt;</span><br><span class="line">设置为</span><br><span class="line">&lt;dubbo:parameter key=&quot;qos.accept.foreign.ip&quot; value=&quot;true&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="dubbo-registry"><a href="#dubbo-registry" class="headerlink" title="dubbo:registry"></a>dubbo:registry</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 使用zookeeper注册中心暴露服务地址 --&gt;</span><br><span class="line">&lt;dubbo:registry address=&quot;zookeeper://127.0.0.1:2181&quot; id=&quot;r1&quot; timeout=&quot;10000&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>org.apache.dubbo.confifig.RegistryConfifig, 代表该模块所使用的注册中心。一个模块中的服务可以将</p>
+<p>其注册到多个注册中心上，也可以注册到一个上。后面再service和reference也会引入这个注册中心。</p>
+<ol>
+<li>id : 当前服务中provider或者consumer中存在<strong>多个注册中心时</strong>，则使用需要增加该配置。在一些公司，会通过业务线的不同选择不同的注册中心，所以一般都会配置该值。</li>
+<li><p>address : 当前注册中心的访问地址。</p>
+</li>
+<li><p>protocol : 当前注册中心所使用的协议是什么。也可以直接在 address 中写入，比如使用zookeeper，就可以写成zookeeper://xx.xx.xx.xx:2181 </p>
+</li>
+<li>timeout : 当与注册中心不再同一个机房时，大多会把该参数延长。</li>
+</ol>
+<h2 id="dubbo-protocol"><a href="#dubbo-protocol" class="headerlink" title="dubbo:protocol"></a>dubbo:protocol</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 用dubbo协议在20882端口暴露服务</span><br><span class="line">&lt;dubbo:protocol name=&quot;dubbo&quot; port=&quot;20882&quot; /&gt; --&gt;</span><br><span class="line">&lt;!-- 用dubbo协议在20883端口暴露服务 --&gt;</span><br><span class="line">&lt;dubbo:protocol name=&quot;dubbo&quot; port=&quot;20883&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>org.apache.dubbo.confifig.ProtocolConfifig, 指定服务在进行数据传输所使用的协议。</p>
+<ol>
+<li><p>id : 在大公司，可能因为各个部门技术栈不同，所以可能会选择使用不同的协议进行交互。这里在多个协议使用时，需要指定。</p>
+</li>
+<li><p>name : 指定协议名称。默认使用 dubbo 。</p>
+<p><strong>参考org.apache.dubbo.rpc.Protocol定义的协议。</strong></p>
+<p>Maven: org.apache.dubbo:dubbo:2.7.5/dubbo-2.7.5.jar/META-INF.dubbo.internal/org.apache.dubbo.rpc.Protocol</p>
+<p><img src="http://blog.xuejiangtao.com/blog/20200901/HH5cY0Rp06Cq.png?imageslim" alt="mark"></p>
+</li>
+</ol>
+<h2 id="dubbo-service"><a href="#dubbo-service" class="headerlink" title="dubbo:service"></a>dubbo:service</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 声明需要暴露的服务接口 --&gt;</span><br><span class="line">&lt;dubbo:service interface=&quot;com.lagou.service.HelloService&quot; ref=&quot;helloService&quot;  /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 和本地bean一样实现服务 --&gt;</span><br><span class="line">&lt;bean id=&quot;helloService&quot; class=&quot;com.lagou.service.impl.HelloServiceImpl&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>org.apache.dubbo.confifig.ServiceConfifig, 用于指定当前需要对外暴露的服务信息，后面也会具体讲解。和 dubbo:reference 大致相同。</p>
+<ol>
+<li><p>interface : 指定当前需要进行对外暴露的接口是什么。</p>
+</li>
+<li><p>ref : 具体实现对象的引用，一般我们在生产级别都是使用Spring去进行Bean托管的，所以这里面一般也指的是Spring中的BeanId。 </p>
+</li>
+<li><p>version : 对外暴露的版本号。不同的版本号，消费者在消费的时候只会根据固定的版本号进行消费。</p>
+</li>
+</ol>
+<h2 id="dubbo-reference"><a href="#dubbo-reference" class="headerlink" title="dubbo:reference"></a>dubbo:reference</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 生成远程服务代理，可以和本地bean一样使用demoService --&gt;</span><br><span class="line">&lt;dubbo:reference id=&quot;helloService&quot; interface=&quot;com.xjt.service.AnnotationService&quot; timeout=&quot;4000&quot; retries=&quot;2&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>org.apache.dubbo.confifig.ReferenceConfifig, 消费者的配置，这里只做简单说明，后面会具体讲解。</p>
+<ol>
+<li><p>id : 指定该Bean在注册到Spring中的id。 </p>
+</li>
+<li><p>interface: 服务接口名</p>
+</li>
+<li><p>version : 服务版本，与服务提供者的版本一致。</p>
+</li>
+<li><p>registry : 远程服务调用重试次数，不包括第一次调用，不需要重试请设为0。</p>
+</li>
+</ol>
+<h2 id="dubbo-method"><a href="#dubbo-method" class="headerlink" title="dubbo:method"></a>dubbo:method</h2><p>xml配置文件中独有的属性</p>
+<p>org.apache.dubbo.confifig.MethodConfifig, 用于在制定的 dubbo:service 或者 dubbo:reference 中的更具体一个层级，指定具体方法级别在进行RPC操作时候的配置，可以理解为对这上面层级中的配置针对于具体方法的特殊处理。</p>
+<ol>
+<li><p>name : 指定方法名称，用于对这个方法名称的RPC调用进行特殊配置。</p>
+</li>
+<li><p>async: 是否异步 默认false</p>
+</li>
+</ol>
+<h2 id="dubbo-service和dubbo-reference详解"><a href="#dubbo-service和dubbo-reference详解" class="headerlink" title="dubbo:service和dubbo:reference详解"></a>dubbo:service和dubbo:reference详解</h2><p>这两个在dubbo中是我们最为常用的部分，其中有一些我们必然会接触到的属性。并且这里会讲到一些设置上的使用方案。</p>
+<ol>
+<li><p>mock: 用于在方法调用出现错误时，当做服务降级来统一对外返回结果，<strong>用于客户端配置</strong>。</p>
+<ol>
+<li>mock属性写到dubbo:consumer标签或者dubbo:reference都可以</li>
+<li>设置<code>mock=&quot;true&quot;</code>，设置mock=true后自动找”包名+接口名+Mock“的文件</li>
+<li>编写”接口名称+Mock“的mock文件，该文件要implement实现接口，并在方法中写业务逻辑</li>
+</ol>
+</li>
+<li><p>timeout: 用于<strong>客户端指定服务端当前方法或者接口中所有方法的超时时间</strong>。<strong>用于客户端配置</strong>。</p>
+<p>我们一般都会根据提供者的时长来具体规定。比如我们在进行第三方服务依赖时可能会对接口的时长做放宽，防止第三方服务不稳定导致服务受损。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;dubbo:consumer timeout=&quot;2000&quot; ... /&gt; 或 &lt;dubbo:reference ... timeout=&quot;1000&quot;/&gt;标签属性中设置。</span><br><span class="line"></span><br><span class="line">以reference为主，以consumer为辅。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><p>check: 用于在启动时，检查生产者是否有该服务。<strong>用于客户端配置</strong>。</p>
+<p>我们一般都会将这个值设置为false，不让其进行检查。因为如果出现模块之间循环引用的话，那么则可能会出现相互依赖，都进行check的话，那么这两个服务永远也启动不起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dubbo:consumer ... check=&quot;true&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li><p>retries: 用于指定当前服务在执行时出现错误或者超时时的重试机制。<strong>用于客户端配置</strong>。</p>
+<ol>
+<li><p>注意提供者是否有幂等，否则可能出现数据一致性问题</p>
+</li>
+<li><p>注意提供者是否有类似缓存机制，如出现大面积错误时，可能因为不停重试导致雪崩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;dubbo:consumer retries=&quot;2&quot;  ... /&gt; 或 &lt;dubbo:reference ... retries=&quot;3&quot; /&gt;标签属性中设置。</span><br><span class="line"></span><br><span class="line">以reference为主，以consumer为辅。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="5">
+<li>executes: <strong>用于在提供者做配置</strong>，来确保最大的并行度。<ol>
+<li>可能导致集群功能无法充分利用或者堵塞</li>
+<li>但是也可以启动部分对应用的保护功能</li>
+<li>可以不做配置，结合后面的熔断限流使用</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="薛江涛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="薛江涛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dubbo/" rel="tag"><i class="fa fa-tag"></i> dubbo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/6j507e71/" rel="next" title="抽屉原理&鸽笼原理">
+                <i class="fa fa-chevron-left"></i> 抽屉原理&鸽笼原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/6y507e7a/" rel="prev" title="spi">
+                spi <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+	<div id="gitalk-container"></div>
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="薛江涛" />
+            
+              <p class="site-author-name" itemprop="name">薛江涛</p>
+              <p class="site-description motion-element" itemprop="description">只为记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xjt927" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xjt927@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo管理控制台dubbo-admin"><span class="nav-number">1.</span> <span class="nav-text">Dubbo管理控制台dubbo-admin</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#控制台安装步骤"><span class="nav-number">1.1.</span> <span class="nav-text">控制台安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用控制台"><span class="nav-number">1.2.</span> <span class="nav-text">使用控制台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dubbo常用配置项说明"><span class="nav-number">2.</span> <span class="nav-text">Dubbo常用配置项说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-application"><span class="nav-number">2.1.</span> <span class="nav-text">dubbo:application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Qos使用"><span class="nav-number">2.2.</span> <span class="nav-text">Qos使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登陆Qos"><span class="nav-number">2.2.1.</span> <span class="nav-text">登陆Qos</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-registry"><span class="nav-number">2.3.</span> <span class="nav-text">dubbo:registry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-protocol"><span class="nav-number">2.4.</span> <span class="nav-text">dubbo:protocol</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-service"><span class="nav-number">2.5.</span> <span class="nav-text">dubbo:service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-reference"><span class="nav-number">2.6.</span> <span class="nav-text">dubbo:reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-method"><span class="nav-number">2.7.</span> <span class="nav-text">dubbo:method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dubbo-service和dubbo-reference详解"><span class="nav-number">2.8.</span> <span class="nav-text">dubbo:service和dubbo:reference详解</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">薛江涛</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div class=BbeiAn-info">
+  京ICP备 -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65817093";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1273578319&web_id=1273578319" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'baf6205db50605a8511f',
+          clientSecret: '7991d91c3dda491a906203a173153e13028ba541',
+          repo: 'xjt927.github.io',
+          owner: 'xjt927',
+          admin: ['xjt927'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase(); 
+				//var articleUrl = decodeURIComponent(data.url);
+				var articleUrl = decodeURIComponent(data.url).substring(1);//截取第一位/斜杠
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/36f1dc9b/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/e28448e6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/36f1dc9b/" itemprop="url">C#调用c/c++dll报：System.AccessViolationException 尝试读取或写入受保护的内存,这通常指示其他内存已损坏。</a></h1>
+                <a class="post-title-link" href="/posts/e28448e6/" itemprop="url">rabbitmq安装</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T10:24:38+08:00">
-                2018-12-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-08T20:35:34+08:00">
+                2019-12-08
               </time>
             
 
@@ -398,12 +398,17 @@
       
         
           
-          项目中用到使用C#调用c++接口dll，有一个接口参数是struct结构类型，在调用c++接口时报出异常：System.AccessViolationException 尝试读取或写入受保护的内存,这通常指示其他内存已损坏。网上找了很多解决方法都不行，后来将结构中的一个参数类型换成IntPtr竟然可以了。因为结构中的state为指针，所以必须使用IntPtr方式传值。
-c++接口，其中PtDioR
+          #rabbitmq linux卸载
+rabbitmq是运行在erlang环境下的，所以卸载时应将erlang卸载。
+1、卸载rabbitmq相关
+卸载前先停掉rabbitmq服务，执行命令
+$ service rabbitmq-server stop查看rabbitmq安装的相关列表
+$ yum list | grep rabbitmq卸载rabbitmq已安装的相关内容
+$ yum -y rem
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/36f1dc9b/#more" rel="contents">
+            <a class="btn" href="/posts/e28448e6/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -454,7 +459,7 @@ c++接口，其中PtDioR
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/7f88541c/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/1a0fe82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -473,7 +478,7 @@ c++接口，其中PtDioR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/7f88541c/" itemprop="url">C#读取地磅（电子秤）串口</a></h1>
+                <a class="post-title-link" href="/posts/1a0fe82/" itemprop="url">linux下设置redis开机启动</a></h1>
         
 
         <div class="post-meta">
@@ -485,8 +490,8 @@ c++接口，其中PtDioR
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T19:36:00+08:00">
-                2018-12-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-08T15:13:08+08:00">
+                2019-12-08
               </time>
             
 
@@ -525,11 +530,12 @@ c++接口，其中PtDioR
       
         
           
-          12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210
+          步骤1：设置redis.conf中daemonize为yes,确保守护进程开启。步骤2：编写开机自启动脚本
+基本原理为：系统开机启动时会去加载/etc/init.d/下面的脚本，通常而言每个脚本文件会自定义实现程序的启动；若想将新的程序开机自启动，只需在该目录下添加一个自定义启动程序的脚本，然后设置相应规则即可。如在这里我们在/etc/init.d/下新建一个 redis 的脚本，开机启动时会去加
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/7f88541c/#more" rel="contents">
+            <a class="btn" href="/posts/1a0fe82/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -580,7 +586,7 @@ c++接口，其中PtDioR
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/4bd00030/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/db7dc98d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -599,7 +605,7 @@ c++接口，其中PtDioR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/4bd00030/" itemprop="url">java常用总结</a></h1>
+                <a class="post-title-link" href="/posts/db7dc98d/" itemprop="url">如何保证Redis与数据库的双写一致性？</a></h1>
         
 
         <div class="post-meta">
@@ -611,8 +617,8 @@ c++接口，其中PtDioR
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T17:41:13+08:00">
-                2018-12-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-03T10:27:01+08:00">
+                2019-12-03
               </time>
             
 
@@ -651,13 +657,12 @@ c++接口，其中PtDioR
       
         
           
-          获取配置文件参数1AppPropertiesReader.getValue(&quot;aaa.aaa_address_base&quot;)
-json转对象
-方法一：使用ObjectMapper12345678910111213141516import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jacks
-          ...
+          https://www.jianshu.com/p/c72ba33ea49e
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/4bd00030/#more" rel="contents">
+            <a class="btn" href="/posts/db7dc98d/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -708,7 +713,7 @@ json转对象
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/a1e19d0c/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/14c107ab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -727,7 +732,7 @@ json转对象
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/a1e19d0c/" itemprop="url">tomcat管理页面403 Access Denied的解决方法</a></h1>
+                <a class="post-title-link" href="/posts/14c107ab/" itemprop="url">MySql实现读写分离</a></h1>
         
 
         <div class="post-meta">
@@ -739,8 +744,8 @@ json转对象
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T09:39:50+08:00">
-                2018-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T09:52:58+08:00">
+                2019-12-02
               </time>
             
 
@@ -749,28 +754,6 @@ json转对象
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tomcat/" itemprop="url" rel="index">
-                    <span itemprop="name">tomcat</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -801,12 +784,13 @@ json转对象
       
         
           
-          在tomcat下conf/tomcat-users.xml文件添加以下用户。
-12345&lt;role rolename=&quot;admin-gui&quot;/&gt;&lt;role rolename=&quot;manager-gui&quot;/&gt;&lt;role rolename=&quot;manager-script&quot;/&gt;&lt;user username
-          ...
+          https://blog.csdn.net/qq_15092079/article/details/81672920
+https://blog.csdn.net/why15732625998/article/details/80463041
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/a1e19d0c/#more" rel="contents">
+            <a class="btn" href="/posts/14c107ab/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -857,7 +841,7 @@ json转对象
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/e3115414/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/bbcf0b85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -876,7 +860,7 @@ json转对象
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/e3115414/" itemprop="url">java vm 虚拟机JDK可视化工具</a></h1>
+                <a class="post-title-link" href="/posts/bbcf0b85/" itemprop="url">Linux下如何解压 tar.xz格式文件</a></h1>
         
 
         <div class="post-meta">
@@ -888,8 +872,8 @@ json转对象
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T15:48:23+08:00">
-                2018-11-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-21T18:21:23+08:00">
+                2019-11-21
               </time>
             
 
@@ -898,28 +882,6 @@ json转对象
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JVM/" itemprop="url" rel="index">
-                    <span itemprop="name">JVM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -950,11 +912,12 @@ json转对象
       
         
           
-          12345678910111213141516public class BTraceTest &#123;    public int add(int a, int b) &#123;        return a + b;    &#125;    public static void main(String[] args) throws IOException &#123;        B
-          ...
+          https://blog.csdn.net/qq_39135287/article/details/83449532
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/e3115414/#more" rel="contents">
+            <a class="btn" href="/posts/bbcf0b85/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -996,7 +959,7 @@ json转对象
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1046,7 +1009,7 @@ json转对象
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">138</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1057,7 +1020,7 @@ json转对象
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1068,7 +1031,7 @@ json转对象
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

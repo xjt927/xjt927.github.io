@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="nginx 配置" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="薛江涛 - 博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Nginx中文文档 https://www.nginx.cn/doc/index.html http://www.ha97.com/5194.html https://www.cnblogs.com/bluestorm/p/4574688.html 123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta name="keywords" content="nginx 配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx配置详情">
+<meta property="og:url" content="http://xuejiangtao.com/posts/9aaac662/index.html">
+<meta property="og:site_name" content="薛江涛 - 博客">
+<meta property="og:description" content="Nginx中文文档 https://www.nginx.cn/doc/index.html http://www.ha97.com/5194.html https://www.cnblogs.com/bluestorm/p/4574688.html 123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-11-24T15:19:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx配置详情">
+<meta name="twitter:description" content="Nginx中文文档 https://www.nginx.cn/doc/index.html http://www.ha97.com/5194.html https://www.cnblogs.com/bluestorm/p/4574688.html 123456789101112131415161718192021222324252627282930313233343536373839404142">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xuejiangtao.com/posts/9aaac662/"/>
+
+
+
+
+
+  <title>Nginx配置详情 | 薛江涛 - 博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-118453650-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1c0f229a6c86fb5a82381a7843bd8153";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">薛江涛 - 博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做对的事，永远不晚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9aaac662/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="薛江涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="薛江涛 - 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Nginx配置详情</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-10T10:14:56+08:00">
+                2020-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Nginx中文文档</p>
+<p><a href="https://www.nginx.cn/doc/index.html" target="_blank" rel="noopener">https://www.nginx.cn/doc/index.html</a></p>
+<p><a href="http://www.ha97.com/5194.html" target="_blank" rel="noopener">http://www.ha97.com/5194.html</a></p>
+<p><a href="https://www.cnblogs.com/bluestorm/p/4574688.html" target="_blank" rel="noopener">https://www.cnblogs.com/bluestorm/p/4574688.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br></pre></td><td class="code"><pre><span class="line">#定义Nginx运行的用户和用户组</span><br><span class="line">user nobody;</span><br><span class="line">#启动进程,通常设置成和cpu的数量相等</span><br><span class="line">#worker_processes auto;　表示设置服务器cpu核数匹配开启nginx开启的worker进程数</span><br><span class="line">worker_processes  1;</span><br><span class="line"> </span><br><span class="line">#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]</span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"> </span><br><span class="line">#PID进程文件</span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"> </span><br><span class="line">#表示worker进程最多能打开的文件句柄数</span><br><span class="line">#基于liunx系统ulimit设置，查看系统文件句柄数最大值：ulimit -n</span><br><span class="line">#注意：Linux一切皆文件，所有请求过来最终目的访问文件，所以该参数值设置等同于liunx系统ulimit设置为优</span><br><span class="line">#默认是没有设置，可以设置为操作系统最大的限制65535。</span><br><span class="line">#worker_rlimit_nofile 65535;</span><br><span class="line"> </span><br><span class="line">#工作模式及连接数上限</span><br><span class="line">events &#123;</span><br><span class="line">    #参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。</span><br><span class="line">    #epoll是多路复用IO(I/O Multiplexing)中的一种方式,</span><br><span class="line">    #仅用于linux2.6以上内核,可以大大提高nginx的性能</span><br><span class="line">    use epoll; </span><br><span class="line"> </span><br><span class="line">    #单个进程最大连接数</span><br><span class="line">    #nginx作为反向代理服务器（计算公式 最大连接数 = worker_processes * worker_connections/4）</span><br><span class="line">    #当nginx作为http服务器时，计算公式里面是除以2（计算公式 最大连接数 = worker_processes * worker_connections/2）</span><br><span class="line">    worker_connections 1024;</span><br><span class="line"> </span><br><span class="line">    # 并发总数是 worker_processes 和 worker_connections 的乘积</span><br><span class="line">    # 即 max_clients = worker_processes * worker_connections</span><br><span class="line">    # 在设置了反向代理的情况下，max_clients = worker_processes * worker_connections / 4  为什么</span><br><span class="line">    # 为什么上面反向代理要除以4，应该说是一个经验值</span><br><span class="line">    # 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4 * 8000 = 32000</span><br><span class="line">    # worker_connections 值的设置跟物理内存大小有关</span><br><span class="line">    # 因为并发受IO约束，max_clients的值须小于系统可以打开的最大文件数</span><br><span class="line">    # 而系统可以打开的最大文件数和内存大小成正比，一般1GB内存的机器上可以打开的文件数大约是10万左右</span><br><span class="line">    # 我们来看看360M内存的VPS可以打开的文件句柄数是多少：</span><br><span class="line">    # $ cat /proc/sys/fs/file-max</span><br><span class="line">    # 输出 34336</span><br><span class="line">    # 32000 &lt; 34336，即并发连接总数小于系统可以打开的文件句柄总数，这样就在操作系统可以承受的范围之内</span><br><span class="line">    # 所以，worker_connections 的值需根据 worker_processes 进程数目和系统可以打开的最大文件总数进行适当地进行设置</span><br><span class="line">    # 使得并发总数小于操作系统可以打开的最大文件数目</span><br><span class="line">    # 其实质也就是根据主机的物理CPU和内存进行配置</span><br><span class="line">    # 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的工作进程需要消耗系统资源。</span><br><span class="line">    # ulimit -SHn 65535</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">#设定http服务器</span><br><span class="line">http &#123;</span><br><span class="line">    #设定mime类型,类型由mime.type文件定义</span><br><span class="line">    #文件扩展名与文件类型映射表</span><br><span class="line">    include    mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    #charset utf-8; #默认编码</span><br><span class="line">    #设定日志格式</span><br><span class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line"> </span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"> </span><br><span class="line">    #sendfile 指令指定 nginx 是否调用 sendfile 函数（zero copy 方式）来输出文件，</span><br><span class="line">    #对于普通应用，必须设为 on,</span><br><span class="line">    #如果用来进行下载等应用磁盘IO重负载应用，可设置为 off，</span><br><span class="line">    #以平衡磁盘与网络I/O处理速度，降低系统的uptime.</span><br><span class="line">    #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。</span><br><span class="line">    sendfile     on;  </span><br><span class="line">    </span><br><span class="line"> 	#Nginx默认是不允许列出整个目录的。如需此功能，打开nginx.conf文件，在location，server 或 http段中加入autoindex on;，另外两个参数最好也加上去:</span><br><span class="line"> 	#autoindex on; #开启目录列表访问，合适下载服务器，默认关闭。</span><br><span class="line"> 	#autoindex_exact_size off; #默认为on，显示出文件的确切大小，单位是bytes。改为off后，显示出文件的大概大小，单位是kB或者MB或者GB</span><br><span class="line"> 	#autoindex_localtime on;#默认为off，显示的文件时间为GMT时间。改为on后，显示的文件时间为文件的服务器时间</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    #连接超时时间</span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;#长连接超时时间，单位是秒</span><br><span class="line">    tcp_nodelay     on;#防止网络阻塞 </span><br><span class="line">	#tcp_nopush	on; #防止网络阻塞 </span><br><span class="line"> </span><br><span class="line"> 	#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。</span><br><span class="line">	fastcgi_connect_timeout 300;</span><br><span class="line">	fastcgi_send_timeout 300;</span><br><span class="line">	fastcgi_read_timeout 300;</span><br><span class="line">	fastcgi_buffer_size 64k;</span><br><span class="line">	fastcgi_buffers 4 64k;</span><br><span class="line">	fastcgi_busy_buffers_size 128k;</span><br><span class="line">	fastcgi_temp_file_write_size 128k;</span><br><span class="line">  </span><br><span class="line">    #gzip模块设置</span><br><span class="line">	gzip on; #开启gzip压缩输出</span><br><span class="line">    gzip_disable &quot;MSIE [1-6].&quot;;</span><br><span class="line">	gzip_min_length 1k; #最小压缩文件大小</span><br><span class="line">	gzip_buffers 4 16k; #压缩缓冲区</span><br><span class="line">	gzip_http_version 1.0; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）</span><br><span class="line">	gzip_comp_level 2; #压缩等级</span><br><span class="line">	gzip_types text/plain application/x-javascript text/css application/xml;	#压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。</span><br><span class="line">	gzip_vary on;	#limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用</span><br><span class="line">    </span><br><span class="line">    # http_proxy 设置</span><br><span class="line">	client_max_body_size 10m;</span><br><span class="line">	client_body_buffer_size 128k;</span><br><span class="line">	proxy_connect_timeout 75;</span><br><span class="line">	proxy_send_timeout 75;</span><br><span class="line">	proxy_read_timeout 75;</span><br><span class="line">	proxy_buffer_size 4k;</span><br><span class="line">	proxy_buffers 4 32k;</span><br><span class="line">	proxy_busy_buffers_size 64k;</span><br><span class="line">	proxy_temp_file_write_size 64k;</span><br><span class="line">	proxy_temp_path /usr/local/nginx/proxy_temp 1 2;</span><br><span class="line"> </span><br><span class="line">    #设定请求缓冲</span><br><span class="line">    client_header_buffer_size    128k;</span><br><span class="line">    large_client_header_buffers  4 128k;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	#upstream设置负载均衡</span><br><span class="line">	#ip_hash;将ip通过hash计算出一个值，将ip固定到一个服务器地址，之后用户访问都是同一个服务器地址</span><br><span class="line">	#weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。</span><br><span class="line">	</span><br><span class="line">	#Nginx在负载均衡功能中，用于判断后端节点状态</span><br><span class="line">	#默认：fail_timeout为10s,max_fails为1次。</span><br><span class="line">	#Nginx基于连接探测，如果发现后端异常，在fail_timeout设置的时间范围内达到max_fails次数，这个周期次数内，如果后端同一个节点不可用，那么就把该节点标记为不可用，并等待下一个周期（同样时常为fail_timeout）再一次去请求，判断是否连接成功。</span><br><span class="line">	#即在10s以内后端失败了1次【即一次请求超时】，那么该后端就被标识为不可用，所以在接下来的10s内不访问该节点，nginx都会把请求分配给正常的后端【即多次的请求正常】。</span><br><span class="line">	 upstream backend &#123;</span><br><span class="line">		 #ip_hash;</span><br><span class="line">		 #要转发的地址</span><br><span class="line">		 server 192.168.80.121:80 weight=3;</span><br><span class="line">		 server 192.168.80.122:80 weight=2;</span><br><span class="line">		 server 192.168.80.123:80 weight=3;</span><br><span class="line">		 server 192.168.80.124:80 max_fails=2 fail_timeout=30s ;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    #设定虚拟主机配置</span><br><span class="line">    server &#123;</span><br><span class="line">        #侦听80端口</span><br><span class="line">        listen    80;</span><br><span class="line">        #定义使用localhost访问</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        #server_name  www.example.com;</span><br><span class="line"> </span><br><span class="line">        #定义服务器的默认网站根目录位置</span><br><span class="line">        root /apps/oaapp;</span><br><span class="line"> </span><br><span class="line">        #设定本虚拟主机的访问日志</span><br><span class="line">        access_log  logs/nginx.access.log  main;</span><br><span class="line"> </span><br><span class="line">        #对 “/” 启用反向代理，URL对应的一系列配置项。</span><br><span class="line">        location / &#123;</span><br><span class="line">            root /apps/oaapp;</span><br><span class="line">            #定义首页索引文件的名称</span><br><span class="line">            index index.php index.html index.htm;   </span><br><span class="line">            proxy_redirect off; </span><br><span class="line">			# 后端的Web服务器可以通过X-Forwarded-For获取用户真实IP</span><br><span class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">			proxy_set_header Host $host;</span><br><span class="line">			proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">			proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span><br><span class="line">			client_max_body_size 10m; #允许客户端请求的最大单文件字节数</span><br><span class="line">			client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，</span><br><span class="line">			proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)</span><br><span class="line">			proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)</span><br><span class="line">			proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)</span><br><span class="line">			proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小</span><br><span class="line">			proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置</span><br><span class="line">			proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）</span><br><span class="line">			proxy_temp_file_write_size 64k;#设定缓存文件夹大小，大于这个值，将从upstream服务器传</span><br><span class="line">			#请求转向backend定义的服务器列表，即反向代理，对应upstream负载均衡器。也可以proxy_pass http://ip:port。</span><br><span class="line"> 			proxy_pass http://backend;</span><br><span class="line">        &#125;</span><br><span class="line">		 #设定查看Nginx状态的地址</span><br><span class="line">		location /NginxStatus &#123;</span><br><span class="line">			stub_status on;</span><br><span class="line">			access_log on;</span><br><span class="line">			auth_basic “NginxStatus”;</span><br><span class="line">			auth_basic_user_file conf/htpasswd;</span><br><span class="line">			#htpasswd文件的内容可以用apache提供的htpasswd工具来产生。</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		#本地动静分离反向代理配置</span><br><span class="line">		#所有jsp的页面均交由tomcat或resin处理</span><br><span class="line">		location ~ .(jsp|jspx|do)?$ &#123;</span><br><span class="line">			proxy_set_header Host $host;</span><br><span class="line">			proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">			proxy_pass http://127.0.0.1:8080;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		#所有静态文件由nginx直接读取不经过tomcat或resin</span><br><span class="line">		location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma)$</span><br><span class="line">		&#123;             </span><br><span class="line">			#过期30天，静态文件不怎么更新，过期可以设大一点，</span><br><span class="line">            #如果频繁更新，则可以设置得小一点。</span><br><span class="line">            expires 30d;</span><br><span class="line">		&#125;</span><br><span class="line">		location ~ .*.(js|css)?$</span><br><span class="line">		&#123; </span><br><span class="line">			expires 1h;</span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">        # 定义错误提示页面</span><br><span class="line">        error_page   500 502 503 504 /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">        #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.</span><br><span class="line">        location ~ .php$ &#123;</span><br><span class="line">            fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">            include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        #禁止访问 .htxxx 文件</span><br><span class="line">            location ~ /.ht &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="薛江涛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="薛江涛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ngxin/" rel="tag"><i class="fa fa-tag"></i> ngxin</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/9adac662/" rel="next" title="Nginx 服务器安装及配置文件详解">
+                <i class="fa fa-chevron-left"></i> Nginx 服务器安装及配置文件详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/9baac662/" rel="prev" title="windows下无法结束ngxin">
+                windows下无法结束ngxin <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+	<div id="gitalk-container"></div>
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="薛江涛" />
+            
+              <p class="site-author-name" itemprop="name">薛江涛</p>
+              <p class="site-description motion-element" itemprop="description">只为记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xjt927" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xjt927@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">薛江涛</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div class=BbeiAn-info">
+  京ICP备 -
+  <a href="http://www.beian.miit.gov.cn/">18025811号</a>
+  </a>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      人
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65817093";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1273578319&web_id=1273578319" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'baf6205db50605a8511f',
+          clientSecret: '7991d91c3dda491a906203a173153e13028ba541',
+          repo: 'xjt927.github.io',
+          owner: 'xjt927',
+          admin: ['xjt927'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase(); 
+				//var articleUrl = decodeURIComponent(data.url);
+				var articleUrl = decodeURIComponent(data.url).substring(1);//截取第一位/斜杠
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

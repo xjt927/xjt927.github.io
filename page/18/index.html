@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/4b590c7d/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/9e4dab1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -346,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/4b590c7d/" itemprop="url">Centos权限</a></h1>
+                <a class="post-title-link" href="/posts/9e4dab1/" itemprop="url">给已存在的项目添加git</a></h1>
         
 
         <div class="post-meta">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T19:40:26+08:00">
-                2018-05-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T09:12:07+08:00">
+                2018-12-20
               </time>
             
 
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Centos/" itemprop="url" rel="index">
-                    <span itemprop="name">Centos</span>
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
                   </a>
                 </span>
 
@@ -419,18 +419,15 @@
 
       
         
-          <p>chmod -R 777 /文件夹名称</p>
-<p>如何改变文件属性与权限<br>1.<br>chgrp，改变文件所属用户组；</p>
-<p>chown，改变文件所有者；</p>
-<p>chmod，改变文件的权限。  chmod -R 777 /data/project/ 设置project下所有文件的权限</p>
-<p>2.</p>
-<p>chgrp就是change group的简称，使用该指令时，要被改变的组名必须在/etc/group文件内存在才行。</p>
-<p>chgrp [-R] group filename(or dirname)，其中R表示进行递归（recursive）的持续更改，也即连同子目录下的所有文件、目录。所以当修改一个目录中所有文件的用户组（所有者与权限也一样）时，要加上-R。</p>
-<p>例如将文件install.log改到users用户组</p>
-<p>$chgrp users install.log<br>
+          <p>前提：先去gitlab或github网站上创建一个新项目</p>
+<h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>1、打开终端​，cd到已存在项目的目录</p>
+<p>2、输入以下命令行，初始化一个本地仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>3、输入以下命令，添加远程仓库地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：git remote add origin + 你的仓库地址</span><br><span class="line"></span><br><span class="line">例如：git remote add origin https://***.git</span><br><span class="line"></span><br><span class="line">如果出现fatal: remote origin already exists.</span><br><span class="line">说明你已经添加过远程仓库了，输入以下命令删除远程仓库：git remote rm origin</span><br><span class="line">然后再次执行第5步。</span><br></pre></td></tr></table></figure></p>
+<p>4、从远程仓拉取项目，<code>git pull --progress -v --no-rebase &quot;origin&quot; master</code></p>
+<p>5、输入以下命令，把工程所有文件都添加到该仓库中（千万别忘记后面的<code>.</code>号！！！）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/4b590c7d/#more" rel="contents">
+            <a class="btn" href="/posts/9e4dab1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -481,7 +478,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/fe58c937/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/3e225941/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -500,7 +497,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/fe58c937/" itemprop="url">使用Xshell无法连接到Ubuntu</a></h1>
+                <a class="post-title-link" href="/posts/3e225941/" itemprop="url">Java并发编程</a></h1>
         
 
         <div class="post-meta">
@@ -512,8 +509,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T09:27:16+08:00">
-                2018-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T15:53:00+08:00">
+                2018-12-19
               </time>
             
 
@@ -535,8 +532,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -574,169 +571,16 @@
       
         
           
-          安装完成之后，使用Xshell直接连接Ubuntu主机会发现连接不上，这是因为Ubuntu主机没有开启SSH服务，需要开启openssh-server：1sudo apt-get install openssh-server
+          继承Thread类创建线程
+类继承Thread类
+类重写void Run()方法
+调用 start() 方法运行
 
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/posts/fe58c937/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/60910929/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="薛江涛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="薛江涛 - 博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/posts/60910929/" itemprop="url">解决CentOS 7无法上网的问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T08:42:53+08:00">
-                2018-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Centos/" itemprop="url" rel="index">
-                    <span itemprop="name">Centos</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          新安装好的CentOS 7无法上外网
-打开终端窗口  用root登录
-
-输入：vi /etc/sysconfig/network-scripts/ifcfg-ens33
-
-编辑配置文件：修改noboot=no 为 noboot=yes
-
-修改完成后保存：:wq  保存退出如果保存时报“E212：无法打开并写入文件”，是因为没有写入权限，使用这个命令保存“:w !sudo tee %”
-
-重启网络服
+12345678910111213//类实现Thread接口class ThreadDemo extends Thread&#123; 	@Override	public void Run()&#123;	//doSomething	&#125;&#125;//执行线程public 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/60910929/#more" rel="contents">
+            <a class="btn" href="/posts/3e225941/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -787,7 +631,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/5a6fefdb/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/674ebec7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -806,7 +650,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/5a6fefdb/" itemprop="url">设计模式（面向对象） - 设计原则 </a></h1>
+                <a class="post-title-link" href="/posts/674ebec7/" itemprop="url">C#调用C++接口读取地磅数据，红外线对射</a></h1>
         
 
         <div class="post-meta">
@@ -818,8 +662,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T18:21:18+08:00">
-                2018-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T16:31:18+08:00">
+                2018-12-17
               </time>
             
 
@@ -828,28 +672,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -879,18 +701,12 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>下面介绍的设计原则和开发语言无关，也和设计模式无关，是任何面向对象开发语言都应该遵循的基本原则，不过想学好设计模式必须熟知这六大原则。</p>
-<ol>
-<li>单一职责原则（Single Responsibility Principle，简称SRP ）</li>
-<li>里氏替换原则（Liskov Substitution Principle,简称LSP）</li>
-<li>依赖倒置原则（Dependence Inversion Principle,简称DIP）</li>
-<li>接口隔离原则（Interface Segregation Principle,简称ISP）</li>
-<li>迪米特法则（Law of Demeter,简称LoD）</li>
-<li>开放封闭原则（Open Close Principle,简称OCP）</li>
-</ol>
+          
+          c++红外线接口12345678910111213141516171819202122232425262728293031323334353637383940414243444546/// &lt;summary&gt;/// 红外对射接口/// &lt;/summary&gt;class ADSAPI32&#123;    /// &lt;summary&gt;    /// 打开红外对射   
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/5a6fefdb/#more" rel="contents">
+            <a class="btn" href="/posts/674ebec7/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -941,7 +757,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/130619fa/">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/f0ebd003/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="薛江涛">
@@ -960,7 +776,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/posts/130619fa/" itemprop="url">Hexo博客异地同步版本管理</a></h1>
+                <a class="post-title-link" href="/posts/f0ebd003/" itemprop="url">使用Topshelf创建Windows服务</a></h1>
         
 
         <div class="post-meta">
@@ -972,8 +788,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T17:38:28+08:00">
-                2018-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T16:04:59+08:00">
+                2018-12-17
               </time>
             
 
@@ -982,28 +798,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1033,10 +827,141 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>背景：一台电脑上已有一个在用的博客，又新用了一台电脑，实现原电脑和新电脑都可以提交更新博客，实现同步或者说博客的版本管理。<br>
+          
+          在C#项目中使用nuget引用Topshelf最新版本，因为Topshelf需要依赖Log4Net，所以还得引用Topshelf.Log4Net
+Topshelf地址Topshelf.Log4Net地址Topshelf-Git地址Topshelf官方地址
+初始化Topshelf12345678910111213141516171819202122class Program&#123;    sta
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/posts/130619fa/#more" rel="contents">
+            <a class="btn" href="/posts/f0ebd003/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuejiangtao.com/posts/36f1dc9b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="薛江涛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="薛江涛 - 博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/posts/36f1dc9b/" itemprop="url">C#调用c/c++dll报：System.AccessViolationException 尝试读取或写入受保护的内存,这通常指示其他内存已损坏。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T10:24:38+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          项目中用到使用C#调用c++接口dll，有一个接口参数是struct结构类型，在调用c++接口时报出异常：System.AccessViolationException 尝试读取或写入受保护的内存,这通常指示其他内存已损坏。网上找了很多解决方法都不行，后来将结构中的一个参数类型换成IntPtr竟然可以了。因为结构中的state为指针，所以必须使用IntPtr方式传值。
+c++接口，其中PtDioR
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/posts/36f1dc9b/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1078,7 +1003,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1128,7 +1053,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">138</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1139,7 +1064,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1150,7 +1075,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
