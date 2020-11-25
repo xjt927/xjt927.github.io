@@ -1,7 +1,7 @@
 ---
 title: Nginx 服务器安装及配置文件详解
 abbrlink: 9adac662
-date: 2020-07-10 09:14:56
+date: 2020-08-10 09:14:56
 tags: ngxin
 categories: nginx
 keywords: nginx,安装
