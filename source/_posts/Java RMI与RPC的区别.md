@@ -1,5 +1,10 @@
 ---
-abbrlink: '0'
+title: Java RMI与RPC的区别
+abbrlink: 9gwc662
+date: 2020-07-10 10:14:56
+tags: 分布式
+categories: 分布式
+keywords: 分布式,rmi,rpc
 ---
 # 一、RPC 远程过程调用
 

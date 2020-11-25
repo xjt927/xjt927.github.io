@@ -1,5 +1,10 @@
 ---
-abbrlink: '0'
+title: RPC学习笔记
+abbrlink: 9adac232
+date: 2020-07-10 09:14:56
+tags: RPC
+categories: 分布式
+keywords: rpc
 ---
 # RPC概念
 

@@ -11,15 +11,15 @@ date: 2018-04-18 15:54:18
 ### 什么是Github Pages
 
  - Github Pages 是 github 公司提供的免费的静态网站托管服务，用起来方便而且功能强大，不仅没有空间限制，还可以绑定自己的域名。在 https://pages.github.com/ 首页上可以看到很多用 Github Pages 托管的网站，很漂亮。另外很多非常著名的公司和项目也都用这种方式来搭建网站，如[微软][1]和 [twitter][2] 的网站，还有 谷歌的 [Material Design][3] 图标 网站。
- 
+
  - 每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过http://username.github.io 来访问你的个人主页。
- 
+
  - 每一个github账户最多只能创建一个，这样可以直接使用域名访问仓库。
- 
+
  - **这里特别提醒一下，需要注意的个人主页的网站内容是在master分支下的。**
 <!-- more -->
 ## Github Pages优缺点
-  
+
 - Github Pages优点：
  - 轻量级的博客系统，没有麻烦的配置
  - 使用标记语言，比如Markdown
@@ -95,9 +95,9 @@ Enter same passphrase again:<再次输入加密串>
 ## 添加SSH Key到GitHub：
 在本机设置 SSH Key 之后，需要添加到 GitHub上，以完成 SSH 链接的设置。
 
-- 1、打开本地 id_rsa.pub 文件（ 参考地址 C:\Documents and Settings\Administrator\.ssh\id_rsa.pub）。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。
+- 1、打开本地 id_rsa.pub 文件（ 参考地址 C:\Documents and Settings\Administrator\.ssh\id_rsa.pub 或者 c:/Users/xjt92/.ssh/id_rsa）。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。
 
-- 2、登陆 GitHub 系统。点击右上角的 Account Settings--->SSH and GPG keys ---> New SSH key 
+- 2、登陆 GitHub 系统。点击右上角的 Settings--->SSH and GPG keys ---> New SSH key 
 
 - 3、把你本地生成的密钥复制到里面（ key 文本框中）， 点击 Add SSH key 就ok了
 
@@ -216,19 +216,19 @@ FATAL bad indentation of a mapping entry at line 87, column 2:
 
 
 
-  [1]: http://microsoft.github.io/
-  [2]: http://twitter.github.io/
-  [3]: http://google.github.io/material-design-icons/
-  [4]: https://link.jianshu.com/?t=http://www.pchou.info/ssgithubPage/2013-01-03-build-github-blog-page-01.html
-  [5]: https://link.jianshu.com/?t=http://help.GitHub.com/articles/generating-ssh-keys
-  [6]: https://link.jianshu.com/?t=http://help.GitHub.com/articles/error-permission-denied-publickey
-  [7]: https://hexo.io/zh-cn/docs/deployment.html
-  [8]: https://hexo.io/zh-cn/docs/
-  [9]: https://www.jianshu.com/p/05289a4bc8b2
-  [10]: https://baoyuzhang.github.io/2017/05/12/%E3%80%90Hexo%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%85%A8%E7%BA%AA%E5%BD%95%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/
-  [11]: http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa
-  [12]: https://hexo.io/zh-cn/docs/themes.html
-  [13]: https://hexo.io/themes/
-  [14]: https://github.com/Tomotoes/hexo-theme-tomotoes
-  [15]: https://github.com/Tomotoes/hexo-theme-tomotoes/wiki/%E5%AE%89%E8%A3%85
-  [16]: https://github.com/Tomotoes/hexo-theme-tomotoes/wiki/%E9%85%8D%E7%BD%AE
+[1]: http://microsoft.github.io/
+[2]: http://twitter.github.io/
+[3]: http://google.github.io/material-design-icons/
+[4]: https://link.jianshu.com/?t=http://www.pchou.info/ssgithubPage/2013-01-03-build-github-blog-page-01.html
+[5]: https://link.jianshu.com/?t=http://help.GitHub.com/articles/generating-ssh-keys
+[6]: https://link.jianshu.com/?t=http://help.GitHub.com/articles/error-permission-denied-publickey
+[7]: https://hexo.io/zh-cn/docs/deployment.html
+[8]: https://hexo.io/zh-cn/docs/
+[9]: https://www.jianshu.com/p/05289a4bc8b2
+[10]: https://baoyuzhang.github.io/2017/05/12/%E3%80%90Hexo%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%85%A8%E7%BA%AA%E5%BD%95%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/
+[11]: http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa
+[12]: https://hexo.io/zh-cn/docs/themes.html
+[13]: https://hexo.io/themes/
+[14]: https://github.com/Tomotoes/hexo-theme-tomotoes
+[15]: https://github.com/Tomotoes/hexo-theme-tomotoes/wiki/%E5%AE%89%E8%A3%85
+[16]: https://github.com/Tomotoes/hexo-theme-tomotoes/wiki/%E9%85%8D%E7%BD%AE

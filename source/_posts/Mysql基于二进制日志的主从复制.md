@@ -1,5 +1,10 @@
 ---
-abbrlink: '0'
+title: Mysql基于二进制日志的主从复制
+abbrlink: 38a2v632
+date: 2020-10-10 15:25:31
+tags: mysql
+categories: mysql
+keywords: 
 ---
 主从复制
 

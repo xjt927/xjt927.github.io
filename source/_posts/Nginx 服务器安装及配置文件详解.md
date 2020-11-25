@@ -1,10 +1,10 @@
 ---
 title: Nginx 服务器安装及配置文件详解
 abbrlink: 9adac662
-date: 2020-07-10 09:14:56
+date: 2020-08-10 09:14:56
 tags: ngxin
 categories: nginx
-keywords: nginx 安装
+keywords: nginx,安装
 ---
 
 Nginx 在工作中已经有好几个环境在使用了，每次都是重新去网上找博客，各种编译配置，今天自己也整理一份安装文档和 nginx.conf 配置选项的说明，留作以后参考。
