@@ -1,5 +1,10 @@
 ---
-abbrlink: '0'
+title: IO和NIO的区别
+abbrlink: 9gwc661
+date: 2020-07-10 10:14:56
+tags: java
+categories: java
+keywords: io,nio
 ---
 # 一、概念
 

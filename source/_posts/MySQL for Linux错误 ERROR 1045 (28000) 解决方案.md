@@ -2,8 +2,12 @@
 title: MySQL for Linux错误 ERROR 1045 (28000) 解决方案
 abbrlink: 38a2c632
 date: 2020-10-10 15:25:31
-tags:
+tags: linux
+categories: linux
+keywords: 
 ---
+
+
 
 登录mysql时报错：`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)`
 
