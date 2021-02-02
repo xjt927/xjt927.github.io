@@ -1,5 +1,6 @@
 ---
 title: python日常学习总结
+abbrlink: 389819a1
 date: 2020-11-28 10:51:04
 tags:
 categories:
