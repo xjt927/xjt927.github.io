@@ -13,6 +13,7 @@ date: 2018-12-20 09:12:07
 1、打开终端​，cd到已存在项目的目录
 
 2、输入以下命令行，初始化一个本地仓库：
+
 ```
 git init
 ```
@@ -30,6 +31,7 @@ git init
 4、从远程仓拉取项目，`git pull --progress -v --no-rebase "origin" master`
 
 5、输入以下命令，把工程所有文件都添加到该仓库中（千万别忘记后面的`.`号！！！）：
+
 ```
 git add .
 ```
@@ -42,6 +44,7 @@ git commit -m "Initial commit"
 如果出现`nothing to commit, working directory clean​`说明你已经提交好了。
 
 7、​输入以下命令，把文件提交到远程仓库：
+
 ```
 git push -u origin master
 ```
