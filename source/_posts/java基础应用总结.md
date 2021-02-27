@@ -1,5 +1,6 @@
 ---
 title: java基础应用总结
+abbrlink: 50974e7c
 date: 2020-12-09 09:36:28
 tags:
 categories:

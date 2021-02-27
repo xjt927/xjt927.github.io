@@ -1,9 +1,10 @@
 ---
 title: linux执行定时任务-crontab
-date: 2020-12-09 10:16:12
-tags: 定时任务,crontab
+tags: '定时任务,crontab'
 categories: linux
-keywords: linux,定时任务,crontab
+keywords: 'linux,定时任务,crontab'
+abbrlink: 5a082a27
+date: 2020-12-09 10:16:12
 ---
 
 在/etc/目录下使用vi编辑crontab文件
