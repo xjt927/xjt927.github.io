@@ -192,6 +192,10 @@ pid-file=/var/run/mysqld/mysqld.pid
 
     ```
     alter user 'root'@'localhost' identified by '数据库密码';
+    
+    
+    #update mysql.user set authentication_string=password('root') where user='root';
+    #flush privileges;
     ```
 
 11. 授权root允许远程访问（可视化软件可以建立链接）
