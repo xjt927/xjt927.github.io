@@ -1,5 +1,6 @@
 ---
 title: vm虚拟机CentOS网络设置
+abbrlink: 7d1dfc54
 date: 2021-04-27 09:21:29
 tags:
 categories:

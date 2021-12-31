@@ -1,9 +1,10 @@
 ---
 title: centos7-每天定时备份 mysql数据库
-date: 2021-12-31 10:14:52
 tags: mysql 备份
 categories: mysql
 keywords: mysql 备份
+abbrlink: b0c8090a
+date: 2021-12-31 10:14:52
 ---
 
 

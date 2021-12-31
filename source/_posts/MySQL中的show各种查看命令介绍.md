@@ -1,5 +1,6 @@
 ---
 title: MySQL中的show各种查看命令介绍
+abbrlink: 7ef7296d
 date: 2021-02-28 10:52:13
 tags:
 categories:
