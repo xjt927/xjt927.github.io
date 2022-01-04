@@ -1,5 +1,6 @@
 ---
 title: VM创建CentOS虚拟机网络配置
+abbrlink: 654e6c06
 date: 2021-04-24 18:41:28
 tags:
 categories:

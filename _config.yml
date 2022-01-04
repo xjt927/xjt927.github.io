@@ -81,7 +81,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:xjt927/xjt927.github.io.git
+  repo: https://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@github.com/xjt927/xjt927.github.io.git
   branch: master
 
 feed:
